@@ -1,6 +1,9 @@
-#include "test.h"
 #include <iostream>
 
+#include "Graphics.h"
+
 int main() {
-  std::cout << hello() << '\n';
+  agl::Graphics graphics;
+  graphics.init("cica");
+  graphics.loop();
 }
