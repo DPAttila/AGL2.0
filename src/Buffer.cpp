@@ -42,14 +42,40 @@ namespace agl {
   }
   
   void Buffer::add(vector<Point> vertices, vector<unsigned int> indices) {
+    int index_size = this->indices.size();
+    int vertex_size = this->vertices.size();
+    
+    // Change the offset of the new indices, since they only describe
+    // the new set of vertices and not the already existing ones
+    for (int i = 0; i < indices.size(); i++)
+      indices[i] += index_size;
+    
     if (this->vertices.size() == 0) 
       this->vertices = vertices;
-    else
-      this->vertices.insert(
-          this->vertices.end(), 
-          vertices.begin(), 
-          vertices.end()
-      );
+    else {
+      // If a new vertex is the same as an old one, it won't get added to the
+      // vertex list, the referring new indices get replaced by the old index
+      // instead
+      bool already_exists;
+      for (int i = 0; i < vertices.size(); i++) { // for all the new vertices
+        already_exists = false;
+        for (int j = 0; j < vertex_size; j++) { // for all the old vertices
+          // if old vertex == new vertex
+          if (vertices[i] == this->vertices[j]) { 
+            already_exists = true;
+            // replaces indices reffering to the new vertex 
+            // with indices reffering to the old vertex
+            for (int k = 0; k < indices.size(); k++) {
+              if (indices[k] == i + index_size)
+                indices[k] = j;
+            }
+          } 
+        }
+        if (!already_exists) {
+          this->vertices.push_back(vertices[i]);
+        }
+      }
+    }
     
     if (this->indices.size() == 0)
       this->indices = indices;

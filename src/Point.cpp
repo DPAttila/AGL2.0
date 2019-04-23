@@ -9,6 +9,10 @@ namespace agl {
     this->y = y;
     this->z = z;
   }
+  
+  bool Point::operator==(const Point& p) const {
+    return (this->x == p.x && this->y == p.y && this->z == p.z);
+  }
 }
 
 #endif
