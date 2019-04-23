@@ -36,9 +36,9 @@ $(SO): $(OBJS)
   
 all: $(SO)
 	@echo Build complete
-
+  
 LIB_LOCATION=/home/ati/repos/agl2.0/
-test: $(SO)
+test: $(SO) test/test.cpp
 	$(CXX) -L$(LIB_LOCATION) -Wl,-rpath=$(LIB_LOCATION) -Wall test/test.cpp -lagl $(INCLUDE_PATHS) -o test/test
 
 clean:

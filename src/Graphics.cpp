@@ -3,9 +3,14 @@
 
 #include "Graphics.h"
 
-#include "Util.h"
+#include "util.h"
+#include "shader.h"
 
 namespace agl {
+  Graphics::Graphics(void (*user_defined)()) {
+    this->user_defined = user_defined;
+  }
+  
   bool Graphics::init(std::string window_name) {    
     if (!glfwInit()) {
       alert("Failed to initialize GLFW!");
@@ -39,6 +44,11 @@ namespace agl {
     }
     
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    
+    // Creates and compiles a GLSL program from the shaders
+    shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
+    
+    return true;
   }
   
   void Graphics::loop() {
@@ -46,6 +56,11 @@ namespace agl {
     while (!quit) {
       glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
       glClear(GL_COLOR_BUFFER_BIT);
+      
+      // Uses the shaders
+      glUseProgram(shader_program_id);
+      
+      user_defined();
       
       glfwSwapBuffers(window);
       glfwPollEvents();
@@ -62,6 +77,7 @@ namespace agl {
   }
   
   void Graphics::terminate() {
+    glDeleteProgram(shader_program_id);
     glfwTerminate();
   }
 }
