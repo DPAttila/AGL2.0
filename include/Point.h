@@ -1,5 +1,5 @@
 #ifndef POINT_H
-#define POINT_CPP
+#define POINT_H
 
 namespace agl {
   class Point {

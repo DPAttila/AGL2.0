@@ -23,8 +23,8 @@ namespace agl {
 	  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
     window = glfwCreateWindow(
+                 800, 
                  640, 
-                 480, 
                  window_name.c_str(), 
                  glfwGetPrimaryMonitor(), 
                  NULL
@@ -47,6 +47,8 @@ namespace agl {
     
     // Creates and compiles a GLSL program from the shaders
     shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
+    
+    glsl_matrix_location = glGetUniformLocation(shader_program_id, "world");
     
     return true;
   }
@@ -79,6 +81,10 @@ namespace agl {
   void Graphics::terminate() {
     glDeleteProgram(shader_program_id);
     glfwTerminate();
+  }
+  
+  GLuint Graphics::get_glsl_matrix_location() {
+    return glsl_matrix_location;
   }
 }
 

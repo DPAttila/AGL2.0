@@ -4,6 +4,7 @@
 #include "Buffer.h"
 
 #include "util.h"
+#include "Graphics.h"
 
 namespace agl {
   void Buffer::rebuffer() {
@@ -33,12 +34,16 @@ namespace agl {
     this->primitive = primitive;
   }
   
-  void Buffer::init() {
+  void Buffer::init(Graphics* graphics) {
+    this->graphics = graphics;
+    
     glGenVertexArrays(1, &vertexarray_id);
     glBindVertexArray(vertexarray_id);
         
     glGenBuffers(1, &vertexbuffer);
     glGenBuffers(1, &indexbuffer);
+    
+    transformation.init();
   }
   
   void Buffer::add(vector<Point> vertices, vector<unsigned int> indices) {
@@ -90,6 +95,14 @@ namespace agl {
   }
   
   void Buffer::draw() {
+    transformation.calculate_world_matrix();
+    glUniformMatrix4fv(
+        graphics->get_glsl_matrix_location(),
+        1,
+        GL_TRUE,
+        &transformation.world_matrix[0][0]
+    );
+    
     glBindVertexArray(vertexarray_id);
     glEnableVertexAttribArray(0);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
@@ -117,6 +130,22 @@ namespace agl {
   Buffer::~Buffer() {
     glDeleteBuffers(1, &vertexbuffer);
     glDeleteBuffers(1, &indexbuffer);
+  }
+  
+  void Buffer::translate(Point p) {
+    transformation.translate(p);
+  }
+  
+  void Buffer::scale(Point p) {
+    transformation.scale(p);
+  }
+  
+  void Buffer::scale(float f) {
+    transformation.scale(f);
+  }
+  
+  void Buffer::rotate(Point p) {
+    transformation.rotate(p);
   }
 }
 

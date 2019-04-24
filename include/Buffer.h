@@ -6,6 +6,8 @@
 #include "glad/glad.h"
 
 #include "Point.h"
+#include "Graphics.h"
+#include "Transformation.h"
 
 using namespace std;
 
@@ -35,6 +37,17 @@ namespace agl {
     GLenum primitive;
     
     /**
+     * Stores the translation, rotation and scaling of the object
+     */
+    Transformation transformation;
+    
+    /**
+     * Pointer to the graphics context
+     * This is needed to get the address of the glsl matrix
+     */
+    Graphics* graphics;
+    
+    /**
      * Loads the vertex and index data into the coresponding buffers
      */
     void rebuffer();
@@ -44,7 +57,7 @@ namespace agl {
     
     Buffer(GLenum primitive);
     
-    void init();
+    void init(Graphics* graphics);
     
     ~Buffer();
     
@@ -55,6 +68,14 @@ namespace agl {
      * If a vertex already exists, its old index will be used
      */
     void add(vector<Point> vertices, vector<unsigned int> indices);
+    
+    void translate(Point p);
+    
+    void scale(Point p);
+    
+    void scale(float f);
+    
+    void rotate(Point p);
   };  
 }
 

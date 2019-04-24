@@ -22,10 +22,9 @@ namespace agl {
     bool quit;
     
     /**
-     * Called automatically when the main loop is quit.
-     * Frees memory.
+     * Handle to the world matrix uniform variable in the shader
      */
-    void terminate();
+    GLuint glsl_matrix_location;
     
     /**
      * Pointer to user-defined function to be called in loop
@@ -34,6 +33,12 @@ namespace agl {
      * Buffer swapping and clearing is done by the loop automatically.
      */
     void (*user_defined)();
+    
+    /**
+     * Called automatically when the main loop is quit.
+     * Frees memory.
+     */
+    void terminate();
     
     public:
     Graphics(void (*user_defined)());
@@ -53,6 +58,7 @@ namespace agl {
      */
     void loop();
     
+    GLuint get_glsl_matrix_location();
   };
 }
 
