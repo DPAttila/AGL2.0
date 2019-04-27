@@ -17,6 +17,12 @@ namespace agl {
     GLuint shader_program_id;
     
     /**
+     * Handle to the sampler (used for textures)
+     * See ogldev tutorial 16
+     */
+    GLuint sampler_id;
+    
+    /**
      * If set to true, the main loop stops
      */
     bool quit;

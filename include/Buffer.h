@@ -6,6 +6,8 @@
 #include "glad/glad.h"
 
 #include "Point.h"
+#include "Vertex.h"
+#include "Texture.h"
 #include "Graphics.h"
 #include "Transformation.h"
 
@@ -13,8 +15,10 @@ using namespace std;
 
 namespace agl {
   class Buffer {
-    vector<Point> vertices;
+    vector<Vertex> vertices;
     vector<unsigned int> indices;
+    
+    Texture texture;
     
     /**
      * Handle to the handles, describes our vertex format
@@ -67,7 +71,15 @@ namespace agl {
      * Adds the set of vertices and indices to the buffer
      * If a vertex already exists, its old index will be used
      */
-    void add(vector<Point> vertices, vector<unsigned int> indices);
+    void add(vector<Vertex> vertices, vector<unsigned int> indices);
+    
+    /**
+     * Loads the image specified into the texture 
+     * object of the texture of the buffer
+     */
+    void set_texture(std::string file_name);
+    
+    void clear();
     
     void translate(Point p);
     

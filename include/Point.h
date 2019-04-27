@@ -6,6 +6,8 @@ namespace agl {
     public:
     float x, y, z;
     
+    Point();
+    
     Point(float x, float y, float z);
     
     bool operator==(const Point& p) const;

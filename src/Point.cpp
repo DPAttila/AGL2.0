@@ -4,6 +4,8 @@
 #include "Point.h"
 
 namespace agl {
+  Point::Point() {}
+  
   Point::Point(float x, float y, float z) {
     this->x = x;
     this->y = y;

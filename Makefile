@@ -15,7 +15,7 @@ SOURCES += imgui-master/examples/imgui_impl_opengl3.cpp
 OBJS = $(addprefix obj/, $(notdir $(SOURCES:.cpp=.o)))
 
 LIBS = -lGL `pkg-config --static --libs glfw3`
-INCLUDE_PATHS = -I include -I imgui-master -I imgui-master/examples -I glad
+INCLUDE_PATHS = -I include -I imgui-master -I imgui-master/examples -I glad -I stb
 IMGUI_FLAGS = -DIMGUI_IMPL_OPENGL_LOADER_GLAD 
 CXXFLAGS =  $(INCLUDE_PATHS) $(IMGUI_FLAGS) -fPIC `pkg-config --cflags glfw3`
 

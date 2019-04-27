@@ -12,7 +12,7 @@ namespace agl {
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glBufferData(
         GL_ARRAY_BUFFER, 
-        vertices.size() * sizeof(Point),
+        vertices.size() * sizeof(Vertex),
         &vertices[0],
         GL_STATIC_DRAW
     );
@@ -46,7 +46,7 @@ namespace agl {
     transformation.init();
   }
   
-  void Buffer::add(vector<Point> vertices, vector<unsigned int> indices) {
+  void Buffer::add(vector<Vertex> vertices, vector<unsigned int> indices) {
     int index_size = this->indices.size();
     int vertex_size = this->vertices.size();
     
@@ -105,17 +105,28 @@ namespace agl {
     
     glBindVertexArray(vertexarray_id);
     glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(1);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(
         0,
         3,
         GL_FLOAT,
         GL_FALSE,
-        0,
+        sizeof(Vertex),
         (void*)0
+    );
+    glVertexAttribPointer(
+        1,
+        2,
+        GL_FLOAT,
+        GL_FALSE,
+        sizeof(Vertex),
+        (const GLvoid*) 12
     );
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
+    
+    texture.bind(GL_TEXTURE0);
     
     glDrawElements(
       primitive,
@@ -125,11 +136,21 @@ namespace agl {
     );
     
     glDisableVertexAttribArray(0);
+    glDisableVertexAttribArray(1);
   }
   
   Buffer::~Buffer() {
     glDeleteBuffers(1, &vertexbuffer);
     glDeleteBuffers(1, &indexbuffer);
+  }
+  
+  void Buffer::set_texture(std::string file_name) {
+    texture.init(GL_TEXTURE_2D, file_name);
+  }
+  
+  void Buffer::clear() {
+    vertices.clear();
+    indices.clear();
   }
   
   void Buffer::translate(Point p) {

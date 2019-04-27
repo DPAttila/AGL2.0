@@ -3,6 +3,9 @@
 
 #include "Graphics.h"
 
+#include <string>
+#include <iostream>
+
 #include "util.h"
 #include "shader.h"
 
@@ -22,13 +25,29 @@ namespace agl {
 	  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   
+  
+    int count;
+    GLFWmonitor** monitors = glfwGetMonitors(&count);
+    log(std::to_string(count) + " monitors identified:");
+    for (int i = 0; i < count; i++) {
+      const GLFWvidmode* mode = glfwGetVideoMode(monitors[i]);
+      log(std::to_string(mode->width) + " * " + std::to_string(mode->height));
+    }
+    
+    /*
     window = glfwCreateWindow(
-                 800, 
-                 640, 
+                 glfwGetVideoMode(monitors[0])->width, 
+                 glfwGetVideoMode(monitors[0])->height, 
                  window_name.c_str(), 
-                 glfwGetPrimaryMonitor(), 
+                 monitors[0], 
                  NULL
              );
+    */
+    
+    window = glfwCreateWindow(
+      1000, 1000, window_name.c_str(),
+       NULL, NULL
+    );
     
     if (window == NULL) {
       alert("Failed to open GLFW window.");
@@ -48,8 +67,17 @@ namespace agl {
     // Creates and compiles a GLSL program from the shaders
     shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
     
+    sampler_id = glGetUniformLocation(shader_program_id, "sampler");
+    std::cout << sampler_id << '\n';
+    
     glsl_matrix_location = glGetUniformLocation(shader_program_id, "world");
     
+    glUniform1i(sampler_id, 0);
+    
+    glFrontFace(GL_CW);
+    glCullFace(GL_BACK);
+    glEnable(GL_CULL_FACE);
+
     return true;
   }
   
