@@ -4,12 +4,15 @@
 #include <string>
 
 #include "glad/glad.h"
+#include "Camera.h"
 
 #include <GLFW/glfw3.h>
 
 namespace agl {
   class Graphics {
     GLFWwindow* window;
+    
+    Camera camera;
     
     /**
      * Id of the GLSL program
@@ -63,6 +66,11 @@ namespace agl {
      * @todo Handle user-defined function 
      */
     void loop();
+    
+    /**
+     * Returns the multiplication of the view and projection matrices
+     */
+    Matrix4f* get_vp_matrix();
     
     GLuint get_glsl_matrix_location();
   };

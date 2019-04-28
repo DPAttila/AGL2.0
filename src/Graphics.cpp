@@ -49,6 +49,8 @@ namespace agl {
        NULL, NULL
     );
     
+    camera.init(1000, 1000);
+    
     if (window == NULL) {
       alert("Failed to open GLFW window.");
       glfwTerminate();
@@ -78,6 +80,7 @@ namespace agl {
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
 
+    glEnable(GL_DEPTH_TEST);
     return true;
   }
   
@@ -85,7 +88,7 @@ namespace agl {
     quit = false;
     while (!quit) {
       glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
-      glClear(GL_COLOR_BUFFER_BIT);
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
       
       // Uses the shaders
       glUseProgram(shader_program_id);
@@ -109,6 +112,10 @@ namespace agl {
   void Graphics::terminate() {
     glDeleteProgram(shader_program_id);
     glfwTerminate();
+  }
+  
+  Matrix4f* Graphics::get_vp_matrix() {
+    return camera.get_vp_matrix();
   }
   
   GLuint Graphics::get_glsl_matrix_location() {

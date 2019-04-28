@@ -2,8 +2,9 @@
 #include <iostream>
 #include <unistd.h>
 
-#include "Graphics.h"
 #include "Buffer.h"
+#include "Graphics.h"
+#include "geometry_generator.h"
 
 using namespace agl;
 
@@ -16,6 +17,7 @@ class Alma {
   void init(Graphics* graphics) {
     buffer = Buffer(GL_TRIANGLES);
     buffer.init(graphics);
+    
     
     Point p[8] = {
       Point(-1, -1, -1),
@@ -34,6 +36,7 @@ class Alma {
       Point2f(1, 0),
       Point2f(1, 1)
     };
+    
     
     vector<Vertex> vertices = {
       Vertex(p[0], t[2]),
@@ -66,8 +69,14 @@ class Alma {
        7, 6, 3
     };
     
+    /*
+    vector<Vertex> vertices;
+    vector<unsigned int> indices;
+    
+    generate_icosahedron(vertices, indices);
+    */
     buffer.add(vertices, indices);
-    buffer.set_texture("test/test8.png");
+    buffer.set_texture("test/test5.png");
     
     buffer.scale(0.8);
   }
@@ -82,7 +91,8 @@ float counter = 0;
 
 void test_loop() {
   alma.draw();
-  alma.buffer.rotate(Point(counter, counter, 0));
+  //alma.buffer.rotate(Point(counter, 0, counter));
+  alma.buffer.translate(Point(0, 0, counter));
   counter+=0.01;
 }
 

@@ -3,6 +3,8 @@
 
 #include "Matrix4f.h"
 
+#include <iostream>
+
 namespace agl {
   Matrix4f::Matrix4f() {}
   
@@ -15,6 +17,16 @@ namespace agl {
     
     for (int i = 0; i < 4; i++) 
       m[i][i] = 1.0;
+  }
+  
+  void Matrix4f::print() {
+    for (int i = 0; i < 4; i++) {
+      for (int j = 0; j < 4; j++) {
+        std::cout << m[i][j] << '\t';
+      }
+      std::cout << '\n';
+    }
+    std::cout << '\n';
   }
   
   float* Matrix4f::operator[](int index) {

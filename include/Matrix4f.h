@@ -17,6 +17,8 @@ namespace agl {
      */
     void set_to_identity();
     
+    void print();
+    
     /**
      * @todo: possibly make inline
      */

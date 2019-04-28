@@ -55,8 +55,11 @@ namespace agl {
     rotation_matrix = rz * ry * rx;
   }
   
-  void Transformation::calculate_world_matrix() {
-    world_matrix = translation_matrix * rotation_matrix * scale_matrix;
+  void Transformation::calculate_wvp_matrix(Matrix4f* vp_matrix) {    
+    wvp_matrix = *vp_matrix * 
+                 translation_matrix * 
+                 rotation_matrix * 
+                 scale_matrix;
   }
 }
 

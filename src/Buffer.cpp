@@ -95,12 +95,12 @@ namespace agl {
   }
   
   void Buffer::draw() {
-    transformation.calculate_world_matrix();
+    transformation.calculate_wvp_matrix(graphics->get_vp_matrix());
     glUniformMatrix4fv(
         graphics->get_glsl_matrix_location(),
         1,
         GL_TRUE,
-        &transformation.world_matrix[0][0]
+        &transformation.wvp_matrix[0][0]
     );
     
     glBindVertexArray(vertexarray_id);
