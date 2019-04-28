@@ -15,6 +15,13 @@ namespace agl {
   bool Point::operator==(const Point& p) const {
     return (this->x == p.x && this->y == p.y && this->z == p.z);
   }
+  
+  Point& Point::operator+=(const Point& p) {
+    this->x += p.x;
+    this->y += p.y;
+    this->z += p.z;
+    return *this;
+  }
 }
 
 #endif

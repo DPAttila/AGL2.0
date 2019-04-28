@@ -50,7 +50,7 @@ namespace agl {
     void terminate();
     
     public:
-    Graphics(void (*user_defined)());
+    Graphics();
     
     /**
      * Initializes glfw, glad and a window
@@ -58,7 +58,7 @@ namespace agl {
      * @retval <true> The intialization was successful
      * @retval <false> Couldn't initialize 
      */
-    bool init(std::string window_name);
+    bool init(std::string window_name, void (*user_defined)());
     
     /**
      * Handles drawing, inputs and calls a user-defined 
@@ -66,6 +66,16 @@ namespace agl {
      * @todo Handle user-defined function 
      */
     void loop();
+    
+    /**
+     * Just calls the corresponding camera function
+     */
+    void move_camera(Point p);
+    
+    /**
+     * Just calls the corresponding camera function
+     */
+    void set_camera_pos(Point p);
     
     /**
      * Returns the multiplication of the view and projection matrices

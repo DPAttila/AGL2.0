@@ -10,11 +10,10 @@
 #include "shader.h"
 
 namespace agl {
-  Graphics::Graphics(void (*user_defined)()) {
-    this->user_defined = user_defined;
-  }
+  Graphics::Graphics() {}
   
-  bool Graphics::init(std::string window_name) {    
+  bool Graphics::init(std::string window_name, void (*user_defined)()) {  
+    this->user_defined = user_defined;  
     if (!glfwInit()) {
       alert("Failed to initialize GLFW!");
       return false;
@@ -112,6 +111,14 @@ namespace agl {
   void Graphics::terminate() {
     glDeleteProgram(shader_program_id);
     glfwTerminate();
+  }
+  
+  void Graphics::move_camera(Point p) {
+    camera.move(p);
+  }
+  
+  void Graphics::set_camera_pos(Point p) {
+    camera.set_pos(p);
   }
   
   Matrix4f* Graphics::get_vp_matrix() {

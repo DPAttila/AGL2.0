@@ -86,21 +86,23 @@ class Alma {
   }
 };
 
+Graphics graphics;
+  
 Alma alma;
 float counter = 0;
 
 void test_loop() {
   alma.draw();
   //alma.buffer.rotate(Point(counter, 0, counter));
-  alma.buffer.translate(Point(0, 0, counter));
+ // alma.buffer.translate(Point(0, 0, counter));
   counter+=0.01;
+  
+  graphics.set_camera_pos(Point(0, 0, -counter));
 }
 
 int main() {
    
-  Graphics graphics(test_loop);
-  
-  graphics.init("cica");
+  graphics.init("cica", test_loop);
   
   alma.init(&graphics);
   

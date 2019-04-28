@@ -11,6 +11,8 @@ namespace agl {
     Point(float x, float y, float z);
     
     bool operator==(const Point& p) const;
+    
+    Point& operator+=(const Point& p);
   };
 }
 
