@@ -37,6 +37,8 @@ namespace agl {
      */
     Point up;
     
+    float move_speed;
+    
     Matrix4f perspective_projection;
     
     /**
@@ -92,6 +94,14 @@ namespace agl {
      * Camera is moved BY p (p is added to the actual position)
      */
     void move(Point p);
+    
+    void move_forward();
+    
+    void move_left();
+    
+    void move_backwards();
+    
+    void move_right();
     
     /**
      * Camera orientation is set TO p

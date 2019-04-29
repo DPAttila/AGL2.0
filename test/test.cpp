@@ -91,14 +91,39 @@ Graphics graphics;
 Alma alma;
 float counter = 0;
 
+void input() {
+  if (graphics.get_key(87)) // W
+    graphics.move_camera_forward();
+  if (graphics.get_key(65)) // A
+    graphics.move_camera_left();
+  if (graphics.get_key(83)) // S
+    graphics.move_camera_backwards();
+  if (graphics.get_key(68)) // D
+    graphics.move_camera_right();
+  
+  Point2f d = graphics.get_cursor_pos();
+  d.x /= 100000.0;
+  d.y /= 100000.0;
+  Point o(
+    cos(d.x) * sin(d.y),
+    sin(d.x) * sin(d.y),
+    cos(d.y)
+  );
+  o.normalize();
+  
+  graphics.orient_camera(o);
+}
+
 void test_loop() {
+  input();
+  
   alma.draw();
   //alma.buffer.rotate(Point(counter, 0, counter));
- // alma.buffer.translate(Point(0, 0, counter));
-  counter+=0.01;
+  //alma.buffer.translate(Point(0, 0, counter));
+  counter += 0.01;
   
-  graphics.set_camera_pos(Point(0, 0, -3));
-  graphics.orient_camera(Point(sin(counter), 0, cos(counter)));
+  //graphics.set_camera_pos(Point(0, 0, -3));
+  //graphics.orient_camera(Point(sin(counter), 0, cos(counter)));
 }
 
 int main() {

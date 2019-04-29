@@ -76,6 +76,8 @@ namespace agl {
     this->width = width;
     this->height = height;
     
+    move_speed = 0.1;
+    
     perspective_projection.set_to_identity();
     rotation.set_to_identity();
     translation.set_to_identity();
@@ -95,6 +97,26 @@ namespace agl {
   void Camera::move(Point p) {
     this->pos += p;
     calculate_translation();
+  }
+  
+  void Camera::move_forward() {
+    move(look_at * move_speed);
+  }
+  
+  void Camera::move_backwards() {
+    move(look_at * (-move_speed));
+  }
+  
+  void Camera::move_left() {
+    Point left = look_at.cross_product(up); 
+    left.normalize();
+    move(left * move_speed);
+  }
+  
+  void Camera::move_right() {
+    Point right = up.cross_product(look_at);
+    right.normalize(); 
+    move(right * move_speed);
   }
   
   void Camera::orient(Point p) {

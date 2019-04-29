@@ -34,6 +34,10 @@ namespace agl {
     return (this->x == p.x && this->y == p.y && this->z == p.z);
   }
   
+  Point Point::operator*(const float f) {
+    return Point(this->x * f, this->y * f, this->z * f);
+  }
+  
   Point& Point::operator+=(const Point& p) {
     this->x += p.x;
     this->y += p.y;

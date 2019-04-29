@@ -19,11 +19,15 @@ namespace agl {
       return false;
     }
     
+    int glfw_version_maj, glfw_version_min, glfw_version_rev;
+    glfwGetVersion(&glfw_version_maj, &glfw_version_min, &glfw_version_rev);
+    std::cout << "GLFW version " << glfw_version_maj << "." 
+              << glfw_version_min << "." << glfw_version_rev << '\n';
+    
     glfwWindowHint(GLFW_SAMPLES, 4);
 	  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-  
   
     int count;
     GLFWmonitor** monitors = glfwGetMonitors(&count);
@@ -33,7 +37,7 @@ namespace agl {
       log(std::to_string(mode->width) + " * " + std::to_string(mode->height));
     }
     
-    /*
+    
     window = glfwCreateWindow(
                  glfwGetVideoMode(monitors[0])->width, 
                  glfwGetVideoMode(monitors[0])->height, 
@@ -41,14 +45,13 @@ namespace agl {
                  monitors[0], 
                  NULL
              );
-    */
     
+    /*
     window = glfwCreateWindow(
       1000, 1000, window_name.c_str(),
        NULL, NULL
     );
-    
-    camera.init(1000, 1000);
+    */
     
     if (window == NULL) {
       alert("Failed to open GLFW window.");
@@ -64,6 +67,13 @@ namespace agl {
     }
     
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
+    
+    glfwSetWindowUserPointer(window, (void*)this);
+    
+    input.init(window);
+    
+    set_camera_cursor_mode();
+    camera.init(1000, 1000);
     
     // Creates and compiles a GLSL program from the shaders
     shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
@@ -95,6 +105,7 @@ namespace agl {
       user_defined();
       
       glfwSwapBuffers(window);
+      input.on_loop();
       glfwPollEvents();
       
       if (
@@ -113,8 +124,30 @@ namespace agl {
     glfwTerminate();
   }
   
+  void Graphics::set_camera_cursor_mode() {
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+   // if (glfwRawMouseMotionSupported())
+   //   glfwSetInputMode(window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+  }
+      
   void Graphics::move_camera(Point p) {
     camera.move(p);
+  }
+  
+  void Graphics::move_camera_forward() {
+    camera.move_forward();  
+  }
+  
+  void Graphics::move_camera_left() {
+    camera.move_left();
+  }
+  
+  void Graphics::move_camera_backwards() {
+    camera.move_backwards();
+  }
+  
+  void Graphics::move_camera_right() {
+    camera.move_right();
   }
   
   void Graphics::set_camera_pos(Point p) {
@@ -127,6 +160,26 @@ namespace agl {
   
   void Graphics::turn_camera(Point p) {
     camera.turn(p);
+  }
+
+  void Graphics::key_event(int key, int scancode, int action, int mods) {
+    input.key_event(key, scancode, action, mods);
+  }
+  
+  void Graphics::cursor_move_event(double x, double y) {
+    input.cursor_move_event(x, y);
+  }
+  
+  int Graphics::get_key(int key) {
+    return input.get_key(key);
+  }
+  
+  Point2f Graphics::get_cursor_delta() {
+    return input.get_cursor_delta();
+  }
+  
+  Point2f Graphics::get_cursor_pos() {
+    return input.get_cursor_pos();
   }
   
   Matrix4f* Graphics::get_vp_matrix() {
