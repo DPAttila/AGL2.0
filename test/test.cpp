@@ -97,7 +97,8 @@ void test_loop() {
  // alma.buffer.translate(Point(0, 0, counter));
   counter+=0.01;
   
-  graphics.set_camera_pos(Point(0, 0, -counter));
+  graphics.set_camera_pos(Point(0, 0, -3));
+  graphics.orient_camera(Point(sin(counter), 0, cos(counter)));
 }
 
 int main() {

@@ -33,8 +33,33 @@ namespace agl {
     calculate_vp_matrix();
   }
   
+  void Camera::calculate_rotation() {
+    Point n = look_at;
+    n.normalize();
+    
+    Point u = up;
+    u = u.cross_product(look_at);
+    u.normalize();
+    
+    Point v = n.cross_product(u);
+    
+    rotation.set_to_identity();
+    
+    rotation[0][0] = u.x;
+    rotation[0][1] = u.y;
+    rotation[0][2] = u.z;
+    rotation[1][0] = v.x;
+    rotation[1][1] = v.y;
+    rotation[1][2] = v.z;
+    rotation[2][0] = n.x;
+    rotation[2][1] = n.y;
+    rotation[2][2] = n.z;
+    
+    calculate_vp_matrix();
+  }
+  
   void Camera::calculate_vp_matrix() {
-    vp_matrix = perspective_projection * translation;
+    vp_matrix = perspective_projection * rotation * translation;
   }
   
   Camera::Camera() {}
@@ -45,11 +70,19 @@ namespace agl {
     z_far = 10.0;
     pos = Point(0, 0, 0);
     
+    look_at = Point(0, 0, 1);
+    up = Point(0, 1, 0);
+    
     this->width = width;
     this->height = height;
     
+    perspective_projection.set_to_identity();
+    rotation.set_to_identity();
+    translation.set_to_identity();
+    
     calculate_perspective_projection();
-    calculate_translation();
+    calculate_rotation();
+    calculate_translation();    
     
     return true;
   }
@@ -62,6 +95,16 @@ namespace agl {
   void Camera::move(Point p) {
     this->pos += p;
     calculate_translation();
+  }
+  
+  void Camera::orient(Point p) {
+    this->look_at = p;
+    calculate_rotation();
+  }
+  
+  void Camera::turn(Point p) {
+    this->look_at += p;
+    calculate_rotation();
   }
   
   Matrix4f* Camera::get_vp_matrix() {

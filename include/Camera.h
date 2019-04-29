@@ -27,6 +27,16 @@ namespace agl {
      */
     Point pos;
     
+    /**
+     * Target of the camera
+     */
+    Point look_at;
+    
+    /**
+     * Y axis of the camera space
+     */
+    Point up;
+    
     Matrix4f perspective_projection;
     
     /**
@@ -35,6 +45,12 @@ namespace agl {
      * See http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html
      */
     Matrix4f translation;
+    
+    /**
+     * This is a UVN matrix
+     * See http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html
+     */
+    Matrix4f rotation;
     
     /**
      * View-Projection matrix
@@ -54,6 +70,11 @@ namespace agl {
     void calculate_translation();
     
     /**
+     * See http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html
+     */
+    void calculate_rotation();
+    
+    /**
      * the View-Projection matrix is the multiplication of the perspective 
      * projection, camera translation and camera rotation matrices.
      */
@@ -71,6 +92,16 @@ namespace agl {
      * Camera is moved BY p (p is added to the actual position)
      */
     void move(Point p);
+    
+    /**
+     * Camera orientation is set TO p
+     */
+    void orient(Point p);
+    
+    /**
+     * Camera is rotated BY p
+     */
+    void turn(Point p);
     
     bool init(int width, int height);
     

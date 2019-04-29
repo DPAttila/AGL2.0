@@ -78,6 +78,16 @@ namespace agl {
     void set_camera_pos(Point p);
     
     /**
+     * Just calls the corresponding camera function
+     */
+    void orient_camera(Point p);
+    
+    /**
+     * Just calls the corresponding camera function
+     */
+    void turn_camera(Point p);
+    
+    /**
      * Returns the multiplication of the view and projection matrices
      */
     Matrix4f* get_vp_matrix();

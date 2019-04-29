@@ -121,6 +121,14 @@ namespace agl {
     camera.set_pos(p);
   }
   
+  void Graphics::orient_camera(Point p) {
+    camera.orient(p);
+  }
+  
+  void Graphics::turn_camera(Point p) {
+    camera.turn(p);
+  }
+  
   Matrix4f* Graphics::get_vp_matrix() {
     return camera.get_vp_matrix();
   }
