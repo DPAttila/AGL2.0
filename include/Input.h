@@ -7,7 +7,12 @@
 #include "Point2f.h"
 
 namespace agl {
+  /**
+   * TODO: make the user-defined glfw pointer point to the Input class instance
+   */
   class Input {
+    GLFWwindow* window;
+    
     static const int key_count = 350;
     
     /**
@@ -47,10 +52,7 @@ namespace agl {
     static void cursor_pos_callback(GLFWwindow* window, double x, double y);
     
     public:
-    void init(GLFWwindow* window) {
-      glfwSetKeyCallback(window, key_callback);
-      glfwSetCursorPosCallback(window, cursor_pos_callback);
-    }
+    void init(GLFWwindow* window);
     
     void key_event(int key, int scancode, int action, int mods);
     
@@ -61,6 +63,14 @@ namespace agl {
      * It increases the values of the keys that are pressed
      */
     void on_loop();
+    
+    /**
+     * Sets the cursor mode to GLFW_CURSOSR_DISABLED
+     * and enables raw mouse motion. This makes the cursor invisible and
+     * centered, allowing infinite movement, which is perfect for our camera.
+     * See https://www.glfw.org/docs/latest/input_guide.html#cursor_mode
+     */
+    void set_camera_cursor_mode();
     
     int get_key(int key);
     

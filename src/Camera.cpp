@@ -6,6 +6,11 @@
 #include <cmath>
 
 namespace agl {
+  void Camera::limit_vertical_angle() {
+    if (vertical_angle > M_PI/2.0) vertical_angle = M_PI/2.0;
+    else if (vertical_angle < -M_PI/2.0) vertical_angle = -M_PI/2.0; 
+  }
+  
   void Camera::calculate_perspective_projection() {
     for (int i = 0; i < 4; i++) 
       for (int j = 0; j < 4; j++)
@@ -34,14 +39,39 @@ namespace agl {
   }
   
   void Camera::calculate_rotation() {
-    Point n = look_at;
+    Point vertical(0.0, 1.0, 0.0);
+    
+    // n is the target vector, or look at vector
+    Point n(1.0, 0.0, 0.0);
+    
+    // This is a quaternion rotation around the world vertical axis by
+    // the horizontal angle
+    // See https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
+    n.rotate(horizontal_angle, vertical);
     n.normalize();
     
-    Point u = up;
-    u = u.cross_product(look_at);
+    // The horizontal axis is perpendicular to the plane defined by 
+    // the horizontal component of look_at and the world vertical axis
+    Point horizontal = vertical.cross_product(n);     
+    horizontal.normalize();
+    
+    // Another quaternion rotation, around the horizontal axis by
+    // the vertical angle
+    // The calculation of the target vector is finished.
+    n.rotate(vertical_angle, horizontal);
+    n.normalize();
+    
+    // this is the "old" up vector
+    Point u = n.cross_product(horizontal);
+    
+    u = u.cross_product(n); // the right vector is calculated here
     u.normalize();
     
+    // this is the new up vector
     Point v = n.cross_product(u);
+    
+    look_at = n;
+    up = v;
     
     rotation.set_to_identity();
     
@@ -65,7 +95,7 @@ namespace agl {
   Camera::Camera() {}
   
   bool Camera::init(int width, int height) {
-    fov = 0.8;
+    fov = 1.5;
     z_near = 0.1;
     z_far = 10.0;
     pos = Point(0, 0, 0);
@@ -110,22 +140,32 @@ namespace agl {
   void Camera::move_left() {
     Point left = look_at.cross_product(up); 
     left.normalize();
+    
     move(left * move_speed);
   }
   
   void Camera::move_right() {
     Point right = up.cross_product(look_at);
     right.normalize(); 
+    
     move(right * move_speed);
   }
   
-  void Camera::orient(Point p) {
-    this->look_at = p;
+  void Camera::orient(float h, float v) {
+    horizontal_angle = h;
+    vertical_angle = v;
+    
+    limit_vertical_angle();
+    
     calculate_rotation();
   }
   
-  void Camera::turn(Point p) {
-    this->look_at += p;
+  void Camera::turn(float h, float v) {
+    horizontal_angle += h;
+    vertical_angle += v;
+    
+    limit_vertical_angle();
+    
     calculate_rotation();
   }
   

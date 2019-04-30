@@ -55,14 +55,6 @@ namespace agl {
      */
     void terminate();
     
-    /**
-     * Sets the cursor mode to GLFW_CURSOSR_DISABLED
-     * and enables raw mouse motion. This makes the cursor invisible and
-     * centered, allowing infinite movement, which is perfect for our camera.
-     * See https://www.glfw.org/docs/latest/input_guide.html#cursor_mode
-     */
-    void set_camera_cursor_mode();
-    
     public:
     Graphics();
     
@@ -104,12 +96,12 @@ namespace agl {
     /**
      * Just calls the corresponding Camera function
      */
-    void orient_camera(Point p);
+    void orient_camera(float h, float v);
     
     /**
      * Just calls the corresponding Camera function
      */
-    void turn_camera(Point p);
+    void turn_camera(float h, float v);
     
     /**
      * Just calls the corresponding Keyboard function

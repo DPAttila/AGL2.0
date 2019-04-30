@@ -72,8 +72,11 @@ namespace agl {
     
     input.init(window);
     
-    set_camera_cursor_mode();
-    camera.init(1000, 1000);
+    input.set_camera_cursor_mode();
+    camera.init(
+        glfwGetVideoMode(monitors[0])->width, 
+        glfwGetVideoMode(monitors[0])->height
+    );
     
     // Creates and compiles a GLSL program from the shaders
     shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
@@ -124,12 +127,6 @@ namespace agl {
     glfwTerminate();
   }
   
-  void Graphics::set_camera_cursor_mode() {
-    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
-   // if (glfwRawMouseMotionSupported())
-   //   glfwSetInputMode(window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
-  }
-      
   void Graphics::move_camera(Point p) {
     camera.move(p);
   }
@@ -154,12 +151,12 @@ namespace agl {
     camera.set_pos(p);
   }
   
-  void Graphics::orient_camera(Point p) {
-    camera.orient(p);
+  void Graphics::orient_camera(float h, float v) {
+    camera.orient(h, v);
   }
   
-  void Graphics::turn_camera(Point p) {
-    camera.turn(p);
+  void Graphics::turn_camera(float h, float v) {
+    camera.turn(h, v);
   }
 
   void Graphics::key_event(int key, int scancode, int action, int mods) {

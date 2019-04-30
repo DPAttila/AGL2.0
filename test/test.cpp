@@ -39,34 +39,37 @@ class Alma {
     
     
     vector<Vertex> vertices = {
-      Vertex(p[0], t[2]),
-      Vertex(p[1], t[3]),
-      Vertex(p[2], t[0]),
-      Vertex(p[3], t[1]),
-      Vertex(p[4], t[1]),
-      Vertex(p[5], t[0]),
-      Vertex(p[6], t[3]),
-      Vertex(p[7], t[2]),
+      Vertex(p[0], t[0]),
+      Vertex(p[1], t[1]),
+      Vertex(p[2], t[2]),
+      Vertex(p[3], t[3]),
+      Vertex(p[4], t[0]),
+      Vertex(p[5], t[1]),
+      Vertex(p[6], t[2]),
+      Vertex(p[7], t[3]),
     };
     
+    
     vector<unsigned int> indices = {
+      
        0, 1, 2,
        3, 2, 1,
        
-       4, 5, 6,
-       7, 6, 5,
+       4, 6, 5,
+       7, 5, 6,
        
-       0, 1, 4,
-       5, 4, 1,
-           
-       0, 2, 4,
+       1, 0, 4,
+       5, 1, 4,
+       
+       4, 0, 2,
        6, 4, 2,
      
-       1, 3, 5,
-       7, 5, 3,
+       1, 5, 3,
+       7, 3, 5,
        
        2, 3, 6,
        7, 6, 3
+       
     };
     
     /*
@@ -76,7 +79,7 @@ class Alma {
     generate_icosahedron(vertices, indices);
     */
     buffer.add(vertices, indices);
-    buffer.set_texture("test/test5.png");
+    buffer.set_texture("test/test10.png");
     
     buffer.scale(0.8);
   }
@@ -101,17 +104,11 @@ void input() {
   if (graphics.get_key(68)) // D
     graphics.move_camera_right();
   
-  Point2f d = graphics.get_cursor_pos();
-  d.x /= 100000.0;
-  d.y /= 100000.0;
-  Point o(
-    cos(d.x) * sin(d.y),
-    sin(d.x) * sin(d.y),
-    cos(d.y)
-  );
-  o.normalize();
+  Point2f d = graphics.get_cursor_delta();
+  d.x /= 1000.0;
+  d.y /= 1000.0;
   
-  graphics.orient_camera(o);
+  graphics.turn_camera(d.x, d.y);
 }
 
 void test_loop() {

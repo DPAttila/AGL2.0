@@ -5,6 +5,8 @@
 
 #include <cmath>
 
+#include "Quaternion.h"
+
 namespace agl {
   Point::Point() {}
   
@@ -28,6 +30,26 @@ namespace agl {
                this->z * p.x - this->x * p.z,
                this->x * p.y - this->y * p.x
            );
+  }
+  
+  void Point::rotate(float angle, Point vector) {
+    Quaternion p(0, this->x, this->y, this->z);
+    
+    Quaternion q(
+        cos(angle/2), 
+        vector.x * sin(angle/2),
+        vector.y * sin(angle/2),
+        vector.z * sin(angle/2)
+    );
+    
+    Quaternion q_conjugate = q;
+    q_conjugate.conjugate();
+    
+    Quaternion a = q * p * q_conjugate;
+    
+    this->x = a.y;
+    this->y = a.z;
+    this->z = a.w;
   }
   
   bool Point::operator==(const Point& p) const {

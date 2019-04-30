@@ -8,6 +8,13 @@
 #include <iostream>
 
 namespace agl {
+
+  void Input::init(GLFWwindow* window) {
+    this->window = window;
+    glfwSetKeyCallback(window, key_callback);
+    glfwSetCursorPosCallback(window, cursor_pos_callback);
+  }
+  
   void Input::key_callback(
       GLFWwindow* window, 
       int key, 
@@ -41,6 +48,14 @@ namespace agl {
   void Input::on_loop() {
     for (int i = 0; i < key_count; i++) 
       if (keys[i]) keys[i]++;
+    cursor_delta_x = 0;
+    cursor_delta_y = 0;
+  }
+  
+  void Input::set_camera_cursor_mode() {
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+   // if (glfwRawMouseMotionSupported())
+   //   glfwSetInputMode(window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
   }
   
   int Input::get_key(int key) {

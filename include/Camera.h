@@ -17,6 +17,8 @@ namespace agl {
      */
     float z_near, z_far;
     
+    float vertical_angle, horizontal_angle;
+    
     /**
      * Window width and height
      */
@@ -59,6 +61,8 @@ namespace agl {
      */
     Matrix4f vp_matrix;
     
+    void limit_vertical_angle();
+    
     /**
      * See http://ogldev.atspace.co.uk/www/tutorial12/tutorial12.html
      */
@@ -73,6 +77,8 @@ namespace agl {
     
     /**
      * See http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html
+     *     http://ogldev.atspace.co.uk/www/tutorial15/tutorial15.html
+     *     https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
      */
     void calculate_rotation();
     
@@ -104,14 +110,18 @@ namespace agl {
     void move_right();
     
     /**
-     * Camera orientation is set TO p
+     * Camera orientation is set TO these angles
+     * @param[in] h Horizontal orientation angle
+     * @param[in] v Vertical orientation angle
      */
-    void orient(Point p);
+    void orient(float h, float v);
     
     /**
-     * Camera is rotated BY p
+     * Camera is rotated BY these angles
+     * @param[in] h Horizontal rotation angle
+     * @param[in] v Vertical rotation angle
      */
-    void turn(Point p);
+    void turn(float h, float v);
     
     bool init(int width, int height);
     

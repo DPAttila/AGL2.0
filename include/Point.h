@@ -14,6 +14,12 @@ namespace agl {
     
     Point cross_product(const Point& p);
     
+    /**
+     * Rotates by angle around vector using quaternions
+     * See https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
+     */
+    void rotate(float angle, Point vector);
+    
     bool operator==(const Point& p) const;
     
     Point operator*(const float f);
