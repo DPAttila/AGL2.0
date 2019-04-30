@@ -7,6 +7,9 @@
 #include <iostream>
 
 #include "util.h"
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_opengl3.h"
 #include "shader.h"
 
 namespace agl {
@@ -88,6 +91,14 @@ namespace agl {
     
     glUniform1i(sampler_id, 0);
     
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    
+    ImGui::StyleColorsDark();
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init("#version 330");
+    
     glFrontFace(GL_CW);
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
@@ -99,13 +110,19 @@ namespace agl {
   void Graphics::loop() {
     quit = false;
     while (!quit) {
+      ImGui_ImplOpenGL3_NewFrame();
+      ImGui_ImplGlfw_NewFrame();
+      ImGui::NewFrame();
+
       glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      
       // Uses the shaders
       glUseProgram(shader_program_id);
       
       user_defined();
+      
+      ImGui::Render();
+      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
       
       glfwSwapBuffers(window);
       input.on_loop();
