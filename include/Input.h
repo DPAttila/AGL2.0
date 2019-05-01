@@ -30,6 +30,12 @@ namespace agl {
     double cursor_delta_x, cursor_delta_y;
     
     /**
+     * Pointer to user-defined function to be called in loop.
+     * A user-defined input function should contain input handling calls.
+     */
+    void (*user_defined)();
+    
+    /**
      * This function is made static so it can be set as a callback for GLFW
      * It calls the key handling method of the actual input object 
      * which is retrieved through the GLFW window's user-defined pointer 
@@ -52,7 +58,7 @@ namespace agl {
     static void cursor_pos_callback(GLFWwindow* window, double x, double y);
     
     public:
-    void init(GLFWwindow* window);
+    bool init(GLFWwindow* window, void (*user_defined)());
     
     void key_event(int key, int scancode, int action, int mods);
     

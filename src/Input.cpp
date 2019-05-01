@@ -3,16 +3,19 @@
 
 #include "Input.h"
 
-#include "Graphics.h"
-
 #include <iostream>
 
 namespace agl {
 
-  void Input::init(GLFWwindow* window) {
+  bool Input::init(GLFWwindow* window, void (*user_defined)()) {
+    this->user_defined = user_defined;  
     this->window = window;
+    glfwSetWindowUserPointer(window, (void*)this);
     glfwSetKeyCallback(window, key_callback);
     glfwSetCursorPosCallback(window, cursor_pos_callback);
+    set_camera_cursor_mode();
+    
+    return true;
   }
   
   void Input::key_callback(
@@ -22,7 +25,7 @@ namespace agl {
       int action, 
       int mods
   ) {
-    ((Graphics*)glfwGetWindowUserPointer(window))->
+    ((Input*)glfwGetWindowUserPointer(window))->
         key_event(key, scancode, action, mods);
   }
   
@@ -34,7 +37,7 @@ namespace agl {
   }
   
   void Input::cursor_pos_callback(GLFWwindow* window, double x, double y) {
-    ((Graphics*)glfwGetWindowUserPointer(window))->
+    ((Input*)glfwGetWindowUserPointer(window))->
       cursor_move_event(x, y);
   }
   
@@ -50,6 +53,10 @@ namespace agl {
       if (keys[i]) keys[i]++;
     cursor_delta_x = 0;
     cursor_delta_y = 0;
+    
+    glfwPollEvents();
+    
+    user_defined();
   }
   
   void Input::set_camera_cursor_mode() {

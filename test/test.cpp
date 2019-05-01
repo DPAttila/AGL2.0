@@ -2,6 +2,7 @@
 #include <iostream>
 #include <unistd.h>
 
+#include "AGL.h"
 #include "imgui.h"
 #include "Buffer.h"
 #include "Graphics.h"
@@ -15,10 +16,9 @@ class Alma {
   
   Alma() {}
   
-  void init(Graphics* graphics) {
+  void init(AGL* graphics) {
     buffer = Buffer(GL_TRIANGLES);
     buffer.init(graphics);
-    
     
     Point p[8] = {
       Point(-1, -1, -1),
@@ -37,7 +37,6 @@ class Alma {
       Point2f(1, 0),
       Point2f(1, 1)
     };
-    
     
     vector<Vertex> vertices = {
       Vertex(p[0], t[0]),
@@ -90,21 +89,23 @@ class Alma {
   }
 };
 
-Graphics graphics;
+AGL graphics;
   
 Alma alma;
 float counter = 0;
 
 void input() {
-  if (graphics.get_key(87)) // W
+  if (graphics.get_key(GLFW_KEY_W)) // W
     graphics.move_camera_forward();
-  if (graphics.get_key(65)) // A
+  if (graphics.get_key(GLFW_KEY_A)) // A
     graphics.move_camera_left();
-  if (graphics.get_key(83)) // S
+  if (graphics.get_key(GLFW_KEY_S)) // S
     graphics.move_camera_backwards();
-  if (graphics.get_key(68)) // D
+  if (graphics.get_key(GLFW_KEY_D)) // D
     graphics.move_camera_right();
-  
+  if (graphics.get_key(GLFW_KEY_ESCAPE))
+    graphics.finish();
+    
   Point2f d = graphics.get_cursor_delta();
   d.x /= 1000.0;
   d.y /= 1000.0;
@@ -112,9 +113,7 @@ void input() {
   graphics.turn_camera(d.x, d.y);
 }
 
-void test_loop() {
-  input();
-  
+void draw() {
    {
         static float f = 0.0f;
         static int counter = 0;
@@ -137,15 +136,17 @@ void test_loop() {
   alma.draw();
   //alma.buffer.rotate(Point(counter, 0, counter));
   //alma.buffer.translate(Point(0, 0, counter));
-  counter += 0.01;
-  
   //graphics.set_camera_pos(Point(0, 0, -3));
   //graphics.orient_camera(Point(sin(counter), 0, cos(counter)));
 }
 
+void logic() {
+  counter += 0.01;
+}
+
 int main() {
    
-  graphics.init("cica", test_loop);
+  graphics.init("cica", draw, input, logic);
   
   alma.init(&graphics);
   

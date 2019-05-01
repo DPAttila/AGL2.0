@@ -5,6 +5,7 @@
 
 #include "glad/glad.h"
 
+#include "AGL.h"
 #include "Point.h"
 #include "Vertex.h"
 #include "Texture.h"
@@ -61,7 +62,7 @@ namespace agl {
     
     Buffer(GLenum primitive);
     
-    void init(Graphics* graphics);
+    void init(AGL* agl);
     
     ~Buffer();
     

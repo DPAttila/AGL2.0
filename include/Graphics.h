@@ -10,15 +10,10 @@
 #include "Input.h"
 
 namespace agl {
-  /**
-   * @todo: possibly create a new class that controls Graphics and Input 
-   */
   class Graphics {
     GLFWwindow* window;
     
     Camera camera;
-    
-    Input input;
     
     /**
      * Id of the GLSL program
@@ -43,17 +38,10 @@ namespace agl {
     
     /**
      * Pointer to user-defined function to be called in loop
-     * A user-defined draw function should contain draw calls, 
-     * input handling calls and simulation-logic calls.
+     * A user-defined draw function should contain draw calls.
      * Buffer swapping and clearing is done by the loop automatically.
      */
     void (*user_defined)();
-    
-    /**
-     * Called automatically when the main loop is quit.
-     * Frees memory.
-     */
-    void terminate();
     
     public:
     Graphics();
@@ -71,9 +59,14 @@ namespace agl {
     /**
      * Handles drawing, inputs and calls a user-defined 
      * function in a loop until quit is set to true
-     * @todo Handle user-defined function 
      */
-    void loop();
+    void on_loop();
+    
+    /**
+     * Called automatically when the main loop is quit.
+     * Frees memory.
+     */
+    void terminate();
     
     /**
      * Just calls the corresponding Camera function
@@ -104,27 +97,13 @@ namespace agl {
     void turn_camera(float h, float v);
     
     /**
-     * Just calls the corresponding Keyboard function
-     */
-    void key_event(int key, int scancode, int action, int mods);
-    
-    void cursor_move_event(double x, double y);
-    
-    /**
-     * Just calls the corresponding Keyboard function
-     */
-    int get_key(int key);
-    
-    Point2f get_cursor_delta();
-    
-    Point2f get_cursor_pos();
-     
-    /**
      * Returns the multiplication of the view and projection matrices
      */
     Matrix4f* get_vp_matrix();
     
     GLuint get_glsl_matrix_location();
+    
+    GLFWwindow* get_window();
   };
 }
 

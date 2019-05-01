@@ -71,11 +71,6 @@ namespace agl {
     
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
     
-    glfwSetWindowUserPointer(window, (void*)this);
-    
-    input.init(window);
-    
-    input.set_camera_cursor_mode();
     camera.init(
         glfwGetVideoMode(monitors[0])->width, 
         glfwGetVideoMode(monitors[0])->height
@@ -85,7 +80,6 @@ namespace agl {
     shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
     
     sampler_id = glGetUniformLocation(shader_program_id, "sampler");
-    std::cout << sampler_id << '\n';
     
     glsl_matrix_location = glGetUniformLocation(shader_program_id, "world");
     
@@ -107,36 +101,22 @@ namespace agl {
     return true;
   }
   
-  void Graphics::loop() {
-    quit = false;
-    while (!quit) {
-      ImGui_ImplOpenGL3_NewFrame();
-      ImGui_ImplGlfw_NewFrame();
-      ImGui::NewFrame();
+  void Graphics::on_loop() {
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
 
-      glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-      // Uses the shaders
-      glUseProgram(shader_program_id);
-      
-      user_defined();
-      
-      ImGui::Render();
-      ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-      
-      glfwSwapBuffers(window);
-      input.on_loop();
-      glfwPollEvents();
-      
-      if (
-        glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS ||
-        glfwWindowShouldClose(window) != 0
-      ) {
-        quit = true;
-      }
-    }
+    glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // Uses the shaders
+    glUseProgram(shader_program_id);
     
-    terminate();
+    user_defined();
+    
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    
+    glfwSwapBuffers(window);
   }
   
   void Graphics::terminate() {
@@ -175,26 +155,6 @@ namespace agl {
   void Graphics::turn_camera(float h, float v) {
     camera.turn(h, v);
   }
-
-  void Graphics::key_event(int key, int scancode, int action, int mods) {
-    input.key_event(key, scancode, action, mods);
-  }
-  
-  void Graphics::cursor_move_event(double x, double y) {
-    input.cursor_move_event(x, y);
-  }
-  
-  int Graphics::get_key(int key) {
-    return input.get_key(key);
-  }
-  
-  Point2f Graphics::get_cursor_delta() {
-    return input.get_cursor_delta();
-  }
-  
-  Point2f Graphics::get_cursor_pos() {
-    return input.get_cursor_pos();
-  }
   
   Matrix4f* Graphics::get_vp_matrix() {
     return camera.get_vp_matrix();
@@ -202,6 +162,10 @@ namespace agl {
   
   GLuint Graphics::get_glsl_matrix_location() {
     return glsl_matrix_location;
+  }
+  
+  GLFWwindow* Graphics::get_window() {
+    return window;
   }
 }
 

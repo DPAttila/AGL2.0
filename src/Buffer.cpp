@@ -34,8 +34,8 @@ namespace agl {
     this->primitive = primitive;
   }
   
-  void Buffer::init(Graphics* graphics) {
-    this->graphics = graphics;
+  void Buffer::init(AGL* agl) {
+    this->graphics = agl->get_graphics();
     
     glGenVertexArrays(1, &vertexarray_id);
     glBindVertexArray(vertexarray_id);
