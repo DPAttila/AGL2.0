@@ -35,7 +35,11 @@ namespace agl {
   }
   
   void Buffer::init(AGL* agl) {
+    printf("initializing buffer\n");
     this->graphics = agl->get_graphics();
+    
+    shader = graphics->get_default_shader();
+    shader->subscribe();
     
     glGenVertexArrays(1, &vertexarray_id);
     glBindVertexArray(vertexarray_id);
@@ -95,9 +99,10 @@ namespace agl {
   }
   
   void Buffer::draw() {
+    shader->use();
     transformation.calculate_wvp_matrix(graphics->get_vp_matrix());
     glUniformMatrix4fv(
-        graphics->get_glsl_matrix_location(),
+        shader->get_wvp_matrix_location(),
         1,
         GL_TRUE,
         &transformation.wvp_matrix[0][0]
@@ -142,6 +147,8 @@ namespace agl {
   Buffer::~Buffer() {
     glDeleteBuffers(1, &vertexbuffer);
     glDeleteBuffers(1, &indexbuffer);
+    shader->unsubscribe();
+    shader = NULL;
   }
   
   void Buffer::set_texture(std::string file_name) {

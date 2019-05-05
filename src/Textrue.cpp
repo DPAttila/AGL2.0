@@ -3,7 +3,7 @@
 
 #include "Texture.h"
 
-#include <iostream>
+#include <stdio.h>
 
 #include "util.h"
 
@@ -34,13 +34,16 @@ namespace agl {
     GLenum format;
     if (n == 3) format = GL_RGB;
     else if (n == 4) format = GL_RGBA;
-    std::cout << n << '\n';
     
     if (image_data == NULL) {
-      alert("Couldn't load image at " + filename);
+      printf("%sCouldn't load image at %s%s\n",
+        ANSI_COLOR_RED,
+        filename.c_str(),
+        ANSI_END_COLOR
+      );
       return false;
     }
-    log("Loaded image at " + filename);
+    printf("Loaded image at %s\n", filename.c_str());
     
     glGenTextures(1, &texture_object);
     glBindTexture(texture_target, texture_object);

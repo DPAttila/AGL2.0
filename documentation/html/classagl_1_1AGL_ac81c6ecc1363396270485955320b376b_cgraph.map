@@ -1,0 +1,8 @@
+<map id="agl::AGL::move_camera" name="agl::AGL::move_camera">
+<area shape="rect" id="node1" title=" " alt="" coords="5,46,168,73"/>
+<area shape="rect" id="node2" href="$classagl_1_1Graphics.html#acfc64f7e1033725ebda79f176d462dca" title=" " alt="" coords="216,39,355,80"/>
+<area shape="rect" id="node3" href="$classagl_1_1Camera.html#a121e091d9a0f2bbb56080e0cd6774572" title=" " alt="" coords="403,46,536,73"/>
+<area shape="rect" id="node4" href="$classagl_1_1Camera.html#a03a502bcfaa24c6469f3357e1df43118" title=" " alt="" coords="584,39,737,80"/>
+<area shape="rect" id="node5" href="$classagl_1_1Matrix4f.html#a51973ba1ec474b3c0cfd64d93691f04a" title=" " alt="" coords="802,5,922,47"/>
+<area shape="rect" id="node6" href="$classagl_1_1Camera.html#abfff009a6419e7f5e203b3081f840dfc" title=" " alt="" coords="785,71,939,112"/>
+</map>

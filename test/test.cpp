@@ -17,7 +17,7 @@ class Alma {
   Alma() {}
   
   void init(AGL* graphics) {
-    buffer = Buffer(GL_TRIANGLES);
+    printf("Initializing alma\n");
     buffer.init(graphics);
     
     Point p[8] = {
@@ -89,49 +89,60 @@ class Alma {
   }
 };
 
-AGL graphics;
+AGL ati_gl;
   
 Alma alma;
 float counter = 0;
 
 void input() {
-  if (graphics.get_key(GLFW_KEY_W)) // W
-    graphics.move_camera_forward();
-  if (graphics.get_key(GLFW_KEY_A)) // A
-    graphics.move_camera_left();
-  if (graphics.get_key(GLFW_KEY_S)) // S
-    graphics.move_camera_backwards();
-  if (graphics.get_key(GLFW_KEY_D)) // D
-    graphics.move_camera_right();
-  if (graphics.get_key(GLFW_KEY_ESCAPE))
-    graphics.finish();
-    
-  Point2f d = graphics.get_cursor_delta();
-  d.x /= 1000.0;
-  d.y /= 1000.0;
   
-  graphics.turn_camera(d.x, d.y);
+  if (ati_gl.get_key(GLFW_KEY_Q))
+    ati_gl.finish();
+  if (ati_gl.is_cursor_disabled()) {
+    if (ati_gl.get_key(GLFW_KEY_W)) // W
+      ati_gl.move_camera_forward();
+    if (ati_gl.get_key(GLFW_KEY_A)) // A
+      ati_gl.move_camera_left();
+    if (ati_gl.get_key(GLFW_KEY_S)) // S
+      ati_gl.move_camera_backwards();
+    if (ati_gl.get_key(GLFW_KEY_D)) // D
+      ati_gl.move_camera_right();
+      
+    Point2f d = ati_gl.get_cursor_delta();
+    d.x /= 1000.0;
+    d.y /= 1000.0;
+    
+    ati_gl.turn_camera(d.x, d.y);
+  }
+  if (ati_gl.get_key(GLFW_KEY_E) == 1) {
+    if (ati_gl.is_cursor_disabled()) {
+      ati_gl.enable_cursor();
+    } else {
+      ati_gl.disable_cursor();
+    }
+  } 
+
 }
 
 void draw() {
    {
-        static float f = 0.0f;
-        static int counter = 0;
+      static float f = 0.0f;
+      static int counter = 0;
 
-        ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+      ImGui::Begin("cica");                          // Create a window called "Hello, world!" and append into it.
 
-        ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+      ImGui::Text("cica.");               // Display some text (you can use a format strings too)
 
-        ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+      ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
 
-        if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
-            counter++;
-        ImGui::SameLine();
-        ImGui::Text("counter = %d", counter);
+      if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+          counter++;
+      ImGui::SameLine();
+      ImGui::Text("counter = %d", counter);
 
-        ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-        ImGui::End();
-      }
+      ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+      ImGui::End();
+    }
       
   alma.draw();
   //alma.buffer.rotate(Point(counter, 0, counter));
@@ -146,9 +157,9 @@ void logic() {
 
 int main() {
    
-  graphics.init("cica", draw, input, logic);
+  ati_gl.init("cica", draw, input, logic);
+  printf("AGL initialized\n");
+  alma.init(&ati_gl);
   
-  alma.init(&graphics);
-  
-  graphics.loop();
+  ati_gl.loop();
 }

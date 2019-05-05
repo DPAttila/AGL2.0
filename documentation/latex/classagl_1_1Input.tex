@@ -1,0 +1,125 @@
+\hypertarget{classagl_1_1Input}{}\section{agl\+::Input Class Reference}
+\label{classagl_1_1Input}\index{agl::Input@{agl::Input}}
+
+
+{\ttfamily \#include $<$Input.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_a335435aa29624abec79ad8e8019ef94e}\label{classagl_1_1Input_a335435aa29624abec79ad8e8019ef94e}} 
+bool {\bfseries init} (G\+L\+F\+Wwindow $\ast$window, void($\ast$\mbox{\hyperlink{classagl_1_1Input_a51bd4ac4cca730989ceef176786c9c38}{user\+\_\+defined}})())
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_aea9a52542d3e47a674a9eca70f16ee5f}\label{classagl_1_1Input_aea9a52542d3e47a674a9eca70f16ee5f}} 
+void {\bfseries key\+\_\+event} (int key, int scancode, int action, int mods)
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_a2355b8d9eeefb718ae40a3d93f67ae43}\label{classagl_1_1Input_a2355b8d9eeefb718ae40a3d93f67ae43}} 
+void {\bfseries cursor\+\_\+move\+\_\+event} (double x, double y)
+\item 
+void \mbox{\hyperlink{classagl_1_1Input_a3889beb818d765b5d5f604777fe1ce74}{on\+\_\+loop}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Input_aff9d58892cc8a0b9e65a87724de53773}{set\+\_\+camera\+\_\+cursor\+\_\+mode}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Input_a9950e44fce2bbb621f00abec81bb8bfc}{set\+\_\+ui\+\_\+cursor\+\_\+mode}} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_af1a2df69f7c5180b244d8f6750926be9}\label{classagl_1_1Input_af1a2df69f7c5180b244d8f6750926be9}} 
+int {\bfseries get\+\_\+key} (int key)
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_a611491e84f7d82be725ce8a4eaa7ca39}\label{classagl_1_1Input_a611491e84f7d82be725ce8a4eaa7ca39}} 
+\mbox{\hyperlink{classagl_1_1Point2f}{Point2f}} {\bfseries get\+\_\+cursor\+\_\+pos} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_a1a6f1f0ec588b3d06d1b47cac169b037}\label{classagl_1_1Input_a1a6f1f0ec588b3d06d1b47cac169b037}} 
+\mbox{\hyperlink{classagl_1_1Point2f}{Point2f}} {\bfseries get\+\_\+cursor\+\_\+delta} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classagl_1_1Input_a32f796994b97888c46e5ad150a988370}{key\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$window, int key, int scancode, int action, int mods)
+\item 
+static void \mbox{\hyperlink{classagl_1_1Input_a6273f37976797d2af6ffc3a004da75c9}{cursor\+\_\+pos\+\_\+callback}} (G\+L\+F\+Wwindow $\ast$window, double x, double y)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_adc2c65eb2dcb509dbc02c5890e32bc49}\label{classagl_1_1Input_adc2c65eb2dcb509dbc02c5890e32bc49}} 
+G\+L\+F\+Wwindow $\ast$ {\bfseries window}
+\item 
+int \mbox{\hyperlink{classagl_1_1Input_a3d527e17ed44a940216ab7bd721b00a6}{keys}} \mbox{[}key\+\_\+count\mbox{]}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_a0655a72660cddb3b3c86e2d667694714}\label{classagl_1_1Input_a0655a72660cddb3b3c86e2d667694714}} 
+double {\bfseries cursor\+\_\+x}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_a792eb7e70381fdd18b6334d035e0782b}\label{classagl_1_1Input_a792eb7e70381fdd18b6334d035e0782b}} 
+double {\bfseries cursor\+\_\+y}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_aacd371856183d082364701a9285c4b8d}\label{classagl_1_1Input_aacd371856183d082364701a9285c4b8d}} 
+double {\bfseries cursor\+\_\+delta\+\_\+x}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_ac0a1863f27379ae6a643a4bc6ec43534}\label{classagl_1_1Input_ac0a1863f27379ae6a643a4bc6ec43534}} 
+double {\bfseries cursor\+\_\+delta\+\_\+y}
+\item 
+void($\ast$ \mbox{\hyperlink{classagl_1_1Input_a51bd4ac4cca730989ceef176786c9c38}{user\+\_\+defined}} )()
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Input_ac3da3d5046f8ab566827f27a9086149c}\label{classagl_1_1Input_ac3da3d5046f8ab566827f27a9086149c}} 
+static const int {\bfseries key\+\_\+count} = 350
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+T\+O\+DO\+: make the user-\/defined glfw pointer point to the \mbox{\hyperlink{classagl_1_1Input}{Input}} class instance 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1Input_a6273f37976797d2af6ffc3a004da75c9}\label{classagl_1_1Input_a6273f37976797d2af6ffc3a004da75c9}} 
+\index{agl::Input@{agl::Input}!cursor\_pos\_callback@{cursor\_pos\_callback}}
+\index{cursor\_pos\_callback@{cursor\_pos\_callback}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{cursor\_pos\_callback()}{cursor\_pos\_callback()}}
+{\footnotesize\ttfamily void agl\+::\+Input\+::cursor\+\_\+pos\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This function is made static so it can be set as a callback for G\+L\+FW It calls the cursor movement method of the actual input object which is retrieved through the G\+L\+FW window\textquotesingle{}s user-\/defined pointer which points to the \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} object. \mbox{\Hypertarget{classagl_1_1Input_a32f796994b97888c46e5ad150a988370}\label{classagl_1_1Input_a32f796994b97888c46e5ad150a988370}} 
+\index{agl::Input@{agl::Input}!key\_callback@{key\_callback}}
+\index{key\_callback@{key\_callback}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{key\_callback()}{key\_callback()}}
+{\footnotesize\ttfamily void agl\+::\+Input\+::key\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+This function is made static so it can be set as a callback for G\+L\+FW It calls the key handling method of the actual input object which is retrieved through the G\+L\+FW window\textquotesingle{}s user-\/defined pointer which points to the \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} object. \mbox{\Hypertarget{classagl_1_1Input_a3889beb818d765b5d5f604777fe1ce74}\label{classagl_1_1Input_a3889beb818d765b5d5f604777fe1ce74}} 
+\index{agl::Input@{agl::Input}!on\_loop@{on\_loop}}
+\index{on\_loop@{on\_loop}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{on\_loop()}{on\_loop()}}
+{\footnotesize\ttfamily void agl\+::\+Input\+::on\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Should be called every frame by the \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} loop function It increases the values of the keys that are pressed \mbox{\Hypertarget{classagl_1_1Input_aff9d58892cc8a0b9e65a87724de53773}\label{classagl_1_1Input_aff9d58892cc8a0b9e65a87724de53773}} 
+\index{agl::Input@{agl::Input}!set\_camera\_cursor\_mode@{set\_camera\_cursor\_mode}}
+\index{set\_camera\_cursor\_mode@{set\_camera\_cursor\_mode}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{set\_camera\_cursor\_mode()}{set\_camera\_cursor\_mode()}}
+{\footnotesize\ttfamily void agl\+::\+Input\+::set\+\_\+camera\+\_\+cursor\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets the cursor mode to G\+L\+F\+W\+\_\+\+C\+U\+R\+S\+O\+S\+R\+\_\+\+D\+I\+S\+A\+B\+L\+ED. This makes the cursor invisible and centered, allowing infinite movement, which is perfect for our camera. See \href{https://www.glfw.org/docs/latest/input_guide.html\#cursor_mode}{\texttt{ https\+://www.\+glfw.\+org/docs/latest/input\+\_\+guide.\+html\#cursor\+\_\+mode}} \mbox{\Hypertarget{classagl_1_1Input_a9950e44fce2bbb621f00abec81bb8bfc}\label{classagl_1_1Input_a9950e44fce2bbb621f00abec81bb8bfc}} 
+\index{agl::Input@{agl::Input}!set\_ui\_cursor\_mode@{set\_ui\_cursor\_mode}}
+\index{set\_ui\_cursor\_mode@{set\_ui\_cursor\_mode}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{set\_ui\_cursor\_mode()}{set\_ui\_cursor\_mode()}}
+{\footnotesize\ttfamily void agl\+::\+Input\+::set\+\_\+ui\+\_\+cursor\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Sets the cursor mode to G\+L\+F\+W\+\_\+\+C\+U\+R\+S\+O\+R\+\_\+\+N\+O\+R\+M\+AL. This allows normal cursor movement, ideal for G\+U\+Is. See \href{https://www.glfw.org/docs/latest/input_guide.html\#cursor_mode}{\texttt{ https\+://www.\+glfw.\+org/docs/latest/input\+\_\+guide.\+html\#cursor\+\_\+mode}} 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1Input_a3d527e17ed44a940216ab7bd721b00a6}\label{classagl_1_1Input_a3d527e17ed44a940216ab7bd721b00a6}} 
+\index{agl::Input@{agl::Input}!keys@{keys}}
+\index{keys@{keys}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily int agl\+::\+Input\+::keys\mbox{[}key\+\_\+count\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+Base value is 0 If a key is pressed, it\textquotesingle{}s value will be increased until it\textquotesingle{}s released, then it\textquotesingle{}s set back to 0. (If a value is not 0, it shows us for how long has the key been pressed) For the keycodes see \href{https://www.glfw.org/docs/latest/group__keys.html}{\texttt{ https\+://www.\+glfw.\+org/docs/latest/group\+\_\+\+\_\+keys.\+html}} \mbox{\Hypertarget{classagl_1_1Input_a51bd4ac4cca730989ceef176786c9c38}\label{classagl_1_1Input_a51bd4ac4cca730989ceef176786c9c38}} 
+\index{agl::Input@{agl::Input}!user\_defined@{user\_defined}}
+\index{user\_defined@{user\_defined}!agl::Input@{agl::Input}}
+\subsubsection{\texorpdfstring{user\_defined}{user\_defined}}
+{\footnotesize\ttfamily void($\ast$ agl\+::\+Input\+::user\+\_\+defined) ()\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to user-\/defined function to be called in loop. A user-\/defined input function should contain input handling calls. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Input.\+h\item 
+src/Input.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\hypertarget{classagl_1_1Transformation}{}\section{agl\+::Transformation Class Reference}
+\label{classagl_1_1Transformation}\index{agl::Transformation@{agl::Transformation}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_ae8d0487e6f9e427027fc3e86179b9666}\label{classagl_1_1Transformation_ae8d0487e6f9e427027fc3e86179b9666}} 
+bool {\bfseries init} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_a9de3b1c49c3c981b2231c5024cc1362b}\label{classagl_1_1Transformation_a9de3b1c49c3c981b2231c5024cc1362b}} 
+void {\bfseries translate} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_a3ed9bfab1f3ddbb660d961a2197bae73}\label{classagl_1_1Transformation_a3ed9bfab1f3ddbb660d961a2197bae73}} 
+void {\bfseries scale} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_a634ba87b8f767acafcd09e0c15dd357d}\label{classagl_1_1Transformation_a634ba87b8f767acafcd09e0c15dd357d}} 
+void {\bfseries scale} (float f)
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_ad313b2977a91aae7879c816f8cd00dc7}\label{classagl_1_1Transformation_ad313b2977a91aae7879c816f8cd00dc7}} 
+void {\bfseries rotate} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_adf068efbc01592a6fbe5e28660953dec}\label{classagl_1_1Transformation_adf068efbc01592a6fbe5e28660953dec}} 
+void {\bfseries calculate\+\_\+wvp\+\_\+matrix} (\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} $\ast$vp\+\_\+matrix)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} \mbox{\hyperlink{classagl_1_1Transformation_a214021890dbcbf0ffa9dd153081c097a}{translation\+\_\+matrix}}
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} \mbox{\hyperlink{classagl_1_1Transformation_a986f0d47080a364fc7a2b098eb1b16a7}{scale\+\_\+matrix}}
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_a2dc5ac8d2ac0bc80d6e95183eec1fbdc}\label{classagl_1_1Transformation_a2dc5ac8d2ac0bc80d6e95183eec1fbdc}} 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} {\bfseries rotation\+\_\+matrix}
+\item 
+\mbox{\Hypertarget{classagl_1_1Transformation_a59c2efee483f4fb596ce820a1d6a689b}\label{classagl_1_1Transformation_a59c2efee483f4fb596ce820a1d6a689b}} 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} {\bfseries wvp\+\_\+matrix}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1Transformation_a986f0d47080a364fc7a2b098eb1b16a7}\label{classagl_1_1Transformation_a986f0d47080a364fc7a2b098eb1b16a7}} 
+\index{agl::Transformation@{agl::Transformation}!scale\_matrix@{scale\_matrix}}
+\index{scale\_matrix@{scale\_matrix}!agl::Transformation@{agl::Transformation}}
+\subsubsection{\texorpdfstring{scale\_matrix}{scale\_matrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} agl\+::\+Transformation\+::scale\+\_\+matrix}
+
+Size \mbox{\Hypertarget{classagl_1_1Transformation_a214021890dbcbf0ffa9dd153081c097a}\label{classagl_1_1Transformation_a214021890dbcbf0ffa9dd153081c097a}} 
+\index{agl::Transformation@{agl::Transformation}!translation\_matrix@{translation\_matrix}}
+\index{translation\_matrix@{translation\_matrix}!agl::Transformation@{agl::Transformation}}
+\subsubsection{\texorpdfstring{translation\_matrix}{translation\_matrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} agl\+::\+Transformation\+::translation\+\_\+matrix}
+
+Position in 3D space 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Transformation.\+h\item 
+src/Transformation.\+cpp\end{DoxyCompactItemize}

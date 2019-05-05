@@ -9,18 +9,19 @@ namespace agl {
     Matrix4f();
     
     /**
-     * Makes our matrix an identity matrix
-     * 1 0 0 0
-     * 0 1 0 0
-     * 0 0 1 0
-     * 0 0 0 1
+     * Makes the matrix an identity matrix \n
+     * 1 0 0 0 \n
+     * 0 1 0 0 \n
+     * 0 0 1 0 \n
+     * 0 0 0 1 \n
      */
     void set_to_identity();
     
     void print();
-    
+
     /**
-     * @todo: possibly make inline
+     * @param[in] index The index of the row to be returned
+     * @returns A pointer to a row of the matrix
      */
     float* operator[](int index);
     

@@ -1,0 +1,217 @@
+\hypertarget{classagl_1_1Camera}{}\section{agl\+::Camera Class Reference}
+\label{classagl_1_1Camera}\index{agl::Camera@{agl::Camera}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_a01c4d59b49a9dafddf3110ecf3f2de8c}{set\+\_\+pos}} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_a121e091d9a0f2bbb56080e0cd6774572}{move}} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_afbc1c0876008bfc68c8cc24076163a3f}\label{classagl_1_1Camera_afbc1c0876008bfc68c8cc24076163a3f}} 
+void {\bfseries move\+\_\+forward} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a9dac6c92d770bdc37bce87b58d6c8801}\label{classagl_1_1Camera_a9dac6c92d770bdc37bce87b58d6c8801}} 
+void {\bfseries move\+\_\+left} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a3ef7af79bc8f6924cc7332d47b31a34f}\label{classagl_1_1Camera_a3ef7af79bc8f6924cc7332d47b31a34f}} 
+void {\bfseries move\+\_\+backwards} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_aa4aad202c15420667cf7b0fb244d1984}\label{classagl_1_1Camera_aa4aad202c15420667cf7b0fb244d1984}} 
+void {\bfseries move\+\_\+right} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_a796d0f35bb9e5b3e7ac418ac5b302584}{orient}} (float h, float v)
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_aea8f0343ddc60924b01c918e8be47ac0}{turn}} (float h, float v)
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a07c878568c33efbbf330e9b5ccc0a72e}\label{classagl_1_1Camera_a07c878568c33efbbf330e9b5ccc0a72e}} 
+bool {\bfseries init} (int \mbox{\hyperlink{classagl_1_1Camera_ab7f25faffd597eb3557e9a41bed2a99f}{width}}, int height)
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} $\ast$ \mbox{\hyperlink{classagl_1_1Camera_aabf49dbe9c14189dad0a2f55a0c404cb}{get\+\_\+vp\+\_\+matrix}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a8e6ac2844105370dbee5da609bfd999f}\label{classagl_1_1Camera_a8e6ac2844105370dbee5da609bfd999f}} 
+void {\bfseries limit\+\_\+vertical\+\_\+angle} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_a75ae39c49e4ccc6c850eb32a9bb70e93}{calculate\+\_\+perspective\+\_\+projection}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_a03a502bcfaa24c6469f3357e1df43118}{calculate\+\_\+translation}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_a88af7620d31f286d147b0b4df84d5077}{calculate\+\_\+rotation}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Camera_abfff009a6419e7f5e203b3081f840dfc}{calculate\+\_\+vp\+\_\+matrix}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classagl_1_1Camera_a32e5a298b0def2beff1cb6d4dde901d8}{fov}}
+\item 
+float \mbox{\hyperlink{classagl_1_1Camera_a20ab35530883700a9e0d1d93157bcd66}{z\+\_\+near}}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a8e817f178a0d69a4b32cce0fc6bb71b6}\label{classagl_1_1Camera_a8e817f178a0d69a4b32cce0fc6bb71b6}} 
+float {\bfseries z\+\_\+far}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a2a42ea9a6a6b5120f494db3f9a7e1e4b}\label{classagl_1_1Camera_a2a42ea9a6a6b5120f494db3f9a7e1e4b}} 
+float {\bfseries vertical\+\_\+angle}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a78e0bbb8e011124eb1276267d93eb354}\label{classagl_1_1Camera_a78e0bbb8e011124eb1276267d93eb354}} 
+float {\bfseries horizontal\+\_\+angle}
+\item 
+int \mbox{\hyperlink{classagl_1_1Camera_ab7f25faffd597eb3557e9a41bed2a99f}{width}}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a96462c427ddc903be6d0f24cb82a7738}\label{classagl_1_1Camera_a96462c427ddc903be6d0f24cb82a7738}} 
+int {\bfseries height}
+\item 
+\mbox{\hyperlink{classagl_1_1Point}{Point}} \mbox{\hyperlink{classagl_1_1Camera_a4156ee2c5c0f0dc780d603245baaf081}{pos}}
+\item 
+\mbox{\hyperlink{classagl_1_1Point}{Point}} \mbox{\hyperlink{classagl_1_1Camera_ab18d396b235bab0688d935e73d921e5b}{look\+\_\+at}}
+\item 
+\mbox{\hyperlink{classagl_1_1Point}{Point}} \mbox{\hyperlink{classagl_1_1Camera_a654f2c23bdb8610c75a0fe8dcac82e99}{up}}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a3882954ef41749684d3d16677761aa4b}\label{classagl_1_1Camera_a3882954ef41749684d3d16677761aa4b}} 
+float {\bfseries move\+\_\+speed}
+\item 
+\mbox{\Hypertarget{classagl_1_1Camera_a74f3790af58a5475ffb15429fdf46906}\label{classagl_1_1Camera_a74f3790af58a5475ffb15429fdf46906}} 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} {\bfseries perspective\+\_\+projection}
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} \mbox{\hyperlink{classagl_1_1Camera_a7f144f218001278cf7ef6e076b62c1dd}{translation}}
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} \mbox{\hyperlink{classagl_1_1Camera_a89073494f44e962e4929d89c0e45fb1f}{rotation}}
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} \mbox{\hyperlink{classagl_1_1Camera_afa314810b54bd4ba075471c20fe7514e}{vp\+\_\+matrix}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1Camera_a75ae39c49e4ccc6c850eb32a9bb70e93}\label{classagl_1_1Camera_a75ae39c49e4ccc6c850eb32a9bb70e93}} 
+\index{agl::Camera@{agl::Camera}!calculate\_perspective\_projection@{calculate\_perspective\_projection}}
+\index{calculate\_perspective\_projection@{calculate\_perspective\_projection}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{calculate\_perspective\_projection()}{calculate\_perspective\_projection()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::calculate\+\_\+perspective\+\_\+projection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+See \href{http://ogldev.atspace.co.uk/www/tutorial12/tutorial12.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial12/tutorial12.\+html}} \mbox{\Hypertarget{classagl_1_1Camera_a88af7620d31f286d147b0b4df84d5077}\label{classagl_1_1Camera_a88af7620d31f286d147b0b4df84d5077}} 
+\index{agl::Camera@{agl::Camera}!calculate\_rotation@{calculate\_rotation}}
+\index{calculate\_rotation@{calculate\_rotation}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{calculate\_rotation()}{calculate\_rotation()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::calculate\+\_\+rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+See \href{http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial13/tutorial13.\+html}} \href{http://ogldev.atspace.co.uk/www/tutorial15/tutorial15.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial15/tutorial15.\+html}} \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Quaternions\+\_\+and\+\_\+spatial\+\_\+rotation}} \mbox{\Hypertarget{classagl_1_1Camera_a03a502bcfaa24c6469f3357e1df43118}\label{classagl_1_1Camera_a03a502bcfaa24c6469f3357e1df43118}} 
+\index{agl::Camera@{agl::Camera}!calculate\_translation@{calculate\_translation}}
+\index{calculate\_translation@{calculate\_translation}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{calculate\_translation()}{calculate\_translation()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::calculate\+\_\+translation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Almost the same as an object translation matrix, but the coordinates are negated. See \href{http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial13/tutorial13.\+html}} \mbox{\Hypertarget{classagl_1_1Camera_abfff009a6419e7f5e203b3081f840dfc}\label{classagl_1_1Camera_abfff009a6419e7f5e203b3081f840dfc}} 
+\index{agl::Camera@{agl::Camera}!calculate\_vp\_matrix@{calculate\_vp\_matrix}}
+\index{calculate\_vp\_matrix@{calculate\_vp\_matrix}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{calculate\_vp\_matrix()}{calculate\_vp\_matrix()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::calculate\+\_\+vp\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+the View-\/\+Projection matrix is the multiplication of the perspective projection, camera translation and camera rotation matrices. \mbox{\Hypertarget{classagl_1_1Camera_aabf49dbe9c14189dad0a2f55a0c404cb}\label{classagl_1_1Camera_aabf49dbe9c14189dad0a2f55a0c404cb}} 
+\index{agl::Camera@{agl::Camera}!get\_vp\_matrix@{get\_vp\_matrix}}
+\index{get\_vp\_matrix@{get\_vp\_matrix}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{get\_vp\_matrix()}{get\_vp\_matrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} $\ast$ agl\+::\+Camera\+::get\+\_\+vp\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the view and projection matrices multiplied \mbox{\Hypertarget{classagl_1_1Camera_a121e091d9a0f2bbb56080e0cd6774572}\label{classagl_1_1Camera_a121e091d9a0f2bbb56080e0cd6774572}} 
+\index{agl::Camera@{agl::Camera}!move@{move}}
+\index{move@{move}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{p }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} is moved BY p (p is added to the actual position) \mbox{\Hypertarget{classagl_1_1Camera_a796d0f35bb9e5b3e7ac418ac5b302584}\label{classagl_1_1Camera_a796d0f35bb9e5b3e7ac418ac5b302584}} 
+\index{agl::Camera@{agl::Camera}!orient@{orient}}
+\index{orient@{orient}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{orient()}{orient()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::orient (\begin{DoxyParamCaption}\item[{float}]{h,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} orientation is set TO these angles 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h} & Horizontal orientation angle \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & Vertical orientation angle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classagl_1_1Camera_a01c4d59b49a9dafddf3110ecf3f2de8c}\label{classagl_1_1Camera_a01c4d59b49a9dafddf3110ecf3f2de8c}} 
+\index{agl::Camera@{agl::Camera}!set\_pos@{set\_pos}}
+\index{set\_pos@{set\_pos}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{set\_pos()}{set\_pos()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::set\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{p }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} is moved TO p (the actual position is set to p) \mbox{\Hypertarget{classagl_1_1Camera_aea8f0343ddc60924b01c918e8be47ac0}\label{classagl_1_1Camera_aea8f0343ddc60924b01c918e8be47ac0}} 
+\index{agl::Camera@{agl::Camera}!turn@{turn}}
+\index{turn@{turn}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{turn()}{turn()}}
+{\footnotesize\ttfamily void agl\+::\+Camera\+::turn (\begin{DoxyParamCaption}\item[{float}]{h,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} is rotated BY these angles 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em h} & Horizontal rotation angle \\
+\hline
+\mbox{\texttt{ in}}  & {\em v} & Vertical rotation angle \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1Camera_a32e5a298b0def2beff1cb6d4dde901d8}\label{classagl_1_1Camera_a32e5a298b0def2beff1cb6d4dde901d8}} 
+\index{agl::Camera@{agl::Camera}!fov@{fov}}
+\index{fov@{fov}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{fov}{fov}}
+{\footnotesize\ttfamily float agl\+::\+Camera\+::fov\hspace{0.3cm}{\ttfamily [private]}}
+
+Field of view \mbox{\Hypertarget{classagl_1_1Camera_ab18d396b235bab0688d935e73d921e5b}\label{classagl_1_1Camera_ab18d396b235bab0688d935e73d921e5b}} 
+\index{agl::Camera@{agl::Camera}!look\_at@{look\_at}}
+\index{look\_at@{look\_at}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{look\_at}{look\_at}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Point}{Point}} agl\+::\+Camera\+::look\+\_\+at\hspace{0.3cm}{\ttfamily [private]}}
+
+Target of the camera \mbox{\Hypertarget{classagl_1_1Camera_a4156ee2c5c0f0dc780d603245baaf081}\label{classagl_1_1Camera_a4156ee2c5c0f0dc780d603245baaf081}} 
+\index{agl::Camera@{agl::Camera}!pos@{pos}}
+\index{pos@{pos}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Point}{Point}} agl\+::\+Camera\+::pos\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} position \mbox{\Hypertarget{classagl_1_1Camera_a89073494f44e962e4929d89c0e45fb1f}\label{classagl_1_1Camera_a89073494f44e962e4929d89c0e45fb1f}} 
+\index{agl::Camera@{agl::Camera}!rotation@{rotation}}
+\index{rotation@{rotation}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{rotation}{rotation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} agl\+::\+Camera\+::rotation\hspace{0.3cm}{\ttfamily [private]}}
+
+This is a U\+VN matrix See \href{http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial13/tutorial13.\+html}} \mbox{\Hypertarget{classagl_1_1Camera_a7f144f218001278cf7ef6e076b62c1dd}\label{classagl_1_1Camera_a7f144f218001278cf7ef6e076b62c1dd}} 
+\index{agl::Camera@{agl::Camera}!translation@{translation}}
+\index{translation@{translation}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{translation}{translation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} agl\+::\+Camera\+::translation\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} position matrix Note that the coordinates are negated in this matrix See \href{http://ogldev.atspace.co.uk/www/tutorial13/tutorial13.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial13/tutorial13.\+html}} \mbox{\Hypertarget{classagl_1_1Camera_a654f2c23bdb8610c75a0fe8dcac82e99}\label{classagl_1_1Camera_a654f2c23bdb8610c75a0fe8dcac82e99}} 
+\index{agl::Camera@{agl::Camera}!up@{up}}
+\index{up@{up}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{up}{up}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Point}{Point}} agl\+::\+Camera\+::up\hspace{0.3cm}{\ttfamily [private]}}
+
+Y axis of the camera space \mbox{\Hypertarget{classagl_1_1Camera_afa314810b54bd4ba075471c20fe7514e}\label{classagl_1_1Camera_afa314810b54bd4ba075471c20fe7514e}} 
+\index{agl::Camera@{agl::Camera}!vp\_matrix@{vp\_matrix}}
+\index{vp\_matrix@{vp\_matrix}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{vp\_matrix}{vp\_matrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} agl\+::\+Camera\+::vp\+\_\+matrix\hspace{0.3cm}{\ttfamily [private]}}
+
+View-\/\+Projection matrix \mbox{\Hypertarget{classagl_1_1Camera_ab7f25faffd597eb3557e9a41bed2a99f}\label{classagl_1_1Camera_ab7f25faffd597eb3557e9a41bed2a99f}} 
+\index{agl::Camera@{agl::Camera}!width@{width}}
+\index{width@{width}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int agl\+::\+Camera\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+Window width and height \mbox{\Hypertarget{classagl_1_1Camera_a20ab35530883700a9e0d1d93157bcd66}\label{classagl_1_1Camera_a20ab35530883700a9e0d1d93157bcd66}} 
+\index{agl::Camera@{agl::Camera}!z\_near@{z\_near}}
+\index{z\_near@{z\_near}!agl::Camera@{agl::Camera}}
+\subsubsection{\texorpdfstring{z\_near}{z\_near}}
+{\footnotesize\ttfamily float agl\+::\+Camera\+::z\+\_\+near\hspace{0.3cm}{\ttfamily [private]}}
+
+Clipping values; nothing will be seen closer than z\+\_\+near or farther than z\+\_\+far 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Camera.\+h\item 
+src/Camera.\+cpp\end{DoxyCompactItemize}

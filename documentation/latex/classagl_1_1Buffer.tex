@@ -1,0 +1,128 @@
+\hypertarget{classagl_1_1Buffer}{}\section{agl\+::Buffer Class Reference}
+\label{classagl_1_1Buffer}\index{agl::Buffer@{agl::Buffer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_a53a537292cdc2108ea73361566e48754}\label{classagl_1_1Buffer_a53a537292cdc2108ea73361566e48754}} 
+{\bfseries Buffer} (G\+Lenum \mbox{\hyperlink{classagl_1_1Buffer_a58c9e34d415980f2e19b8774ddac22dc}{primitive}})
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_ad5d722676b6b8913e0f9aad77bd0d04a}\label{classagl_1_1Buffer_ad5d722676b6b8913e0f9aad77bd0d04a}} 
+void {\bfseries init} (\mbox{\hyperlink{classagl_1_1AGL}{A\+GL}} $\ast$agl)
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_aa59b7d8256c2f6d1efc71b47ecd8dc91}\label{classagl_1_1Buffer_aa59b7d8256c2f6d1efc71b47ecd8dc91}} 
+void {\bfseries draw} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Buffer_ae1d1a6b36fc4d53385c0a58db550603a}{add}} (vector$<$ \mbox{\hyperlink{classagl_1_1Vertex}{Vertex}} $>$ vertices, vector$<$ unsigned int $>$ indices)
+\item 
+void \mbox{\hyperlink{classagl_1_1Buffer_a245a48fb5cfa9d8208f4891b6b784f60}{set\+\_\+texture}} (std\+::string file\+\_\+name)
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_a604261e4a40cc3f002e91a83b1fc3163}\label{classagl_1_1Buffer_a604261e4a40cc3f002e91a83b1fc3163}} 
+void {\bfseries clear} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_a54fa23f9275a8bacb6f4d5d32025eb1a}\label{classagl_1_1Buffer_a54fa23f9275a8bacb6f4d5d32025eb1a}} 
+void {\bfseries translate} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_aaed5aa91be4da940778b52864f4b4946}\label{classagl_1_1Buffer_aaed5aa91be4da940778b52864f4b4946}} 
+void {\bfseries scale} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_af272ae7a5e8a50e64ab5ff97f803948c}\label{classagl_1_1Buffer_af272ae7a5e8a50e64ab5ff97f803948c}} 
+void {\bfseries scale} (float f)
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_a558d7bf5034d6133a69193c97234efae}\label{classagl_1_1Buffer_a558d7bf5034d6133a69193c97234efae}} 
+void {\bfseries rotate} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classagl_1_1Buffer_a71a6b0eb942d6eadaf949d538c50aa91}{rebuffer}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_a6b738fb080cb78f9b46af8f60d3936c8}\label{classagl_1_1Buffer_a6b738fb080cb78f9b46af8f60d3936c8}} 
+vector$<$ \mbox{\hyperlink{classagl_1_1Vertex}{Vertex}} $>$ {\bfseries vertices}
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_ad3859594ff238dfa4af2ba5ca4d2e86f}\label{classagl_1_1Buffer_ad3859594ff238dfa4af2ba5ca4d2e86f}} 
+vector$<$ unsigned int $>$ {\bfseries indices}
+\item 
+\mbox{\Hypertarget{classagl_1_1Buffer_a353f38da8d41eaebe2dce8a28c3bb2a5}\label{classagl_1_1Buffer_a353f38da8d41eaebe2dce8a28c3bb2a5}} 
+\mbox{\hyperlink{classagl_1_1Texture}{Texture}} {\bfseries texture}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Buffer_a957aca2a128e4b512eb858cdea749da1}{vertexarray\+\_\+id}}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Buffer_a634615ef5cf03ede6e3afe31a6fc5723}{vertexbuffer}}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Buffer_a6a3afd93e5f0f3c7aa2ba163537ad6fc}{indexbuffer}}
+\item 
+G\+Lenum \mbox{\hyperlink{classagl_1_1Buffer_a58c9e34d415980f2e19b8774ddac22dc}{primitive}}
+\item 
+\mbox{\hyperlink{classagl_1_1Transformation}{Transformation}} \mbox{\hyperlink{classagl_1_1Buffer_a958d8a9c8719b13f7aa2efb0879bf962}{transformation}}
+\item 
+\mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} $\ast$ \mbox{\hyperlink{classagl_1_1Buffer_a51cbbfb12ba689de4aea001b0f4242c1}{graphics}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1Buffer_ae1d1a6b36fc4d53385c0a58db550603a}\label{classagl_1_1Buffer_ae1d1a6b36fc4d53385c0a58db550603a}} 
+\index{agl::Buffer@{agl::Buffer}!add@{add}}
+\index{add@{add}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void agl\+::\+Buffer\+::add (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{classagl_1_1Vertex}{Vertex}} $>$}]{vertices,  }\item[{vector$<$ unsigned int $>$}]{indices }\end{DoxyParamCaption})}
+
+Adds the set of vertices and indices to the buffer If a vertex already exists, its old index will be used \mbox{\Hypertarget{classagl_1_1Buffer_a71a6b0eb942d6eadaf949d538c50aa91}\label{classagl_1_1Buffer_a71a6b0eb942d6eadaf949d538c50aa91}} 
+\index{agl::Buffer@{agl::Buffer}!rebuffer@{rebuffer}}
+\index{rebuffer@{rebuffer}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{rebuffer()}{rebuffer()}}
+{\footnotesize\ttfamily void agl\+::\+Buffer\+::rebuffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Loads the vertex and index data into the coresponding buffers \mbox{\Hypertarget{classagl_1_1Buffer_a245a48fb5cfa9d8208f4891b6b784f60}\label{classagl_1_1Buffer_a245a48fb5cfa9d8208f4891b6b784f60}} 
+\index{agl::Buffer@{agl::Buffer}!set\_texture@{set\_texture}}
+\index{set\_texture@{set\_texture}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{set\_texture()}{set\_texture()}}
+{\footnotesize\ttfamily void agl\+::\+Buffer\+::set\+\_\+texture (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+Loads the image specified into the texture object of the texture of the buffer 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1Buffer_a51cbbfb12ba689de4aea001b0f4242c1}\label{classagl_1_1Buffer_a51cbbfb12ba689de4aea001b0f4242c1}} 
+\index{agl::Buffer@{agl::Buffer}!graphics@{graphics}}
+\index{graphics@{graphics}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{graphics}{graphics}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}}$\ast$ agl\+::\+Buffer\+::graphics\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to the graphics context This is needed to get the address of the glsl matrix \mbox{\Hypertarget{classagl_1_1Buffer_a6a3afd93e5f0f3c7aa2ba163537ad6fc}\label{classagl_1_1Buffer_a6a3afd93e5f0f3c7aa2ba163537ad6fc}} 
+\index{agl::Buffer@{agl::Buffer}!indexbuffer@{indexbuffer}}
+\index{indexbuffer@{indexbuffer}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{indexbuffer}{indexbuffer}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Buffer\+::indexbuffer\hspace{0.3cm}{\ttfamily [private]}}
+
+Handle to the index buffer \mbox{\Hypertarget{classagl_1_1Buffer_a58c9e34d415980f2e19b8774ddac22dc}\label{classagl_1_1Buffer_a58c9e34d415980f2e19b8774ddac22dc}} 
+\index{agl::Buffer@{agl::Buffer}!primitive@{primitive}}
+\index{primitive@{primitive}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{primitive}{primitive}}
+{\footnotesize\ttfamily G\+Lenum agl\+::\+Buffer\+::primitive\hspace{0.3cm}{\ttfamily [private]}}
+
+Draw mode (G\+L\+\_\+\+T\+R\+I\+A\+N\+G\+L\+ES, G\+L\+\_\+\+L\+I\+N\+ES, etc.) \mbox{\Hypertarget{classagl_1_1Buffer_a958d8a9c8719b13f7aa2efb0879bf962}\label{classagl_1_1Buffer_a958d8a9c8719b13f7aa2efb0879bf962}} 
+\index{agl::Buffer@{agl::Buffer}!transformation@{transformation}}
+\index{transformation@{transformation}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{transformation}{transformation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Transformation}{Transformation}} agl\+::\+Buffer\+::transformation\hspace{0.3cm}{\ttfamily [private]}}
+
+Stores the translation, rotation and scaling of the object \mbox{\Hypertarget{classagl_1_1Buffer_a957aca2a128e4b512eb858cdea749da1}\label{classagl_1_1Buffer_a957aca2a128e4b512eb858cdea749da1}} 
+\index{agl::Buffer@{agl::Buffer}!vertexarray\_id@{vertexarray\_id}}
+\index{vertexarray\_id@{vertexarray\_id}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{vertexarray\_id}{vertexarray\_id}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Buffer\+::vertexarray\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+Handle to the handles, describes our vertex format \mbox{\Hypertarget{classagl_1_1Buffer_a634615ef5cf03ede6e3afe31a6fc5723}\label{classagl_1_1Buffer_a634615ef5cf03ede6e3afe31a6fc5723}} 
+\index{agl::Buffer@{agl::Buffer}!vertexbuffer@{vertexbuffer}}
+\index{vertexbuffer@{vertexbuffer}!agl::Buffer@{agl::Buffer}}
+\subsubsection{\texorpdfstring{vertexbuffer}{vertexbuffer}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Buffer\+::vertexbuffer\hspace{0.3cm}{\ttfamily [private]}}
+
+Handle to the vertex buffer 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Buffer.\+h\item 
+src/Buffer.\+cpp\end{DoxyCompactItemize}

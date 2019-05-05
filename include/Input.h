@@ -71,12 +71,19 @@ namespace agl {
     void on_loop();
     
     /**
-     * Sets the cursor mode to GLFW_CURSOSR_DISABLED
-     * and enables raw mouse motion. This makes the cursor invisible and
+     * Sets the cursor mode to GLFW_CURSOSR_DISABLED.
+     * This makes the cursor invisible and
      * centered, allowing infinite movement, which is perfect for our camera.
      * See https://www.glfw.org/docs/latest/input_guide.html#cursor_mode
      */
     void set_camera_cursor_mode();
+    
+    /**
+     * Sets the cursor mode to GLFW_CURSOR_NORMAL.
+     * This allows normal cursor movement, ideal for GUIs.
+     * See https://www.glfw.org/docs/latest/input_guide.html#cursor_mode
+     */
+    void set_ui_cursor_mode();
     
     int get_key(int key);
     

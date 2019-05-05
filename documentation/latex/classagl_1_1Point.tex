@@ -1,0 +1,52 @@
+\hypertarget{classagl_1_1Point}{}\section{agl\+::Point Class Reference}
+\label{classagl_1_1Point}\index{agl::Point@{agl::Point}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a5635164befc9b7aa82d4b9c2d73171d1}\label{classagl_1_1Point_a5635164befc9b7aa82d4b9c2d73171d1}} 
+{\bfseries Point} (float x, float y, float z)
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a1b476e0f27e55c86bc7ab4e4357d1fc0}\label{classagl_1_1Point_a1b476e0f27e55c86bc7ab4e4357d1fc0}} 
+void {\bfseries normalize} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a7224d94cc5dae3c9cb264c9347243746}\label{classagl_1_1Point_a7224d94cc5dae3c9cb264c9347243746}} 
+\mbox{\hyperlink{classagl_1_1Point}{Point}} {\bfseries cross\+\_\+product} (const \mbox{\hyperlink{classagl_1_1Point}{Point}} \&p)
+\item 
+void \mbox{\hyperlink{classagl_1_1Point_a2fd5848bb72d952cd6e73b0255a5ebb2}{rotate}} (float angle, \mbox{\hyperlink{classagl_1_1Point}{Point}} vector)
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_ad2f5b77b334ee406033297630c4b4ee4}\label{classagl_1_1Point_ad2f5b77b334ee406033297630c4b4ee4}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{classagl_1_1Point}{Point}} \&p) const
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a4b8043be7d8dacbabd90f1f5799a6cbc}\label{classagl_1_1Point_a4b8043be7d8dacbabd90f1f5799a6cbc}} 
+\mbox{\hyperlink{classagl_1_1Point}{Point}} {\bfseries operator $\ast$} (const float f)
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a70f39381e9c29cd954f2f646ab1c2074}\label{classagl_1_1Point_a70f39381e9c29cd954f2f646ab1c2074}} 
+\mbox{\hyperlink{classagl_1_1Point}{Point}} \& {\bfseries operator+=} (const \mbox{\hyperlink{classagl_1_1Point}{Point}} \&p)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a51670f86adbcebc56f3bed24e299f90a}\label{classagl_1_1Point_a51670f86adbcebc56f3bed24e299f90a}} 
+float {\bfseries x}
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a300951e708e9f807a0a65d16e39bbf26}\label{classagl_1_1Point_a300951e708e9f807a0a65d16e39bbf26}} 
+float {\bfseries y}
+\item 
+\mbox{\Hypertarget{classagl_1_1Point_a33490094077b57b79b30532d3e714aef}\label{classagl_1_1Point_a33490094077b57b79b30532d3e714aef}} 
+float {\bfseries z}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1Point_a2fd5848bb72d952cd6e73b0255a5ebb2}\label{classagl_1_1Point_a2fd5848bb72d952cd6e73b0255a5ebb2}} 
+\index{agl::Point@{agl::Point}!rotate@{rotate}}
+\index{rotate@{rotate}!agl::Point@{agl::Point}}
+\subsubsection{\texorpdfstring{rotate()}{rotate()}}
+{\footnotesize\ttfamily void agl\+::\+Point\+::rotate (\begin{DoxyParamCaption}\item[{float}]{angle,  }\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{vector }\end{DoxyParamCaption})}
+
+Rotates by angle around vector using quaternions See \href{https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation}{\texttt{ https\+://en.\+wikipedia.\+org/wiki/\+Quaternions\+\_\+and\+\_\+spatial\+\_\+rotation}} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Point.\+h\item 
+src/Point.\+cpp\end{DoxyCompactItemize}

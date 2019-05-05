@@ -1,20 +1,28 @@
 #ifndef AGL_H
 #define AGL_H
 
+#include "Point.h"
 #include "Input.h"
 #include "Graphics.h"
 
 namespace agl {
+  class Graphics;
   /**
-   * Wrapper class for graphics and input.
+   * @brief Wrapper class for graphics and input.
    * The user should only interact with agl through this class
    */
   class AGL {
-    Graphics graphics;
+    Graphics *graphics;
     
     Input input;
     
     bool quit;
+    
+    /**
+     * true: The cursor is disabled, ideal for camera movement
+     * false: The cursor is enabled, ideal for ui
+     */
+    bool cursor_disabled;
     
     /**
      * Pointer to user-defined function to be called in loop.
@@ -86,6 +94,12 @@ namespace agl {
      * Just calls the corresponding Camera function
      */
     void turn_camera(float h, float v);
+    
+    void disable_cursor();
+    
+    void enable_cursor();
+    
+    bool is_cursor_disabled();
   };
 }
 

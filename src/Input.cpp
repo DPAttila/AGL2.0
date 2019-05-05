@@ -61,8 +61,17 @@ namespace agl {
   
   void Input::set_camera_cursor_mode() {
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+    cursor_delta_x = 0;
+    cursor_delta_y = 0;
    // if (glfwRawMouseMotionSupported())
    //   glfwSetInputMode(window, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
+  }
+  
+  void Input::set_ui_cursor_mode() {
+    glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+    int width, height;
+    glfwGetWindowSize(window, &width, &height);
+    glfwSetCursorPos(window, width / 2, height / 2);
   }
   
   int Input::get_key(int key) {

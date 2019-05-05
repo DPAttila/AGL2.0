@@ -6,8 +6,10 @@
 #include "glad/glad.h"
 #include <GLFW/glfw3.h>
 
-#include "Camera.h"
+#include "AGL.h"
 #include "Input.h"
+#include "Camera.h"
+#include "Shader.h"
 
 namespace agl {
   class Graphics {
@@ -16,25 +18,9 @@ namespace agl {
     Camera camera;
     
     /**
-     * Id of the GLSL program
+     * Basic shader, buffers are initialized with it
      */
-    GLuint shader_program_id;
-    
-    /**
-     * Handle to the sampler (used for textures)
-     * See ogldev tutorial 16
-     */
-    GLuint sampler_id;
-    
-    /**
-     * If set to true, the main loop stops
-     */
-    bool quit;
-    
-    /**
-     * Handle to the world matrix uniform variable in the shader
-     */
-    GLuint glsl_matrix_location;
+    Shader* basic_shader;
     
     /**
      * Pointer to user-defined function to be called in loop
@@ -48,9 +34,9 @@ namespace agl {
     
     /**
      * Initializes glfw, glad and a window.
-     * Sets the glfw user pointer to the object initialized, 
-     * so it can be accessed from anywhere
      * @param[in] window_name Name of the window to be created
+     * @param[in] user_defind User-defined draw function. All of the user's 
+     * bufferes should be drawn here
      * @retval <true> The intialization was successful
      * @retval <false> Couldn't initialize 
      */
@@ -101,9 +87,9 @@ namespace agl {
      */
     Matrix4f* get_vp_matrix();
     
-    GLuint get_glsl_matrix_location();
-    
     GLFWwindow* get_window();
+    
+    Shader* get_default_shader();
   };
 }
 

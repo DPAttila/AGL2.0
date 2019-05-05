@@ -1,0 +1,8 @@
+<map id="agl::Graphics::turn_camera" name="agl::Graphics::turn_camera">
+<area shape="rect" id="node1" title=" " alt="" coords="5,57,135,98"/>
+<area shape="rect" id="node2" href="$classagl_1_1Camera.html#aea8f0343ddc60924b01c918e8be47ac0" title=" " alt="" coords="183,64,305,91"/>
+<area shape="rect" id="node3" href="$classagl_1_1Camera.html#a88af7620d31f286d147b0b4df84d5077" title=" " alt="" coords="353,57,507,98"/>
+<area shape="rect" id="node4" href="$classagl_1_1Point.html#a2fd5848bb72d952cd6e73b0255a5ebb2" title=" " alt="" coords="572,5,691,32"/>
+<area shape="rect" id="node5" href="$classagl_1_1Matrix4f.html#a51973ba1ec474b3c0cfd64d93691f04a" title=" " alt="" coords="571,57,691,98"/>
+<area shape="rect" id="node6" href="$classagl_1_1Camera.html#abfff009a6419e7f5e203b3081f840dfc" title=" " alt="" coords="555,122,708,163"/>
+</map>

@@ -7,7 +7,7 @@ SOURCES += glad/glad.cpp
 
 # imgui sources for UI
 SOURCES += imgui-master/imgui.cpp imgui-master/imgui_demo.cpp 
-SOURCES +=imgui-master/imgui_draw.cpp imgui-master/imgui_widgets.cpp
+SOURCES += imgui-master/imgui_draw.cpp imgui-master/imgui_widgets.cpp
 SOURCES += imgui-master/examples/imgui_impl_glfw.cpp 
 SOURCES += imgui-master/examples/imgui_impl_opengl3.cpp
 
@@ -38,7 +38,7 @@ all: $(SO)
 	@echo Build complete
   
 LIB_LOCATION=/home/ati/repos/agl2.0/
-test: $(SO) test/test.cpp
+test: all
 	$(CXX) -L$(LIB_LOCATION) -Wl,-rpath=$(LIB_LOCATION) -Wall test/test.cpp -lagl $(INCLUDE_PATHS) -o test/test
 
 clean:

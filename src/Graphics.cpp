@@ -4,7 +4,7 @@
 #include "Graphics.h"
 
 #include <string>
-#include <iostream>
+#include <stdio.h>
 
 #include "util.h"
 #include "imgui.h"
@@ -18,14 +18,18 @@ namespace agl {
   bool Graphics::init(std::string window_name, void (*user_defined)()) {  
     this->user_defined = user_defined;  
     if (!glfwInit()) {
-      alert("Failed to initialize GLFW!");
+      printf(ANSI_COLOR_RED "Failed to initialize GLFW!" ANSI_END_COLOR);
       return false;
     }
     
     int glfw_version_maj, glfw_version_min, glfw_version_rev;
     glfwGetVersion(&glfw_version_maj, &glfw_version_min, &glfw_version_rev);
-    std::cout << "GLFW version " << glfw_version_maj << "." 
-              << glfw_version_min << "." << glfw_version_rev << '\n';
+    printf(
+        "GLFW version %i.%i.%i\n", 
+        glfw_version_maj, 
+        glfw_version_min, 
+        glfw_version_rev
+    );
     
     glfwWindowHint(GLFW_SAMPLES, 4);
 	  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -34,10 +38,11 @@ namespace agl {
   
     int count;
     GLFWmonitor** monitors = glfwGetMonitors(&count);
-    log(std::to_string(count) + " monitors identified:");
+    printf("%i monitors identified:\n", count);
+
     for (int i = 0; i < count; i++) {
       const GLFWvidmode* mode = glfwGetVideoMode(monitors[i]);
-      log(std::to_string(mode->width) + " * " + std::to_string(mode->height));
+      printf("%i * %i\n", mode->width, mode->height);
     }
     
     
@@ -57,7 +62,7 @@ namespace agl {
     */
     
     if (window == NULL) {
-      alert("Failed to open GLFW window.");
+      printf(ANSI_COLOR_RED "Failed to open GLFW window." ANSI_END_COLOR);
       glfwTerminate();
       return false;
     }
@@ -65,7 +70,7 @@ namespace agl {
     glfwMakeContextCurrent(window);
     
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
-      alert("Failed to initialize GLAD.");
+      printf(ANSI_COLOR_RED "Failed to initialize GLAD." ANSI_END_COLOR);
       return false;
     }
     
@@ -76,14 +81,7 @@ namespace agl {
         glfwGetVideoMode(monitors[0])->height
     );
     
-    // Creates and compiles a GLSL program from the shaders
-    shader_program_id = load_shaders("src/shader.vs", "src/shader.fs");
-    
-    sampler_id = glGetUniformLocation(shader_program_id, "sampler");
-    
-    glsl_matrix_location = glGetUniformLocation(shader_program_id, "world");
-    
-    glUniform1i(sampler_id, 0);
+    basic_shader = new Shader();
     
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -98,6 +96,9 @@ namespace agl {
     glEnable(GL_CULL_FACE);
 
     glEnable(GL_DEPTH_TEST);
+    
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable( GL_BLEND );
     return true;
   }
   
@@ -108,8 +109,6 @@ namespace agl {
 
     glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    // Uses the shaders
-    glUseProgram(shader_program_id);
     
     user_defined();
     
@@ -120,7 +119,7 @@ namespace agl {
   }
   
   void Graphics::terminate() {
-    glDeleteProgram(shader_program_id);
+    basic_shader->set_deletable(true);
     glfwTerminate();
   }
   
@@ -160,12 +159,12 @@ namespace agl {
     return camera.get_vp_matrix();
   }
   
-  GLuint Graphics::get_glsl_matrix_location() {
-    return glsl_matrix_location;
-  }
-  
   GLFWwindow* Graphics::get_window() {
     return window;
+  }
+  
+  Shader* Graphics::get_default_shader() {
+    return basic_shader;
   }
 }
 

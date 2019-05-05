@@ -21,6 +21,8 @@ namespace agl {
     
     Texture texture;
     
+    Shader* shader;
+    
     /**
      * Handle to the handles, describes our vertex format
      */

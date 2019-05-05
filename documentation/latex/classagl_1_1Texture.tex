@@ -1,0 +1,92 @@
+\hypertarget{classagl_1_1Texture}{}\section{agl\+::Texture Class Reference}
+\label{classagl_1_1Texture}\index{agl::Texture@{agl::Texture}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classagl_1_1Texture_a1e6c013b0e7afb78c983c5553afa23f9}{init}} (G\+Lenum \mbox{\hyperlink{classagl_1_1Texture_a0e8c9abdf2b2da161c83a9c62807c0cb}{texture\+\_\+target}}, std\+::string filename)
+\item 
+void \mbox{\hyperlink{classagl_1_1Texture_a9f0f84d3edab9c07d0c1580e7647fbb9}{bind}} (G\+Lenum texture\+\_\+unit)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classagl_1_1Texture_aed12d98a17d4eeeb851cad6c81abbada}{free}} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Texture_a80caa5bc70668de3bba66b115d95fd83}\label{classagl_1_1Texture_a80caa5bc70668de3bba66b115d95fd83}} 
+unsigned char $\ast$ {\bfseries image\+\_\+data}
+\item 
+int \mbox{\hyperlink{classagl_1_1Texture_a77dd6f3abb916a88ce172aff30da4a36}{width}}
+\item 
+\mbox{\Hypertarget{classagl_1_1Texture_a5d0b8de4ef82cb8bcb5f3a9a19bc55a9}\label{classagl_1_1Texture_a5d0b8de4ef82cb8bcb5f3a9a19bc55a9}} 
+int {\bfseries height}
+\item 
+int \mbox{\hyperlink{classagl_1_1Texture_a0e1592e4478c250b371ee9deeb6aef13}{n}}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Texture_a84abd104815f07ab1dede19b4836e5d3}{texture\+\_\+object}}
+\item 
+G\+Lenum \mbox{\hyperlink{classagl_1_1Texture_a0e8c9abdf2b2da161c83a9c62807c0cb}{texture\+\_\+target}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1Texture_a9f0f84d3edab9c07d0c1580e7647fbb9}\label{classagl_1_1Texture_a9f0f84d3edab9c07d0c1580e7647fbb9}} 
+\index{agl::Texture@{agl::Texture}!bind@{bind}}
+\index{bind@{bind}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{bind()}{bind()}}
+{\footnotesize\ttfamily void agl\+::\+Texture\+::bind (\begin{DoxyParamCaption}\item[{G\+Lenum}]{texture\+\_\+unit }\end{DoxyParamCaption})}
+
+Binds the texture object to the texture unit specified See \href{http://ogldev.atspace.co.uk/www/tutorial16/tutorial16.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial16/tutorial16.\+html}} \mbox{\Hypertarget{classagl_1_1Texture_aed12d98a17d4eeeb851cad6c81abbada}\label{classagl_1_1Texture_aed12d98a17d4eeeb851cad6c81abbada}} 
+\index{agl::Texture@{agl::Texture}!free@{free}}
+\index{free@{free}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{free()}{free()}}
+{\footnotesize\ttfamily void agl\+::\+Texture\+::free (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Frees the memory allocated for the image data (actually it just calls the corresponding stb\+\_\+image function) \mbox{\Hypertarget{classagl_1_1Texture_a1e6c013b0e7afb78c983c5553afa23f9}\label{classagl_1_1Texture_a1e6c013b0e7afb78c983c5553afa23f9}} 
+\index{agl::Texture@{agl::Texture}!init@{init}}
+\index{init@{init}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool agl\+::\+Texture\+::init (\begin{DoxyParamCaption}\item[{G\+Lenum}]{texture\+\_\+target,  }\item[{std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Loads the image from the file specified using stb\+\_\+image See stb/stb\+\_\+image.\+h 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & The file to load the image from \\
+\hline
+\mbox{\texttt{ in}}  & {\em texture\+\_\+target} & Type of the texture target \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1Texture_a0e1592e4478c250b371ee9deeb6aef13}\label{classagl_1_1Texture_a0e1592e4478c250b371ee9deeb6aef13}} 
+\index{agl::Texture@{agl::Texture}!n@{n}}
+\index{n@{n}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily int agl\+::\+Texture\+::n\hspace{0.3cm}{\ttfamily [private]}}
+
+Number of 8-\/bit components per pixel I guess it will always be 4 in our case \mbox{\Hypertarget{classagl_1_1Texture_a84abd104815f07ab1dede19b4836e5d3}\label{classagl_1_1Texture_a84abd104815f07ab1dede19b4836e5d3}} 
+\index{agl::Texture@{agl::Texture}!texture\_object@{texture\_object}}
+\index{texture\_object@{texture\_object}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{texture\_object}{texture\_object}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Texture\+::texture\+\_\+object\hspace{0.3cm}{\ttfamily [private]}}
+
+Handle to the texture object (the texture object contains the actual image data) See \href{http://ogldev.atspace.co.uk/www/tutorial16/tutorial16.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial16/tutorial16.\+html}} \mbox{\Hypertarget{classagl_1_1Texture_a0e8c9abdf2b2da161c83a9c62807c0cb}\label{classagl_1_1Texture_a0e8c9abdf2b2da161c83a9c62807c0cb}} 
+\index{agl::Texture@{agl::Texture}!texture\_target@{texture\_target}}
+\index{texture\_target@{texture\_target}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{texture\_target}{texture\_target}}
+{\footnotesize\ttfamily G\+Lenum agl\+::\+Texture\+::texture\+\_\+target\hspace{0.3cm}{\ttfamily [private]}}
+
+should be one of\+: G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+1D, G\+L\+\_\+\+T\+E\+X\+T\+U\+R\+E\+\_\+2D, etc. See \href{http://ogldev.atspace.co.uk/www/tutorial16/tutorial16.html}{\texttt{ http\+://ogldev.\+atspace.\+co.\+uk/www/tutorial16/tutorial16.\+html}} \mbox{\Hypertarget{classagl_1_1Texture_a77dd6f3abb916a88ce172aff30da4a36}\label{classagl_1_1Texture_a77dd6f3abb916a88ce172aff30da4a36}} 
+\index{agl::Texture@{agl::Texture}!width@{width}}
+\index{width@{width}!agl::Texture@{agl::Texture}}
+\subsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily int agl\+::\+Texture\+::width\hspace{0.3cm}{\ttfamily [private]}}
+
+Width and height of image 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Texture.\+h\item 
+src/Textrue.\+cpp\end{DoxyCompactItemize}

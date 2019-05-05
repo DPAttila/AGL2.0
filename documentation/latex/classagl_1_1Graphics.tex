@@ -1,0 +1,154 @@
+\hypertarget{classagl_1_1Graphics}{}\section{agl\+::Graphics Class Reference}
+\label{classagl_1_1Graphics}\index{agl::Graphics@{agl::Graphics}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classagl_1_1Graphics_aee3cc5d72b595b9b9cd87c6e0af9c65b}{init}} (std\+::string window\+\_\+name, void($\ast$\mbox{\hyperlink{classagl_1_1Graphics_aaf660bd9fd1b06652b05f7a7ef3e6fcb}{user\+\_\+defined}})())
+\item 
+void \mbox{\hyperlink{classagl_1_1Graphics_abfecb1bbd932fb29b9d92a08da02684a}{on\+\_\+loop}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Graphics_a2c277530c365b51dd3516f6feb4b767b}{terminate}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Graphics_acfc64f7e1033725ebda79f176d462dca}{move\+\_\+camera}} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_af7ccf51c641ee245cd8f7796a9b11751}\label{classagl_1_1Graphics_af7ccf51c641ee245cd8f7796a9b11751}} 
+void {\bfseries move\+\_\+camera\+\_\+forward} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_a83d682511effbd389f111cf5343444c7}\label{classagl_1_1Graphics_a83d682511effbd389f111cf5343444c7}} 
+void {\bfseries move\+\_\+camera\+\_\+left} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_a3980ac9cfd5ba883ee32e3b8865d1d6f}\label{classagl_1_1Graphics_a3980ac9cfd5ba883ee32e3b8865d1d6f}} 
+void {\bfseries move\+\_\+camera\+\_\+backwards} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_a427d8f2dcc3744d6174168cfb41e032b}\label{classagl_1_1Graphics_a427d8f2dcc3744d6174168cfb41e032b}} 
+void {\bfseries move\+\_\+camera\+\_\+right} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1Graphics_ac6b1de3994149a36a53095b9192458a3}{set\+\_\+camera\+\_\+pos}} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+void \mbox{\hyperlink{classagl_1_1Graphics_ae44f29a47ac84c0ab49813dbc0585e46}{orient\+\_\+camera}} (float h, float v)
+\item 
+void \mbox{\hyperlink{classagl_1_1Graphics_a0dad176d86f738aac92182f6212c1a5a}{turn\+\_\+camera}} (float h, float v)
+\item 
+\mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} $\ast$ \mbox{\hyperlink{classagl_1_1Graphics_a7b7547d0fece7b39a3c22e88ed39877d}{get\+\_\+vp\+\_\+matrix}} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_a1de3ba49915776ce380d2cef5a0f5fd4}\label{classagl_1_1Graphics_a1de3ba49915776ce380d2cef5a0f5fd4}} 
+G\+Luint {\bfseries get\+\_\+glsl\+\_\+matrix\+\_\+location} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_a1ac758c41d7589c36cb0a895e7968988}\label{classagl_1_1Graphics_a1ac758c41d7589c36cb0a895e7968988}} 
+G\+L\+F\+Wwindow $\ast$ {\bfseries get\+\_\+window} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_aafd278cd34a4f7bfa1f9a43a30a0013d}\label{classagl_1_1Graphics_aafd278cd34a4f7bfa1f9a43a30a0013d}} 
+G\+L\+F\+Wwindow $\ast$ {\bfseries window}
+\item 
+\mbox{\Hypertarget{classagl_1_1Graphics_a62fa65c548fb1342aec7ca3f87076169}\label{classagl_1_1Graphics_a62fa65c548fb1342aec7ca3f87076169}} 
+\mbox{\hyperlink{classagl_1_1Camera}{Camera}} {\bfseries camera}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Graphics_a26482480b230df75339ee3c4d590aae5}{shader\+\_\+program\+\_\+id}}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Graphics_a82ac17a72cd256e354f0587e1107b6ce}{sampler\+\_\+id}}
+\item 
+G\+Luint \mbox{\hyperlink{classagl_1_1Graphics_a3550ce001ca87a37911808dcf2b41757}{glsl\+\_\+matrix\+\_\+location}}
+\item 
+void($\ast$ \mbox{\hyperlink{classagl_1_1Graphics_aaf660bd9fd1b06652b05f7a7ef3e6fcb}{user\+\_\+defined}} )()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1Graphics_a7b7547d0fece7b39a3c22e88ed39877d}\label{classagl_1_1Graphics_a7b7547d0fece7b39a3c22e88ed39877d}} 
+\index{agl::Graphics@{agl::Graphics}!get\_vp\_matrix@{get\_vp\_matrix}}
+\index{get\_vp\_matrix@{get\_vp\_matrix}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{get\_vp\_matrix()}{get\_vp\_matrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classagl_1_1Matrix4f}{Matrix4f}} $\ast$ agl\+::\+Graphics\+::get\+\_\+vp\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Returns the multiplication of the view and projection matrices \mbox{\Hypertarget{classagl_1_1Graphics_aee3cc5d72b595b9b9cd87c6e0af9c65b}\label{classagl_1_1Graphics_aee3cc5d72b595b9b9cd87c6e0af9c65b}} 
+\index{agl::Graphics@{agl::Graphics}!init@{init}}
+\index{init@{init}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool agl\+::\+Graphics\+::init (\begin{DoxyParamCaption}\item[{std\+::string}]{window\+\_\+name,  }\item[{void($\ast$)()}]{user\+\_\+defined }\end{DoxyParamCaption})}
+
+Initializes glfw, glad and a window. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em window\+\_\+name} & Name of the window to be created \\
+\hline
+\mbox{\texttt{ in}}  & {\em user\+\_\+defind} & User-\/defined draw function. All of the user\textquotesingle{}s bufferes should be drawn here \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em $<$true$>$} & The intialization was successful \\
+\hline
+{\em $<$false$>$} & Couldn\textquotesingle{}t initialize \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classagl_1_1Graphics_acfc64f7e1033725ebda79f176d462dca}\label{classagl_1_1Graphics_acfc64f7e1033725ebda79f176d462dca}} 
+\index{agl::Graphics@{agl::Graphics}!move\_camera@{move\_camera}}
+\index{move\_camera@{move\_camera}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{move\_camera()}{move\_camera()}}
+{\footnotesize\ttfamily void agl\+::\+Graphics\+::move\+\_\+camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{p }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Camera}{Camera}} function \mbox{\Hypertarget{classagl_1_1Graphics_abfecb1bbd932fb29b9d92a08da02684a}\label{classagl_1_1Graphics_abfecb1bbd932fb29b9d92a08da02684a}} 
+\index{agl::Graphics@{agl::Graphics}!on\_loop@{on\_loop}}
+\index{on\_loop@{on\_loop}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{on\_loop()}{on\_loop()}}
+{\footnotesize\ttfamily void agl\+::\+Graphics\+::on\+\_\+loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Handles drawing, inputs and calls a user-\/defined function in a loop until quit is set to true \mbox{\Hypertarget{classagl_1_1Graphics_ae44f29a47ac84c0ab49813dbc0585e46}\label{classagl_1_1Graphics_ae44f29a47ac84c0ab49813dbc0585e46}} 
+\index{agl::Graphics@{agl::Graphics}!orient\_camera@{orient\_camera}}
+\index{orient\_camera@{orient\_camera}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{orient\_camera()}{orient\_camera()}}
+{\footnotesize\ttfamily void agl\+::\+Graphics\+::orient\+\_\+camera (\begin{DoxyParamCaption}\item[{float}]{h,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Camera}{Camera}} function \mbox{\Hypertarget{classagl_1_1Graphics_ac6b1de3994149a36a53095b9192458a3}\label{classagl_1_1Graphics_ac6b1de3994149a36a53095b9192458a3}} 
+\index{agl::Graphics@{agl::Graphics}!set\_camera\_pos@{set\_camera\_pos}}
+\index{set\_camera\_pos@{set\_camera\_pos}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{set\_camera\_pos()}{set\_camera\_pos()}}
+{\footnotesize\ttfamily void agl\+::\+Graphics\+::set\+\_\+camera\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{p }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Camera}{Camera}} function \mbox{\Hypertarget{classagl_1_1Graphics_a2c277530c365b51dd3516f6feb4b767b}\label{classagl_1_1Graphics_a2c277530c365b51dd3516f6feb4b767b}} 
+\index{agl::Graphics@{agl::Graphics}!terminate@{terminate}}
+\index{terminate@{terminate}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{terminate()}{terminate()}}
+{\footnotesize\ttfamily void agl\+::\+Graphics\+::terminate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Called automatically when the main loop is quit. Frees memory. \mbox{\Hypertarget{classagl_1_1Graphics_a0dad176d86f738aac92182f6212c1a5a}\label{classagl_1_1Graphics_a0dad176d86f738aac92182f6212c1a5a}} 
+\index{agl::Graphics@{agl::Graphics}!turn\_camera@{turn\_camera}}
+\index{turn\_camera@{turn\_camera}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{turn\_camera()}{turn\_camera()}}
+{\footnotesize\ttfamily void agl\+::\+Graphics\+::turn\+\_\+camera (\begin{DoxyParamCaption}\item[{float}]{h,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Camera}{Camera}} function 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1Graphics_a3550ce001ca87a37911808dcf2b41757}\label{classagl_1_1Graphics_a3550ce001ca87a37911808dcf2b41757}} 
+\index{agl::Graphics@{agl::Graphics}!glsl\_matrix\_location@{glsl\_matrix\_location}}
+\index{glsl\_matrix\_location@{glsl\_matrix\_location}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{glsl\_matrix\_location}{glsl\_matrix\_location}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Graphics\+::glsl\+\_\+matrix\+\_\+location\hspace{0.3cm}{\ttfamily [private]}}
+
+Handle to the world matrix uniform variable in the shader \mbox{\Hypertarget{classagl_1_1Graphics_a82ac17a72cd256e354f0587e1107b6ce}\label{classagl_1_1Graphics_a82ac17a72cd256e354f0587e1107b6ce}} 
+\index{agl::Graphics@{agl::Graphics}!sampler\_id@{sampler\_id}}
+\index{sampler\_id@{sampler\_id}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{sampler\_id}{sampler\_id}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Graphics\+::sampler\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+Handle to the sampler (used for textures) See ogldev tutorial 16 \mbox{\Hypertarget{classagl_1_1Graphics_a26482480b230df75339ee3c4d590aae5}\label{classagl_1_1Graphics_a26482480b230df75339ee3c4d590aae5}} 
+\index{agl::Graphics@{agl::Graphics}!shader\_program\_id@{shader\_program\_id}}
+\index{shader\_program\_id@{shader\_program\_id}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{shader\_program\_id}{shader\_program\_id}}
+{\footnotesize\ttfamily G\+Luint agl\+::\+Graphics\+::shader\+\_\+program\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+Id of the G\+L\+SL program \mbox{\Hypertarget{classagl_1_1Graphics_aaf660bd9fd1b06652b05f7a7ef3e6fcb}\label{classagl_1_1Graphics_aaf660bd9fd1b06652b05f7a7ef3e6fcb}} 
+\index{agl::Graphics@{agl::Graphics}!user\_defined@{user\_defined}}
+\index{user\_defined@{user\_defined}!agl::Graphics@{agl::Graphics}}
+\subsubsection{\texorpdfstring{user\_defined}{user\_defined}}
+{\footnotesize\ttfamily void($\ast$ agl\+::\+Graphics\+::user\+\_\+defined) ()\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to user-\/defined function to be called in loop A user-\/defined draw function should contain draw calls. \mbox{\hyperlink{classagl_1_1Buffer}{Buffer}} swapping and clearing is done by the loop automatically. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/Graphics.\+h\item 
+src/Graphics.\+cpp\end{DoxyCompactItemize}

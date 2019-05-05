@@ -1,0 +1,157 @@
+\hypertarget{classagl_1_1AGL}{}\section{agl\+::A\+GL Class Reference}
+\label{classagl_1_1AGL}\index{agl::AGL@{agl::AGL}}
+
+
+{\ttfamily \#include $<$A\+G\+L.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a010211a344c7e94a3416761e63a06fb3}\label{classagl_1_1AGL_a010211a344c7e94a3416761e63a06fb3}} 
+bool {\bfseries init} (std\+::string window\+\_\+name, void($\ast$user\+\_\+defined\+\_\+draw)(), void($\ast$user\+\_\+defined\+\_\+input)(), void($\ast$user\+\_\+defined\+\_\+logic)())
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a926d2e9ca26362ceda4e83857ee9f27e}\label{classagl_1_1AGL_a926d2e9ca26362ceda4e83857ee9f27e}} 
+void {\bfseries loop} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_af213f2a9e4e4ad31481c1c0d9a6b3a4b}\label{classagl_1_1AGL_af213f2a9e4e4ad31481c1c0d9a6b3a4b}} 
+void {\bfseries finish} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_abe94fc5217f011c3a4f00d26a1109f4a}\label{classagl_1_1AGL_abe94fc5217f011c3a4f00d26a1109f4a}} 
+\mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} $\ast$ {\bfseries get\+\_\+graphics} ()
+\item 
+int \mbox{\hyperlink{classagl_1_1AGL_a707632eae21db760f91ea745f951a8df}{get\+\_\+key}} (int key)
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a27e2b7cf0e9f90c2a3313f8d3866ca14}\label{classagl_1_1AGL_a27e2b7cf0e9f90c2a3313f8d3866ca14}} 
+\mbox{\hyperlink{classagl_1_1Point2f}{Point2f}} {\bfseries get\+\_\+cursor\+\_\+delta} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a92d0ca5753ad4c00d6e321db18667d66}\label{classagl_1_1AGL_a92d0ca5753ad4c00d6e321db18667d66}} 
+\mbox{\hyperlink{classagl_1_1Point2f}{Point2f}} {\bfseries get\+\_\+cursor\+\_\+pos} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_ac81c6ecc1363396270485955320b376b}{move\+\_\+camera}} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_a0ef401fb5befea5f84a8342550354279}{move\+\_\+camera\+\_\+forward}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_a531a702149d0781c35fe87a01ea2bf67}{move\+\_\+camera\+\_\+left}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_aeef87301449abfa2ee58c6851788176c}{move\+\_\+camera\+\_\+backwards}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_a33dcc3992c41527b3148ca14bdb76c5f}{move\+\_\+camera\+\_\+right}} ()
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_a50d1ea2ee2e612e0606b1a8634396d89}{set\+\_\+camera\+\_\+pos}} (\mbox{\hyperlink{classagl_1_1Point}{Point}} p)
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_a9c5161c4171079ee6d4a39427924770b}{orient\+\_\+camera}} (float h, float v)
+\item 
+void \mbox{\hyperlink{classagl_1_1AGL_a864defc42cebdd263cef17adeb313a97}{turn\+\_\+camera}} (float h, float v)
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a82ce02596efb1389062242ba6e70b95c}\label{classagl_1_1AGL_a82ce02596efb1389062242ba6e70b95c}} 
+void {\bfseries disable\+\_\+cursor} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a4943ecf7d2a2f2bafcaa78e6fa595a40}\label{classagl_1_1AGL_a4943ecf7d2a2f2bafcaa78e6fa595a40}} 
+void {\bfseries enable\+\_\+cursor} ()
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a2ca539ef7ecafb3240d747158798a168}\label{classagl_1_1AGL_a2ca539ef7ecafb3240d747158798a168}} 
+bool {\bfseries is\+\_\+cursor\+\_\+disabled} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_ad5b05b52ef2b4879f61f0ad9fad86000}\label{classagl_1_1AGL_ad5b05b52ef2b4879f61f0ad9fad86000}} 
+void {\bfseries terminate} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_a0863a814cbcdaa8c551507f98b6e7ae4}\label{classagl_1_1AGL_a0863a814cbcdaa8c551507f98b6e7ae4}} 
+\mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} $\ast$ {\bfseries graphics}
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_ac8f8ce5d611f48153ab80c519afc80c9}\label{classagl_1_1AGL_ac8f8ce5d611f48153ab80c519afc80c9}} 
+\mbox{\hyperlink{classagl_1_1Input}{Input}} {\bfseries input}
+\item 
+\mbox{\Hypertarget{classagl_1_1AGL_ae8acb9f6a66b314297c2ed75678712d6}\label{classagl_1_1AGL_ae8acb9f6a66b314297c2ed75678712d6}} 
+bool {\bfseries quit}
+\item 
+bool \mbox{\hyperlink{classagl_1_1AGL_ad6593dbf0231be0fb3b5bdce34091e35}{cursor\+\_\+disabled}}
+\item 
+void($\ast$ \mbox{\hyperlink{classagl_1_1AGL_a99b802fbea79f60b87339212b7907633}{user\+\_\+defined}} )()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper class for graphics and input. The user should only interact with agl through this class 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classagl_1_1AGL_a707632eae21db760f91ea745f951a8df}\label{classagl_1_1AGL_a707632eae21db760f91ea745f951a8df}} 
+\index{agl::AGL@{agl::AGL}!get\_key@{get\_key}}
+\index{get\_key@{get\_key}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{get\_key()}{get\_key()}}
+{\footnotesize\ttfamily int agl\+::\+A\+G\+L\+::get\+\_\+key (\begin{DoxyParamCaption}\item[{int}]{key }\end{DoxyParamCaption})}
+
+Just calls the corresponding Keyboard function \mbox{\Hypertarget{classagl_1_1AGL_ac81c6ecc1363396270485955320b376b}\label{classagl_1_1AGL_ac81c6ecc1363396270485955320b376b}} 
+\index{agl::AGL@{agl::AGL}!move\_camera@{move\_camera}}
+\index{move\_camera@{move\_camera}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{move\_camera()}{move\_camera()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::move\+\_\+camera (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{p }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_aeef87301449abfa2ee58c6851788176c}\label{classagl_1_1AGL_aeef87301449abfa2ee58c6851788176c}} 
+\index{agl::AGL@{agl::AGL}!move\_camera\_backwards@{move\_camera\_backwards}}
+\index{move\_camera\_backwards@{move\_camera\_backwards}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{move\_camera\_backwards()}{move\_camera\_backwards()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::move\+\_\+camera\+\_\+backwards (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_a0ef401fb5befea5f84a8342550354279}\label{classagl_1_1AGL_a0ef401fb5befea5f84a8342550354279}} 
+\index{agl::AGL@{agl::AGL}!move\_camera\_forward@{move\_camera\_forward}}
+\index{move\_camera\_forward@{move\_camera\_forward}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{move\_camera\_forward()}{move\_camera\_forward()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::move\+\_\+camera\+\_\+forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_a531a702149d0781c35fe87a01ea2bf67}\label{classagl_1_1AGL_a531a702149d0781c35fe87a01ea2bf67}} 
+\index{agl::AGL@{agl::AGL}!move\_camera\_left@{move\_camera\_left}}
+\index{move\_camera\_left@{move\_camera\_left}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{move\_camera\_left()}{move\_camera\_left()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::move\+\_\+camera\+\_\+left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_a33dcc3992c41527b3148ca14bdb76c5f}\label{classagl_1_1AGL_a33dcc3992c41527b3148ca14bdb76c5f}} 
+\index{agl::AGL@{agl::AGL}!move\_camera\_right@{move\_camera\_right}}
+\index{move\_camera\_right@{move\_camera\_right}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{move\_camera\_right()}{move\_camera\_right()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::move\+\_\+camera\+\_\+right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_a9c5161c4171079ee6d4a39427924770b}\label{classagl_1_1AGL_a9c5161c4171079ee6d4a39427924770b}} 
+\index{agl::AGL@{agl::AGL}!orient\_camera@{orient\_camera}}
+\index{orient\_camera@{orient\_camera}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{orient\_camera()}{orient\_camera()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::orient\+\_\+camera (\begin{DoxyParamCaption}\item[{float}]{h,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_a50d1ea2ee2e612e0606b1a8634396d89}\label{classagl_1_1AGL_a50d1ea2ee2e612e0606b1a8634396d89}} 
+\index{agl::AGL@{agl::AGL}!set\_camera\_pos@{set\_camera\_pos}}
+\index{set\_camera\_pos@{set\_camera\_pos}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{set\_camera\_pos()}{set\_camera\_pos()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::set\+\_\+camera\+\_\+pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classagl_1_1Point}{Point}}}]{p }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Graphics}{Graphics}} function \mbox{\Hypertarget{classagl_1_1AGL_a864defc42cebdd263cef17adeb313a97}\label{classagl_1_1AGL_a864defc42cebdd263cef17adeb313a97}} 
+\index{agl::AGL@{agl::AGL}!turn\_camera@{turn\_camera}}
+\index{turn\_camera@{turn\_camera}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{turn\_camera()}{turn\_camera()}}
+{\footnotesize\ttfamily void agl\+::\+A\+G\+L\+::turn\+\_\+camera (\begin{DoxyParamCaption}\item[{float}]{h,  }\item[{float}]{v }\end{DoxyParamCaption})}
+
+Just calls the corresponding \mbox{\hyperlink{classagl_1_1Camera}{Camera}} function 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classagl_1_1AGL_ad6593dbf0231be0fb3b5bdce34091e35}\label{classagl_1_1AGL_ad6593dbf0231be0fb3b5bdce34091e35}} 
+\index{agl::AGL@{agl::AGL}!cursor\_disabled@{cursor\_disabled}}
+\index{cursor\_disabled@{cursor\_disabled}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{cursor\_disabled}{cursor\_disabled}}
+{\footnotesize\ttfamily bool agl\+::\+A\+G\+L\+::cursor\+\_\+disabled\hspace{0.3cm}{\ttfamily [private]}}
+
+true\+: The cursor is disabled, ideal for camera movement false\+: The cursor is enabled, ideal for ui \mbox{\Hypertarget{classagl_1_1AGL_a99b802fbea79f60b87339212b7907633}\label{classagl_1_1AGL_a99b802fbea79f60b87339212b7907633}} 
+\index{agl::AGL@{agl::AGL}!user\_defined@{user\_defined}}
+\index{user\_defined@{user\_defined}!agl::AGL@{agl::AGL}}
+\subsubsection{\texorpdfstring{user\_defined}{user\_defined}}
+{\footnotesize\ttfamily void($\ast$ agl\+::\+A\+G\+L\+::user\+\_\+defined) ()\hspace{0.3cm}{\ttfamily [private]}}
+
+Pointer to user-\/defined function to be called in loop. A user-\/defined function should contain game logic calls. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/A\+G\+L.\+h\item 
+src/A\+G\+L.\+cpp\end{DoxyCompactItemize}

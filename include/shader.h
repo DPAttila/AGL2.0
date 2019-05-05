@@ -13,5 +13,10 @@ namespace agl {
    * @returns The id of the linked shader program 
    */
   GLuint load_shaders(std::string vertex_file_path, std::string fragment_file_path);
+  
+  /**
+   * Loads, compiles and links a basic vertex and fragment shader
+   */
+  GLuint load_basic_shaders();
 }
 #endif
