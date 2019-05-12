@@ -17,7 +17,6 @@ class Alma {
   Alma() {}
   
   void init(AGL* graphics) {
-    printf("Initializing alma\n");
     buffer.init(graphics);
     
     Point p[8] = {
@@ -158,7 +157,6 @@ void logic() {
 int main() {
    
   ati_gl.init("cica", draw, input, logic);
-  printf("AGL initialized\n");
   alma.init(&ati_gl);
   
   ati_gl.loop();

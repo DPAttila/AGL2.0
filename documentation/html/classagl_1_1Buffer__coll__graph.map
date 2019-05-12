@@ -1,10 +1,10 @@
 <map id="agl::Buffer" name="agl::Buffer">
-<area shape="rect" id="node1" title=" " alt="" coords="193,329,275,356"/>
+<area shape="rect" id="node1" title=" " alt="" coords="290,329,373,356"/>
 <area shape="rect" id="node2" href="$classagl_1_1Transformation.html" title=" " alt="" coords="5,189,140,216"/>
-<area shape="rect" id="node3" href="$classagl_1_1Matrix4f.html" title=" " alt="" coords="93,5,188,32"/>
-<area shape="rect" id="node5" href="$classagl_1_1Camera.html" title=" " alt="" coords="167,139,261,165"/>
-<area shape="rect" id="node4" href="$classagl_1_1Graphics.html" title=" " alt="" coords="185,240,283,267"/>
-<area shape="rect" id="node6" href="$classagl_1_1Point.html" title=" " alt="" coords="330,5,407,32"/>
-<area shape="rect" id="node7" href="$classagl_1_1Shader.html" title="This class encapsulates shader functionality. It creates, uses and destroys shaders." alt="" coords="285,139,373,165"/>
-<area shape="rect" id="node8" href="$classagl_1_1Texture.html" title=" " alt="" coords="307,240,398,267"/>
+<area shape="rect" id="node3" href="$classagl_1_1Matrix4f.html" title=" " alt="" coords="84,5,179,32"/>
+<area shape="rect" id="node5" href="$classagl_1_1Camera.html" title=" " alt="" coords="151,139,245,165"/>
+<area shape="rect" id="node4" href="$classagl_1_1Graphics.html" title=" " alt="" coords="218,240,317,267"/>
+<area shape="rect" id="node6" href="$classagl_1_1Point.html" title=" " alt="" coords="321,5,398,32"/>
+<area shape="rect" id="node7" href="$classagl_1_1Shader.html" title="This class encapsulates shader functionality. It creates, uses and destroys shaders." alt="" coords="301,139,389,165"/>
+<area shape="rect" id="node8" href="$classagl_1_1Texture.html" title=" " alt="" coords="437,240,527,267"/>
 </map>

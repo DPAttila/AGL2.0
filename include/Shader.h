@@ -16,8 +16,8 @@ namespace agl {
    * it should unsubscribe(), so it can decide if it can be destroyed
    * safely.
    *
-   * Some restrictions:
-   * The sampler used in the shader has to be called "sampler"
+   * Some restrictions:\n
+   * The sampler used in the shader has to be called "sampler"\n
    * The wvp matrix has to be called "wvp"
    */
   class Shader {
@@ -64,8 +64,8 @@ namespace agl {
     
     /**
      * Compiles the source provided
-     * param[in] The source to be compiled
-     * param[out] The id of the shader compiled 
+     * @param[in] source The source to be compiled
+     * @param[out] shader_id The id of the shader compiled 
      * (This parameter has to be generated 
      * prior to this call using glCreate)
      */

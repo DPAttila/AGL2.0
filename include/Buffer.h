@@ -91,6 +91,42 @@ namespace agl {
     void scale(float f);
     
     void rotate(Point p);
+    
+    /**
+     * Returns the list of vertices
+     */
+    vector<Vertex> get_vertices();
+    
+    /**
+     * Returns the vertex at the specified index
+     * @param[in] i The index of the vertex to be returned
+     */
+    Vertex get_vertex(unsigned int i);
+    
+    /**
+     * Returns the list of indices
+     */
+    vector<unsigned int> get_indices();
+    
+    /**
+     * Sets the vertex at index to the vertex specified
+     * @param[in] index Index of the vertex to be changed
+     * @param[in] vertex The new value of the vertex
+     */
+    void set_vertex(unsigned int index, Vertex vertex);
+    
+    /**
+     * Sets the vertices to the new vertices specified
+     * @param[in] vertices The new vertex list
+     */
+    void set_vertices(vector<Vertex> vertices);
+    
+    /**
+     * Saves the buffer to a file in obj format
+     * See https://en.wikipedia.org/wiki/Wavefront_.obj_file
+     * @param[in] filename Name of the output file
+     */
+    void save(string filename);
   };  
 }
 

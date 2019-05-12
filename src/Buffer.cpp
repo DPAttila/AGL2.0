@@ -3,6 +3,9 @@
 
 #include "Buffer.h"
 
+#include <stdio.h>
+#include <fstream>
+
 #include "util.h"
 #include "Graphics.h"
 
@@ -35,7 +38,6 @@ namespace agl {
   }
   
   void Buffer::init(AGL* agl) {
-    printf("initializing buffer\n");
     this->graphics = agl->get_graphics();
     
     shader = graphics->get_default_shader();
@@ -54,10 +56,12 @@ namespace agl {
     int index_size = this->indices.size();
     int vertex_size = this->vertices.size();
     
-    // Change the offset of the new indices, since they only describe
-    // the new set of vertices and not the already existing ones
-    for (int i = 0; i < indices.size(); i++)
-      indices[i] += index_size;
+    if (index_size != 0) {
+      // Change the offset of the new indices, since they only describe
+      // the new set of vertices and not the already existing ones
+      for (int i = 0; i < indices.size(); i++)
+        indices[i] += index_size;
+    }
     
     if (this->vertices.size() == 0) 
       this->vertices = vertices;
@@ -66,17 +70,23 @@ namespace agl {
       // vertex list, the referring new indices get replaced by the old index
       // instead
       bool already_exists;
+      bool has_been_redirected[indices.size()];
+      for (int i = 0; i < indices.size(); i++)
+        has_been_redirected[i] = false;
+      
       for (int i = 0; i < vertices.size(); i++) { // for all the new vertices
         already_exists = false;
         for (int j = 0; j < vertex_size; j++) { // for all the old vertices
           // if old vertex == new vertex
-          if (vertices[i] == this->vertices[j]) { 
+          if (vertices[i] == this->vertices[j]) {
             already_exists = true;
             // replaces indices reffering to the new vertex 
             // with indices reffering to the old vertex
             for (int k = 0; k < indices.size(); k++) {
-              if (indices[k] == i + index_size)
+              if (indices[k] == i + index_size && !has_been_redirected[k]) {
                 indices[k] = j;
+                has_been_redirected[k] = true;
+              }
             }
           } 
         }
@@ -86,7 +96,7 @@ namespace agl {
       }
     }
     
-    if (this->indices.size() == 0)
+    if (index_size == 0)
       this->indices = indices;
     else
       this->indices.insert(
@@ -174,6 +184,57 @@ namespace agl {
   
   void Buffer::rotate(Point p) {
     transformation.rotate(p);
+  }
+  
+  vector<Vertex> Buffer::get_vertices() {
+    return vertices;
+  }
+  
+  Vertex Buffer::get_vertex(unsigned int i) {
+    return vertices[i];
+  }
+  
+  vector<unsigned int> Buffer::get_indices() {
+    return indices;
+  }
+  
+  void Buffer::set_vertex(unsigned int index, Vertex vertex) {
+    if (index >= 0 && index < indices.size()) {
+      vertices[index] = vertex;
+      rebuffer();
+    }
+  }
+  
+  void Buffer::set_vertices(vector<Vertex> vertices) {
+    this->vertices.clear();
+    this->vertices = vertices;
+    rebuffer();
+  }
+  
+  void Buffer::save(string filename) {
+    ofstream out(filename);
+    
+    for (int i = 0; i < vertices.size(); i++)
+      out << "v " 
+          << vertices[i].pos.x << " " 
+          << vertices[i].pos.y << " "
+          << vertices[i].pos.z << "\n";
+    out << "\n";
+    
+    for (int i = 0; i < vertices.size(); i++)
+      out << "vt "
+          << vertices[i].tex.x << " "
+          << vertices[i].tex.y << "\n";
+    
+    if (primitive == GL_TRIANGLES) {
+      for (int i = 0; i < indices.size(); i++) {
+        if (i%3 == 0) 
+          out << "\nf ";
+        out << indices[i]+1 << "/" << indices[i]+1 << " ";
+      }
+    } else {
+      printf(ANSI_COLOR_RED "Saving of this kind of primitive is not implemented." ANSI_END_COLOR);
+    }
   }
 }
 

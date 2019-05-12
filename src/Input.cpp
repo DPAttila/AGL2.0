@@ -10,6 +10,7 @@ namespace agl {
   bool Input::init(GLFWwindow* window, void (*user_defined)()) {
     this->user_defined = user_defined;  
     this->window = window;
+    
     glfwSetWindowUserPointer(window, (void*)this);
     glfwSetKeyCallback(window, key_callback);
     glfwSetCursorPosCallback(window, cursor_pos_callback);
@@ -31,8 +32,14 @@ namespace agl {
   
   void Input::key_event(int key, int scancode, int action, int mods) {
     if (key > -1 && key < key_count) {
-      if (action == GLFW_PRESS) keys[key] = 1;
-      else if (action == GLFW_RELEASE) keys[key] = 0;
+      if (action == GLFW_PRESS) {
+        keys[key] = 1;
+        ImGui::GetIO().KeysDown[key] = true;
+      }
+      else if (action == GLFW_RELEASE) {
+        keys[key] = 0;
+        ImGui::GetIO().KeysDown[key] = false;
+      }
     }
   }
   
