@@ -106,7 +106,7 @@ namespace agl {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    glClearColor(0.1f, 0.5f, 0.2f, 0.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     user_defined();
@@ -165,6 +165,10 @@ namespace agl {
   Shader* Graphics::get_default_shader() {
     return basic_shader;
   }
+  
+  //objl::Loader* Graphics::get_obj_loader() {
+  //  return obj_loader;
+  //}
 }
 
 #endif

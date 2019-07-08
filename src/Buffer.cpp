@@ -5,9 +5,9 @@
 
 #include <stdio.h>
 #include <fstream>
+#include <iostream>
 
 #include "util.h"
-#include "Graphics.h"
 
 namespace agl {
   void Buffer::rebuffer() {
@@ -235,6 +235,81 @@ namespace agl {
     } else {
       printf(ANSI_COLOR_RED "Saving of this kind of primitive is not implemented." ANSI_END_COLOR);
     }
+  }
+  
+  bool Buffer::load(string filename, bool ignore_vt) {
+    cout << "Loading obj from " << filename << '\n';
+        
+    ifstream in(filename);
+    if (!in.good()) return false;
+
+    vector<Point> pos;
+    vector<Point2f> tex;
+    vector<Vertex> vertices;
+    vector<unsigned int> indices;
+    
+    char c;
+    string a;
+    float x, y, z;
+    int i1, i2;
+    int ind = 0;
+    while (!in.eof()) {
+      in >> a;
+      if (a != "") cout << a << '\n';
+      if (a == "mtllib") {
+        cout << "mtl file requested: ";
+        in >> a;
+        cout << a << '\n';
+      } else if (a == "v") { // vertex
+        in >> x >> y >> z; // note that w is not read, it is skipped.
+        cout << x << ' ' << y << ' ' << z << '\n';
+        pos.push_back(Point(x, y, z));
+        if (ignore_vt) vertices.push_back(Vertex(pos.back(), Point2f(0,0)));
+      } else if (a == "vt" && !ignore_vt) { // texture
+        in >> x >> y; // not that z is not read, it is skipped.
+        if (x < 0 || x > 1 || y < 0 || y > 1) {
+          cout << "vertex texture coordinate not between 0 and 1.\n";
+          cout << "this is not implemented.\n";
+        }
+        tex.push_back(Point2f(x, y));
+      } else if (a == "f") {
+        for (int i = 0; i < 3; i++) {
+          in >> a;
+          // vertex
+          ind = 0;
+          i1 = 0;
+          while (ind < a.size() && a[ind] != '/') {
+            i1 *= 10;
+            i1 += a[ind] - '0';
+            ind++;
+          }
+          
+          if (ignore_vt) {
+            indices.push_back(i1-1);
+          } else {
+            // texture
+            ind++;
+            i2 = 0;
+            
+            while (ind < a.size() && a[ind] != '/') {
+              i2 *= 10;
+              i2 += a[ind] - '0';
+              ind++;
+            }
+            
+            add(
+              vector<Vertex>(1, Vertex(pos[i1], tex[i2])), 
+              vector<unsigned int>(1, 1)
+            );
+          }
+          // normals are ignored
+          
+          cout << "Vertex #" << i1 << " Texture #" << i2 << '\n';
+        }
+      }
+    }
+    if (ignore_vt) add(vertices, indices);
+    return true;
   }
 }
 

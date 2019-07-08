@@ -90,6 +90,8 @@ namespace agl {
     GLFWwindow* get_window();
     
     Shader* get_default_shader();
+    
+    //objl::Loader* get_obj_loader();
   };
 }
 

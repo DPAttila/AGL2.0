@@ -127,6 +127,13 @@ namespace agl {
      * @param[in] filename Name of the output file
      */
     void save(string filename);
+    
+    /**
+     * Loads a .obj file
+     * See https://en.wikipedia.org/wiki/Wavefront_.obj_file
+     * @param[in] filename Name of the input file
+     */
+    bool load(string filename, bool ignore_vt);
   };  
 }
 

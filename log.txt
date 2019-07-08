@@ -1,0 +1,596 @@
+GLFW version 3.2.1
+2 monitors identified:
+1920 * 1080
+1200 * 1600
+Compiling vertex shader
+Compiling fragment shader
+Linking shader program
+Loaded image at test/test10.png
+Loading obj from test/obj-data/tree_simple_dark.obj
+#
+Exported
+using
+Kenney
+Suite
+1.2
+mtllib
+mtl file requested: tree_simple_dark.mtl
+g
+tree_simple_dark
+v
+0 9.15087 -2.0475
+v
+1.77319 9.15087 -1.02375
+v
+0 11.4323 -2.0475
+v
+1.77319 11.4323 -1.02375
+v
+-1.77319 11.4323 1.02375
+v
+-1.77319 9.15087 1.02375
+v
+-1.77319 11.4323 -1.02375
+v
+-1.77319 9.15087 -1.02375
+v
+-1.02845 14.4389 -0.593775
+v
+0 14.4389 -1.18755
+v
+1.02845 14.4389 -0.593775
+v
+0 15.1944 0
+v
+0 11.4323 2.0475
+v
+0 14.4389 1.18755
+v
+-1.02845 14.4389 0.593775
+v
+1.77319 11.4323 1.02375
+v
+1.02845 14.4389 0.593775
+v
+1.77319 9.15087 1.02375
+v
+0 9.15087 2.0475
+v
+-0.992985 8.6825 -0.5733
+v
+-0.992985 8.6825 0.5733
+v
+0 8.6825 -1.1466
+v
+-0.257075 8.6825 -0.257076
+v
+0.257075 8.6825 -0.257076
+v
+0.992985 8.6825 -0.5733
+v
+0.257075 8.6825 0.257076
+v
+-0.257075 8.6825 0.257076
+v
+0 8.6825 1.1466
+v
+0.992985 8.6825 0.5733
+v
+-0.404844 0 -0.404844
+v
+-0.404844 0 0.404844
+v
+0.404844 0 -0.404844
+v
+0.404844 0 0.404844
+vn
+-0.5
+0
+0.8660254
+vn
+-0.4966512
+0.1155441
+0.8602251
+vn
+0.9933023
+0.1155441
+0
+vn
+1
+0
+0
+vn
+0.4966512
+0.1155441
+0.8602251
+vn
+0.485333
+0.2404319
+0.8406214
+vn
+0.5
+0
+0.8660254
+vn
+-0.485333
+0.2404319
+0.8406214
+vn
+0.2959982
+0.8059406
+0.5126839
+vn
+0.4966512
+0.1155441
+-0.8602251
+vn
+0.485333
+0.2404319
+-0.8406214
+vn
+-0.9933023
+0.1155441
+0
+vn
+-0.970666
+0.2404319
+0
+vn
+0.970666
+0.2404319
+0
+vn
+0.2959982
+0.8059406
+-0.5126839
+vn
+-0.2959982
+0.8059406
+-0.5126839
+vn
+-0.5919964
+0.8059406
+0
+vn
+-0.5
+0
+-0.8660254
+vn
+-0.4966512
+0.1155441
+-0.8602251
+vn
+-1
+0
+0
+vn
+-0.485333
+0.2404319
+-0.8406214
+vn
+0.5919964
+0.8059406
+0
+vn
+-0.2959982
+0.8059406
+0.5126839
+vn
+0.5
+0
+-0.8660254
+vn
+0
+-1
+0
+vn
+-0.2573488
+-0.8573717
+0.4457412
+vn
+0.5146976
+-0.8573717
+0
+vn
+-0.2573488
+-0.8573717
+-0.4457412
+vn
+0.2573488
+-0.8573717
+-0.4457412
+vn
+-0.5146976
+-0.8573717
+0
+vn
+0.2573488
+-0.8573717
+0.4457412
+vn
+0
+0.01701659
+-0.9998552
+vn
+0
+0.01701659
+0.9998552
+vn
+0.9998552
+0.01701659
+0
+vn
+-0.9998552
+0.01701659
+0
+vt
+17.91339
+160.1202
+vt
+-17.91339
+160.1202
+vt
+17.91339
+200.0401
+vt
+-17.91339
+200.0401
+vt
+17.91339
+186.7123
+vt
+-17.91339
+186.7123
+vt
+10.38976
+240.9118
+vt
+-10.38976
+240.9118
+vt
+9.845569E-14
+157.3931
+vt
+10.38976
+135.0644
+vt
+-10.38976
+135.0644
+vt
+-9.845569E-14
+157.3931
+vt
+4.107138E-30
+157.3931
+vt
+-5.121395E-31
+157.3931
+vt
+1.055611E-13
+157.3931
+vt
+17.37506
+10.0315
+vt
+17.37506
+-10.0315
+vt
+1.136868E-13
+20.06299
+vt
+4.498262
+4.498262
+vt
+-4.498262
+4.498262
+vt
+-17.37506
+10.0315
+vt
+-4.498262
+-4.498262
+vt
+4.498262
+-4.498262
+vt
+1.136868E-13
+-20.06299
+vt
+-17.37506
+-10.0315
+vt
+10.0315
+93.0922
+vt
+-10.0315
+93.0922
+vt
+17.91339
+109.0151
+vt
+-17.91339
+109.0151
+vt
+7.083878
+7.083878
+vt
+7.083878
+-7.083878
+vt
+-7.083878
+7.083878
+vt
+-7.083878
+-7.083878
+vt
+7.083878
+-0.1205434
+vt
+-7.083878
+-0.1205434
+vt
+4.498262
+151.8262
+vt
+-4.498262
+151.8262
+usemtl
+natureKit-leaves
+usemap
+natureKit-leaves
+f
+Vertex #2 Texture #0
+Vertex #1 Texture #0
+Vertex #3 Texture #0
+f
+Vertex #3 Texture #0
+Vertex #4 Texture #0
+Vertex #2 Texture #0
+f
+Vertex #6 Texture #0
+Vertex #5 Texture #0
+Vertex #7 Texture #0
+f
+Vertex #7 Texture #0
+Vertex #8 Texture #0
+Vertex #6 Texture #0
+f
+Vertex #3 Texture #0
+Vertex #7 Texture #0
+Vertex #9 Texture #0
+f
+Vertex #9 Texture #0
+Vertex #10 Texture #0
+Vertex #3 Texture #0
+f
+Vertex #1 Texture #0
+Vertex #8 Texture #0
+Vertex #7 Texture #0
+f
+Vertex #7 Texture #0
+Vertex #3 Texture #0
+Vertex #1 Texture #0
+f
+Vertex #4 Texture #0
+Vertex #3 Texture #0
+Vertex #10 Texture #0
+f
+Vertex #10 Texture #0
+Vertex #11 Texture #0
+Vertex #4 Texture #0
+f
+Vertex #9 Texture #0
+Vertex #12 Texture #0
+Vertex #10 Texture #0
+f
+Vertex #5 Texture #0
+Vertex #13 Texture #0
+Vertex #14 Texture #0
+f
+Vertex #14 Texture #0
+Vertex #15 Texture #0
+Vertex #5 Texture #0
+f
+Vertex #17 Texture #0
+Vertex #16 Texture #0
+Vertex #4 Texture #0
+f
+Vertex #4 Texture #0
+Vertex #11 Texture #0
+Vertex #17 Texture #0
+f
+Vertex #7 Texture #0
+Vertex #5 Texture #0
+Vertex #15 Texture #0
+f
+Vertex #15 Texture #0
+Vertex #9 Texture #0
+Vertex #7 Texture #0
+f
+Vertex #12 Texture #0
+Vertex #15 Texture #0
+Vertex #14 Texture #0
+f
+Vertex #12 Texture #0
+Vertex #14 Texture #0
+Vertex #17 Texture #0
+f
+Vertex #12 Texture #0
+Vertex #17 Texture #0
+Vertex #11 Texture #0
+f
+Vertex #19 Texture #0
+Vertex #18 Texture #0
+Vertex #16 Texture #0
+f
+Vertex #16 Texture #0
+Vertex #13 Texture #0
+Vertex #19 Texture #0
+f
+Vertex #16 Texture #0
+Vertex #18 Texture #0
+Vertex #2 Texture #0
+f
+Vertex #2 Texture #0
+Vertex #4 Texture #0
+Vertex #16 Texture #0
+f
+Vertex #13 Texture #0
+Vertex #16 Texture #0
+Vertex #17 Texture #0
+f
+Vertex #17 Texture #0
+Vertex #14 Texture #0
+Vertex #13 Texture #0
+f
+Vertex #9 Texture #0
+Vertex #15 Texture #0
+Vertex #12 Texture #0
+f
+Vertex #10 Texture #0
+Vertex #12 Texture #0
+Vertex #11 Texture #0
+f
+Vertex #6 Texture #0
+Vertex #19 Texture #0
+Vertex #13 Texture #0
+f
+Vertex #13 Texture #0
+Vertex #5 Texture #0
+Vertex #6 Texture #0
+f
+Vertex #21 Texture #0
+Vertex #20 Texture #0
+Vertex #22 Texture #0
+f
+Vertex #22 Texture #0
+Vertex #23 Texture #0
+Vertex #21 Texture #0
+f
+Vertex #22 Texture #0
+Vertex #24 Texture #0
+Vertex #23 Texture #0
+f
+Vertex #22 Texture #0
+Vertex #25 Texture #0
+Vertex #24 Texture #0
+f
+Vertex #25 Texture #0
+Vertex #26 Texture #0
+Vertex #24 Texture #0
+f
+Vertex #21 Texture #0
+Vertex #23 Texture #0
+Vertex #27 Texture #0
+f
+Vertex #27 Texture #0
+Vertex #28 Texture #0
+Vertex #21 Texture #0
+f
+Vertex #27 Texture #0
+Vertex #26 Texture #0
+Vertex #28 Texture #0
+f
+Vertex #26 Texture #0
+Vertex #29 Texture #0
+Vertex #28 Texture #0
+f
+Vertex #26 Texture #0
+Vertex #25 Texture #0
+Vertex #29 Texture #0
+f
+Vertex #25 Texture #0
+Vertex #22 Texture #0
+Vertex #1 Texture #0
+f
+Vertex #1 Texture #0
+Vertex #2 Texture #0
+Vertex #25 Texture #0
+f
+Vertex #6 Texture #0
+Vertex #8 Texture #0
+Vertex #20 Texture #0
+f
+Vertex #20 Texture #0
+Vertex #21 Texture #0
+Vertex #6 Texture #0
+f
+Vertex #19 Texture #0
+Vertex #28 Texture #0
+Vertex #29 Texture #0
+f
+Vertex #29 Texture #0
+Vertex #18 Texture #0
+Vertex #19 Texture #0
+f
+Vertex #19 Texture #0
+Vertex #6 Texture #0
+Vertex #21 Texture #0
+f
+Vertex #21 Texture #0
+Vertex #28 Texture #0
+Vertex #19 Texture #0
+f
+Vertex #29 Texture #0
+Vertex #25 Texture #0
+Vertex #2 Texture #0
+f
+Vertex #2 Texture #0
+Vertex #18 Texture #0
+Vertex #29 Texture #0
+f
+Vertex #20 Texture #0
+Vertex #8 Texture #0
+Vertex #1 Texture #0
+f
+Vertex #1 Texture #0
+Vertex #22 Texture #0
+Vertex #20 Texture #0
+usemtl
+natureKit-wood
+usemap
+natureKit-wood
+f
+Vertex #31 Texture #0
+Vertex #30 Texture #0
+Vertex #32 Texture #0
+f
+Vertex #32 Texture #0
+Vertex #33 Texture #0
+Vertex #31 Texture #0
+f
+Vertex #31 Texture #0
+Vertex #33 Texture #0
+Vertex #26 Texture #0
+f
+Vertex #26 Texture #0
+Vertex #27 Texture #0
+Vertex #31 Texture #0
+f
+Vertex #32 Texture #0
+Vertex #30 Texture #0
+Vertex #23 Texture #0
+f
+Vertex #23 Texture #0
+Vertex #24 Texture #0
+Vertex #32 Texture #0
+f
+Vertex #30 Texture #0
+Vertex #31 Texture #0
+Vertex #27 Texture #0
+f
+Vertex #27 Texture #0
+Vertex #23 Texture #0
+Vertex #30 Texture #0
+f
+Vertex #26 Texture #0
+Vertex #33 Texture #0
+Vertex #32 Texture #0
+f
+Vertex #32 Texture #0
+Vertex #24 Texture #0
+Vertex #26 Texture #0
+26/37/35
+Loaded image at test/test10.png
+Texture freed
+Texture freed

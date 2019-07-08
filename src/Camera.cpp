@@ -97,7 +97,7 @@ namespace agl {
   bool Camera::init(int width, int height) {
     fov = 1.5;
     z_near = 0.1;
-    z_far = 10.0;
+    z_far = 100.0;
     pos = Point(0, 0, 0);
     
     look_at = Point(0, 0, 1);

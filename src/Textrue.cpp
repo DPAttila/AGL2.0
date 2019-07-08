@@ -21,6 +21,7 @@ namespace agl {
   }
   
   Texture::~Texture() {
+    printf("Texture freed\n");
     free();
   }
   
