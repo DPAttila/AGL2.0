@@ -133,7 +133,7 @@ namespace agl {
      * See https://en.wikipedia.org/wiki/Wavefront_.obj_file
      * @param[in] filename Name of the input file
      */
-    bool load(string filename, bool ignore_vt);
+    bool load(string filename);
   };  
 }
 

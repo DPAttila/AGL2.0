@@ -5,6 +5,8 @@ layout(location = 0) in vec3 position;
 // Coordinates on the texture (normalized in the [0,1] range)
 layout(location = 1) in vec2 texcoord;
 
+layour(lovation = 2) in vec3 normal;
+
 // Uniform world matrix, remains the same throughout the draw call
 uniform mat4 world;
 

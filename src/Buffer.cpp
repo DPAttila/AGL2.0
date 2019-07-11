@@ -3,6 +3,7 @@
 
 #include "Buffer.h"
 
+#include <map>
 #include <stdio.h>
 #include <fstream>
 #include <iostream>
@@ -121,6 +122,7 @@ namespace agl {
     glBindVertexArray(vertexarray_id);
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(2);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glVertexAttribPointer(
         0,
@@ -138,6 +140,14 @@ namespace agl {
         sizeof(Vertex),
         (const GLvoid*) 12
     );
+    glVertexAttribPointer(
+      2,
+      3,
+      GL_FLOAT,
+      GL_FALSE,
+      sizeof(Vertex),
+      (const GLvoid*) 20
+    );
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
     
@@ -152,6 +162,7 @@ namespace agl {
     
     glDisableVertexAttribArray(0);
     glDisableVertexAttribArray(1);
+    glDisableVertexAttribArray(2);
   }
   
   Buffer::~Buffer() {
@@ -222,6 +233,13 @@ namespace agl {
     out << "\n";
     
     for (int i = 0; i < vertices.size(); i++)
+      out << "vn "
+          << vertices[i].nor.x << " "
+          << vertices[i].nor.y << " "
+          << vertices[i].nor.z << "\n";
+    out << "\n";
+    
+    for (int i = 0; i < vertices.size(); i++)
       out << "vt "
           << vertices[i].tex.x << " "
           << vertices[i].tex.y << "\n";
@@ -230,14 +248,14 @@ namespace agl {
       for (int i = 0; i < indices.size(); i++) {
         if (i%3 == 0) 
           out << "\nf ";
-        out << indices[i]+1 << "/" << indices[i]+1 << " ";
+        out << indices[i]+1 << "/" << indices[i]+1 << "/" << indices[i]+1 << " ";
       }
     } else {
       printf(ANSI_COLOR_RED "Saving of this kind of primitive is not implemented." ANSI_END_COLOR);
     }
   }
   
-  bool Buffer::load(string filename, bool ignore_vt) {
+  bool Buffer::load(string filename) {
     cout << "Loading obj from " << filename << '\n';
         
     ifstream in(filename);
@@ -245,70 +263,96 @@ namespace agl {
 
     vector<Point> pos;
     vector<Point2f> tex;
+    vector<Point> nor;
+    
+    // A corresponding Vertex gets generated for every string and put in here
+    map<string, Vertex> vertex_map;
+    
+    // Vertex strings in order of appearing (with duplicates)
+    vector<string> vertex_strings;
+    
     vector<Vertex> vertices;
     vector<unsigned int> indices;
     
     char c;
     string a;
     float x, y, z;
-    int i1, i2;
+    int pos_index, tex_index, nor_index;
     int ind = 0;
     while (!in.eof()) {
       in >> a;
-      if (a != "") cout << a << '\n';
+
       if (a == "mtllib") {
         cout << "mtl file requested: ";
         in >> a;
         cout << a << '\n';
       } else if (a == "v") { // vertex
         in >> x >> y >> z; // note that w is not read, it is skipped.
-        cout << x << ' ' << y << ' ' << z << '\n';
         pos.push_back(Point(x, y, z));
-        if (ignore_vt) vertices.push_back(Vertex(pos.back(), Point2f(0,0)));
-      } else if (a == "vt" && !ignore_vt) { // texture
-        in >> x >> y; // not that z is not read, it is skipped.
-        if (x < 0 || x > 1 || y < 0 || y > 1) {
-          cout << "vertex texture coordinate not between 0 and 1.\n";
-          cout << "this is not implemented.\n";
-        }
+      } else if (a == "vt") { // texture
+        in >> x >> y; // note that z is not read, it is skipped.
         tex.push_back(Point2f(x, y));
+      } else if (a == "vn") { // normal
+        in >> x >> y >> z;
+        nor.push_back(Point(x, y, z));
       } else if (a == "f") {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) { // three vertices of a triangle
+          // a vertex definition usually has the form v/vt/vn, 
+          // where v, vt, vn are indices
           in >> a;
-          // vertex
-          ind = 0;
-          i1 = 0;
-          while (ind < a.size() && a[ind] != '/') {
-            i1 *= 10;
-            i1 += a[ind] - '0';
-            ind++;
-          }
+          vertex_strings.push_back(a);
           
-          if (ignore_vt) {
-            indices.push_back(i1-1);
-          } else {
-            // texture
-            ind++;
-            i2 = 0;
-            
+          // if vertex is not yet in the map
+          if (vertex_map.find(a) == vertex_map.end()) {
+            // vertex
+            ind = 0;
+            pos_index = 0;
             while (ind < a.size() && a[ind] != '/') {
-              i2 *= 10;
-              i2 += a[ind] - '0';
+              pos_index *= 10;
+              pos_index += a[ind] - '0';
               ind++;
             }
             
-            add(
-              vector<Vertex>(1, Vertex(pos[i1], tex[i2])), 
-              vector<unsigned int>(1, 1)
-            );
+            // texture
+            ind++;
+            tex_index = 0;
+            while (ind < a.size() && a[ind] != '/') {
+              tex_index *= 10;
+              tex_index += a[ind] - '0';
+              ind++;
+            }
+            
+            // normal
+            ind++;
+            nor_index = 0;
+            while (ind < a.size()) {
+              nor_index *= 10;
+              nor_index += a[ind] - '0';
+              ind++;
+            }
+            
+            // subtract 1 since we are indexing 
+            // from 0 and obj is indexing from 1
+            pos_index -= 1;
+            tex_index -= 1;
+            nor_index -= 1;
+            
+            // adds the new vertex to the vertex map
+            vertex_map[a] = Vertex(pos[pos_index], tex[tex_index], nor[nor_index]);
           }
-          // normals are ignored
-          
-          cout << "Vertex #" << i1 << " Texture #" << i2 << '\n';
         }
       }
     }
-    if (ignore_vt) add(vertices, indices);
+    
+    map<string, Vertex>::iterator it = vertex_map.begin();
+    for (it; it != vertex_map.end(); it++)
+      vertices.push_back(it->second);
+    
+    for (int i = 0; i < vertex_strings.size(); i++)
+      indices.push_back(distance(vertex_map.begin(), vertex_map.find(vertex_strings[i])));
+    
+    add(vertices, indices);
+    
     return true;
   }
 }

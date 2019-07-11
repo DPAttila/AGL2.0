@@ -16,6 +16,7 @@ namespace agl {
   Graphics::Graphics() {}
   
   bool Graphics::init(std::string window_name, void (*user_defined)()) {  
+    printf("\n");
     this->user_defined = user_defined;  
     if (!glfwInit()) {
       printf(ANSI_COLOR_RED "Failed to initialize GLFW!" ANSI_END_COLOR);
@@ -98,6 +99,8 @@ namespace agl {
     
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable( GL_BLEND );
+    
+    printf("\n");
     return true;
   }
   

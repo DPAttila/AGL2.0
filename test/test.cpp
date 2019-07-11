@@ -34,9 +34,9 @@ class Alma {
     
     Point2f t[4] = {
       Point2f(0, 0),
-      Point2f(0, 1),
-      Point2f(1, 0),
-      Point2f(1, 1)
+      Point2f(0, 2),
+      Point2f(2, 0),
+      Point2f(2, 2)
     };
     
     vector<Vertex> vertices = {
@@ -84,14 +84,14 @@ class Alma {
     
     buffer.scale(0.8);
     
-    buffer2.load("test/obj-data/tree_simple_dark.obj", true);
+    buffer2.load("test/obj-data/tree_simple_dark.obj");
     
     buffer2.set_texture("test/test10.png");
     buffer2.save("test/temp.obj");
   }
   
   void draw() {
-   // buffer.draw();
+    buffer.draw();
     buffer2.draw();
   }
 };

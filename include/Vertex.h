@@ -19,9 +19,16 @@ namespace agl {
      */
     Point2f tex;
     
+    /**
+     * Vertex normal
+     */
+    Point nor;
+    
     Vertex();
     
     Vertex(Point pos, Point2f tex);
+    
+    Vertex(Point pos, Point2f tex, Point nor);
     
     bool operator==(const Vertex& v) const;
   };
