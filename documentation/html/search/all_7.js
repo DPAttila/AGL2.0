@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['key_5fcallback',['key_callback',['../classagl_1_1Input.html#a32f796994b97888c46e5ad150a988370',1,'agl::Input']]],
-  ['keys',['keys',['../classagl_1_1Input.html#a3d527e17ed44a940216ab7bd721b00a6',1,'agl::Input']]]
+  ['load',['load',['../classagl_1_1Buffer.html#aa4d7aea4680a2d5ab6f7ca2403964f6d',1,'agl::Buffer']]],
+  ['look_5fat',['look_at',['../classagl_1_1Camera.html#ab18d396b235bab0688d935e73d921e5b',1,'agl::Camera']]]
 ];

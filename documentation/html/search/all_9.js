@@ -1,10 +1,6 @@
 var searchData=
 [
-  ['matrix4f',['Matrix4f',['../classagl_1_1Matrix4f.html',1,'agl']]],
-  ['move',['move',['../classagl_1_1Camera.html#a121e091d9a0f2bbb56080e0cd6774572',1,'agl::Camera']]],
-  ['move_5fcamera',['move_camera',['../classagl_1_1AGL.html#ac81c6ecc1363396270485955320b376b',1,'agl::AGL::move_camera()'],['../classagl_1_1Graphics.html#acfc64f7e1033725ebda79f176d462dca',1,'agl::Graphics::move_camera()']]],
-  ['move_5fcamera_5fbackwards',['move_camera_backwards',['../classagl_1_1AGL.html#aeef87301449abfa2ee58c6851788176c',1,'agl::AGL']]],
-  ['move_5fcamera_5fforward',['move_camera_forward',['../classagl_1_1AGL.html#a0ef401fb5befea5f84a8342550354279',1,'agl::AGL']]],
-  ['move_5fcamera_5fleft',['move_camera_left',['../classagl_1_1AGL.html#a531a702149d0781c35fe87a01ea2bf67',1,'agl::AGL']]],
-  ['move_5fcamera_5fright',['move_camera_right',['../classagl_1_1AGL.html#a33dcc3992c41527b3148ca14bdb76c5f',1,'agl::AGL']]]
+  ['n',['n',['../classagl_1_1Texture.html#a0e1592e4478c250b371ee9deeb6aef13',1,'agl::Texture']]],
+  ['nor',['nor',['../classagl_1_1Vertex.html#a445548e543085baa0bfd811c729ed70b',1,'agl::Vertex']]],
+  ['num_5fusers',['num_users',['../classagl_1_1Shader.html#a183a1a679ddb47fa4e896678bd93597a',1,'agl::Shader']]]
 ];

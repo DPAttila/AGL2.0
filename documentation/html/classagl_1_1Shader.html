@@ -103,10 +103,8 @@ $(document).ready(function(){initNavTree('classagl_1_1Shader.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a42fd6a57ff6a4adb80ab1738debef0d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a42fd6a57ff6a4adb80ab1738debef0d5">Shader</a> (const char *vertex_source, const char *fragment_source)</td></tr>
-<tr class="separator:a42fd6a57ff6a4adb80ab1738debef0d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a809063bab84f2551f7c78e894c8f0675"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a809063bab84f2551f7c78e894c8f0675">Shader</a> (std::string vs_path, std::string fs_path)</td></tr>
-<tr class="separator:a809063bab84f2551f7c78e894c8f0675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae767b668df487817040021ba74602627"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#ae767b668df487817040021ba74602627">Shader</a> (string vertex_source, string fragment_source)</td></tr>
+<tr class="separator:ae767b668df487817040021ba74602627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a709ccd3af8dcd3f75498f485c2f377e0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a709ccd3af8dcd3f75498f485c2f377e0">Shader</a> ()</td></tr>
 <tr class="separator:a709ccd3af8dcd3f75498f485c2f377e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74c82aff4da80c5f1c4a4d3aae208fde"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a74c82aff4da80c5f1c4a4d3aae208fde">use</a> ()</td></tr>
@@ -115,12 +113,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a39a58121832fc1b12736eb2609170f03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab493f9a7b3f82873a15ae3b3d042fcb5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#ab493f9a7b3f82873a15ae3b3d042fcb5">unsubscribe</a> ()</td></tr>
 <tr class="separator:ab493f9a7b3f82873a15ae3b3d042fcb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50eef7acbce0a13168c6bca6e735d885"><td class="memItemLeft" align="right" valign="top"><a id="a50eef7acbce0a13168c6bca6e735d885"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>set_deletable</b> (bool <a class="el" href="classagl_1_1Shader.html#a98f76d618d889e7b2fe81d4c56c3fb6a">deletable</a>)</td></tr>
-<tr class="separator:a50eef7acbce0a13168c6bca6e735d885"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8df5f4179c6f195096b370e2c765bfbb"><td class="memItemLeft" align="right" valign="top"><a id="a8df5f4179c6f195096b370e2c765bfbb"></a>
 GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>get_wvp_matrix_location</b> ()</td></tr>
 <tr class="separator:a8df5f4179c6f195096b370e2c765bfbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23f685ee77c76d9026c558c5e1f72c7"><td class="memItemLeft" align="right" valign="top"><a id="ab23f685ee77c76d9026c558c5e1f72c7"></a>
+GLuint&#160;</td><td class="memItemRight" valign="bottom"><b>get_world_matrix_location</b> ()</td></tr>
+<tr class="separator:ab23f685ee77c76d9026c558c5e1f72c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
@@ -132,6 +130,8 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a8aefed2abd443f5d8e8a615848fd0af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e3720159a51291956ae2dfc7d666c1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a5e3720159a51291956ae2dfc7d666c1c">check_program</a> (GLuint <a class="el" href="classagl_1_1Shader.html#ac47a8b22495a0d96b06fe4594275f364">program_id</a>)</td></tr>
 <tr class="separator:a5e3720159a51291956ae2dfc7d666c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b31c24a2b39bd9790d5ce7eebc338c6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a5b31c24a2b39bd9790d5ce7eebc338c6">read_source</a> (string path)</td></tr>
+<tr class="separator:a5b31c24a2b39bd9790d5ce7eebc338c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -141,10 +141,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a9e114e8cb124f857800764c494fccd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa6935ecc4ef539274e12d53ac98e3e3"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#afa6935ecc4ef539274e12d53ac98e3e3">wvp_matrix_location</a></td></tr>
 <tr class="separator:afa6935ecc4ef539274e12d53ac98e3e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a8540c809c73c800604012b333b2c54"><td class="memItemLeft" align="right" valign="top">GLuint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a7a8540c809c73c800604012b333b2c54">world_matrix_location</a></td></tr>
+<tr class="separator:a7a8540c809c73c800604012b333b2c54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a183a1a679ddb47fa4e896678bd93597a"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a183a1a679ddb47fa4e896678bd93597a">num_users</a></td></tr>
 <tr class="separator:a183a1a679ddb47fa4e896678bd93597a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98f76d618d889e7b2fe81d4c56c3fb6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Shader.html#a98f76d618d889e7b2fe81d4c56c3fb6a">deletable</a></td></tr>
-<tr class="separator:a98f76d618d889e7b2fe81d4c56c3fb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class encapsulates shader functionality. It creates, uses and destroys shaders. </p>
@@ -153,8 +153,8 @@ Private Attributes</h2></td></tr>
 The sampler used in the shader has to be called "sampler"<br />
 The wvp matrix has to be called "wvp" </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a42fd6a57ff6a4adb80ab1738debef0d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42fd6a57ff6a4adb80ab1738debef0d5">&#9670;&nbsp;</a></span>Shader() <span class="overload">[1/3]</span></h2>
+<a id="ae767b668df487817040021ba74602627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae767b668df487817040021ba74602627">&#9670;&nbsp;</a></span>Shader() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,13 +162,13 @@ The wvp matrix has to be called "wvp" </p>
         <tr>
           <td class="memname">agl::Shader::Shader </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>vertex_source</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
+          <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>fragment_source</em>&#160;</td>
         </tr>
         <tr>
@@ -178,54 +178,18 @@ The wvp matrix has to be called "wvp" </p>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructs, creates the shader program using the provided strings as the shader sources </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructs, creates the shader program using the provided strings as the shader sources If the strings are paths, they are read, and the file content will be the shader sources (a string is considerd a path if it contains the .fs or .vs extensions) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">vertex_shader</td><td>The vertex shader source code </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fragment_shader</td><td>The fragment shader source code </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vertex_shader</td><td>The vertex shader source code or path </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fragment_shader</td><td>The fragment shader source code or path </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a809063bab84f2551f7c78e894c8f0675"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a809063bab84f2551f7c78e894c8f0675">&#9670;&nbsp;</a></span>Shader() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">agl::Shader::Shader </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>vs_path</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>fs_path</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Constructs, creates the shader program using the source code read from the file paths specified </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">vs_path</td><td>Path to the vertex shader source code </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fs_path</td><td>Path to the fragment shader source code </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the shader was initialized correctly, false otherwise </dd></dl>
 
 </div>
 </div>
 <a id="a709ccd3af8dcd3f75498f485c2f377e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a709ccd3af8dcd3f75498f485c2f377e0">&#9670;&nbsp;</a></span>Shader() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a709ccd3af8dcd3f75498f485c2f377e0">&#9670;&nbsp;</a></span>Shader() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,6 +348,39 @@ The wvp matrix has to be called "wvp" </p>
 
 </div>
 </div>
+<a id="a5b31c24a2b39bd9790d5ce7eebc338c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b31c24a2b39bd9790d5ce7eebc338c6">&#9670;&nbsp;</a></span>read_source()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">string agl::Shader::read_source </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Reads the shader from a file </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>The path to the source file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the path read from the file </dd></dl>
+
+</div>
+</div>
 <a id="a39a58121832fc1b12736eb2609170f03"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39a58121832fc1b12736eb2609170f03">&#9670;&nbsp;</a></span>subscribe()</h2>
 
@@ -441,29 +438,6 @@ It decreases <a class="el" href="classagl_1_1Shader.html#a183a1a679ddb47fa4e8966
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a98f76d618d889e7b2fe81d4c56c3fb6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98f76d618d889e7b2fe81d4c56c3fb6a">&#9670;&nbsp;</a></span>deletable</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool agl::Shader::deletable</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>If set to false, the object will not be destructed when <a class="el" href="classagl_1_1Shader.html#a183a1a679ddb47fa4e896678bd93597a">num_users</a> reaches 0 Default is true </p>
-
-</div>
-</div>
 <a id="a183a1a679ddb47fa4e896678bd93597a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a183a1a679ddb47fa4e896678bd93597a">&#9670;&nbsp;</a></span>num_users</h2>
 
@@ -484,7 +458,7 @@ It decreases <a class="el" href="classagl_1_1Shader.html#a183a1a679ddb47fa4e8966
 </table>
 </div><div class="memdoc">
 <p>Count of the users of the shader.<br />
-If the last user unsubscribes (so there are 0 users left) and <a class="el" href="classagl_1_1Shader.html#a98f76d618d889e7b2fe81d4c56c3fb6a">deletable</a> == true, it gets destrcuted </p>
+If the last user unsubscribes (so there are 0 users left) </p>
 
 </div>
 </div>
@@ -531,6 +505,29 @@ If the last user unsubscribes (so there are 0 users left) and <a class="el" href
 </table>
 </div><div class="memdoc">
 <p>Handle to the sampler (used for textures) See ogldev tutorial 16 </p>
+
+</div>
+</div>
+<a id="a7a8540c809c73c800604012b333b2c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a8540c809c73c800604012b333b2c54">&#9670;&nbsp;</a></span>world_matrix_location</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GLuint agl::Shader::world_matrix_location</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Handle to the world matrix uniform variable in the shader </p>
 
 </div>
 </div>

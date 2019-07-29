@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <fstream>
 #include <iostream>
+#include <algorithm>
 
 #include "util.h"
 
@@ -30,19 +31,15 @@ namespace agl {
     );
   }
   
-  Buffer::Buffer() {
-    this->primitive = GL_TRIANGLES;
-  }
-  
-  Buffer::Buffer(GLenum primitive) {
+  Buffer::Buffer(AGL* agl, GLenum primitive) {
     this->primitive = primitive;
-  }
-  
-  void Buffer::init(AGL* agl) {
+    
     this->graphics = agl->get_graphics();
     
-    shader = graphics->get_default_shader();
+    shader = graphics->get_shader();
     shader->subscribe();
+    
+    texture = NULL;
     
     glGenVertexArrays(1, &vertexarray_id);
     glBindVertexArray(vertexarray_id);
@@ -111,12 +108,21 @@ namespace agl {
   
   void Buffer::draw() {
     shader->use();
+    
+    // the world matrix gets calculated by calculating the wvp matrix
     transformation.calculate_wvp_matrix(graphics->get_vp_matrix());
-    glUniformMatrix4fv(
+    glUniformMatrix4fv( // supplies wvp matrix to the shader
         shader->get_wvp_matrix_location(),
         1,
         GL_TRUE,
         &transformation.wvp_matrix[0][0]
+    );
+    
+    glUniformMatrix4fv( // supplies world matrix to the shader
+        shader->get_world_matrix_location(),
+        1,
+        GL_TRUE,
+        &transformation.world_matrix[0][0]
     );
     
     glBindVertexArray(vertexarray_id);
@@ -130,7 +136,7 @@ namespace agl {
         GL_FLOAT,
         GL_FALSE,
         sizeof(Vertex),
-        (void*)0
+        (const GLvoid*) 0
     );
     glVertexAttribPointer(
         1,
@@ -141,17 +147,17 @@ namespace agl {
         (const GLvoid*) 12
     );
     glVertexAttribPointer(
-      2,
-      3,
-      GL_FLOAT,
-      GL_FALSE,
-      sizeof(Vertex),
-      (const GLvoid*) 20
+        2,
+        3,
+        GL_FLOAT,
+        GL_FALSE,
+        sizeof(Vertex),
+        (const GLvoid*) 20
     );
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
     
-    texture.bind(GL_TEXTURE0);
+    texture->bind(GL_TEXTURE0);
     
     glDrawElements(
       primitive,
@@ -166,14 +172,29 @@ namespace agl {
   }
   
   Buffer::~Buffer() {
+    cout << "Deleting buffer.\n";
     glDeleteBuffers(1, &vertexbuffer);
     glDeleteBuffers(1, &indexbuffer);
+    
+    if (texture != NULL) {
+      delete texture;
+      texture = NULL;
+    }
+    
     shader->unsubscribe();
     shader = NULL;
   }
   
   void Buffer::set_texture(std::string file_name) {
-    texture.init(GL_TEXTURE_2D, file_name);
+    if (texture != NULL) {
+      delete texture;
+      texture = NULL;
+    }
+    texture = new Texture(GL_TEXTURE_2D, file_name);
+  }
+  
+  void Buffer::set_texture(Texture* texture) {
+    this->texture = texture;
   }
   
   void Buffer::clear() {
@@ -255,11 +276,16 @@ namespace agl {
     }
   }
   
-  bool Buffer::load(string filename) {
-    cout << "Loading obj from " << filename << '\n';
-        
-    ifstream in(filename);
-    if (!in.good()) return false;
+  bool Buffer::load(string obj_path, bool ignore_mtl) {
+    cout << "Loading obj file from " << obj_path << "\n";
+    
+    // gets the directory path, it will be used if a mtl file is requested
+    string path = obj_path.substr(0, obj_path.find_last_of("/")+1);
+    ifstream in(obj_path);
+    if (!in.good()) {
+      cout << "Couldn't read obj file\n";
+      return false;
+    }
 
     vector<Point> pos;
     vector<Point2f> tex;
@@ -274,18 +300,73 @@ namespace agl {
     vector<Vertex> vertices;
     vector<unsigned int> indices;
     
+    string face_vertex_strings[20];
+    
+    bool has_mtl = false;
+    
+    // A color is mapped to every material string 
+    // that is read from the .mtl file
+    map<string, Point> materials;
+    
+    // String identifier of the currently used material
+    string current_mtl = "";
+    
+    Point2f uv_coord;
+    
+    int pos_index = 0, tex_index = 0, nor_index = 0;
+    
     char c;
-    string a;
+    string a, b;
     float x, y, z;
-    int pos_index, tex_index, nor_index;
     int ind = 0;
     while (!in.eof()) {
       in >> a;
-
-      if (a == "mtllib") {
-        cout << "mtl file requested: ";
+      
+      if (a == "mtllib" && !ignore_mtl) { 
+        has_mtl = true;
+        // if a mtl file is requested, it gets 
+        // read before contionuing with the obj file
+        cout << "Loading mtl file from ";
         in >> a;
-        cout << a << '\n';
+        string mtl_path = path + a;
+        cout << mtl_path << '\n';
+        
+        ifstream mtl_in(mtl_path);
+        
+        if (!mtl_in.good()) {
+          cout << "couldn't read mtl file.\n";
+          return false;
+        }
+        
+        while (!mtl_in.eof()) {
+          mtl_in >> a;
+          if (a == "newmtl") {      // a new material is defined
+            getline(mtl_in, a);     // with the name a
+            // the following lines are ignored until the diffuse color is found
+            b = "";
+            while (b != "Kd") mtl_in >> b;      
+            
+            mtl_in >> x >> y >> z;  // the diffuse color is read
+            // the diffuse color gets mapped to the material string
+            materials[a] = Point(x, y, z);
+          }
+        }
+        
+        // each material color gets 3 bytes in the pixel data array
+        unsigned char* pixel_data = new unsigned char[materials.size() * 3];
+        
+        map<string, Point>::iterator it0 = materials.begin();
+        ind = 0;
+        for (it0; it0 != materials.end(); it0++) {
+          pixel_data[ind  ] = it0->second.x * 255;
+          pixel_data[ind+1] = it0->second.y * 255;
+          pixel_data[ind+2] = it0->second.z * 255;
+          ind += 3;
+        }
+        
+        cout << "Creating texture from mtl data\n";
+        texture = new Texture(GL_TEXTURE_2D, pixel_data, materials.size());
+        cout << "Texture created\n";
       } else if (a == "v") { // vertex
         in >> x >> y >> z; // note that w is not read, it is skipped.
         pos.push_back(Point(x, y, z));
@@ -296,38 +377,48 @@ namespace agl {
         in >> x >> y >> z;
         nor.push_back(Point(x, y, z));
       } else if (a == "f") {
-        for (int i = 0; i < 3; i++) { // three vertices of a triangle
+        getline(in, a);
+        a = a.substr(1) + " ";
+        //cout << a << "\n";
+        size_t num_spaces = count(a.begin(), a.end(), ' ');
+        
+        for (int i = 0; i < num_spaces; i++) { // for all vertices of a face
           // a vertex definition usually has the form v/vt/vn, 
           // where v, vt, vn are indices
-          in >> a;
-          vertex_strings.push_back(a);
+          //cout << a.find(" ") << ' ';
+          b = a.substr(0, (int)a.find(" "));
+          //cout << b << '\n';
+          a = a.substr(a.find(" ")+1);
+          
+          // adds b to a temporary set of vertices describing the current face
+          face_vertex_strings[i] = b;
           
           // if vertex is not yet in the map
-          if (vertex_map.find(a) == vertex_map.end()) {
+          if (vertex_map.find(b) == vertex_map.end()) {
             // vertex
             ind = 0;
             pos_index = 0;
-            while (ind < a.size() && a[ind] != '/') {
+            while (ind < b.size() && b[ind] != '/') {
               pos_index *= 10;
-              pos_index += a[ind] - '0';
+              pos_index += b[ind] - '0';
               ind++;
             }
             
             // texture
             ind++;
             tex_index = 0;
-            while (ind < a.size() && a[ind] != '/') {
+            while (ind < b.size() && b[ind] != '/') {
               tex_index *= 10;
-              tex_index += a[ind] - '0';
+              tex_index += b[ind] - '0';
               ind++;
             }
             
             // normal
             ind++;
             nor_index = 0;
-            while (ind < a.size()) {
+            while (ind < b.size()) {
               nor_index *= 10;
-              nor_index += a[ind] - '0';
+              nor_index += b[ind] - '0';
               ind++;
             }
             
@@ -337,10 +428,35 @@ namespace agl {
             tex_index -= 1;
             nor_index -= 1;
             
+            if (has_mtl) {
+              y = 0;
+              x = distance(materials.begin(), materials.find(current_mtl)) / (float)materials.size() + 1.0 / (materials.size() + 1);
+              uv_coord = Point2f(x, y);
+            } else {
+              uv_coord = tex[tex_index];
+            }
             // adds the new vertex to the vertex map
-            vertex_map[a] = Vertex(pos[pos_index], tex[tex_index], nor[nor_index]);
+            vertex_map[b] = Vertex(pos[pos_index], uv_coord, nor[nor_index]);
           }
         }
+        
+        if (num_spaces == 3) { // if the face is a triangle
+          for (int i = 0; i < 3; i++) {
+            vertex_strings.push_back(face_vertex_strings[i]);
+          }
+        } else if (num_spaces == 4) { // if the face is a quad
+          for (int i = 0; i < 3; i++) {
+            vertex_strings.push_back(face_vertex_strings[i]);
+          }
+          
+          vertex_strings.push_back(face_vertex_strings[0]);
+          vertex_strings.push_back(face_vertex_strings[2]);
+          vertex_strings.push_back(face_vertex_strings[3]);
+        } else {
+          
+        }
+      } else if (a == "usemtl" && !ignore_mtl) {
+        getline(in, current_mtl);
       }
     }
     
@@ -353,6 +469,7 @@ namespace agl {
     
     add(vertices, indices);
     
+    cout << "Obj file loaded.\n";
     return true;
   }
 }

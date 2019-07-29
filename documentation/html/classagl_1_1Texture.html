@@ -98,8 +98,10 @@ $(document).ready(function(){initNavTree('classagl_1_1Texture.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1e6c013b0e7afb78c983c5553afa23f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a1e6c013b0e7afb78c983c5553afa23f9">init</a> (GLenum <a class="el" href="classagl_1_1Texture.html#a0e8c9abdf2b2da161c83a9c62807c0cb">texture_target</a>, std::string filename)</td></tr>
-<tr class="separator:a1e6c013b0e7afb78c983c5553afa23f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc6613e79e8c29223d5a685ef815d102"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#abc6613e79e8c29223d5a685ef815d102">Texture</a> (GLenum <a class="el" href="classagl_1_1Texture.html#a0e8c9abdf2b2da161c83a9c62807c0cb">texture_target</a>, std::string filename)</td></tr>
+<tr class="separator:abc6613e79e8c29223d5a685ef815d102"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bc1c20fc6fb242bd5122071935ad807"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a3bc1c20fc6fb242bd5122071935ad807">Texture</a> (GLenum <a class="el" href="classagl_1_1Texture.html#a0e8c9abdf2b2da161c83a9c62807c0cb">texture_target</a>, unsigned char *data, int w, int h=1, int <a class="el" href="classagl_1_1Texture.html#a0e1592e4478c250b371ee9deeb6aef13">n</a>=3)</td></tr>
+<tr class="separator:a3bc1c20fc6fb242bd5122071935ad807"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f0f84d3edab9c07d0c1580e7647fbb9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a9f0f84d3edab9c07d0c1580e7647fbb9">bind</a> (GLenum texture_unit)</td></tr>
 <tr class="separator:a9f0f84d3edab9c07d0c1580e7647fbb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -107,12 +109,16 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aed12d98a17d4eeeb851cad6c81abbada"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#aed12d98a17d4eeeb851cad6c81abbada">free</a> ()</td></tr>
 <tr class="separator:aed12d98a17d4eeeb851cad6c81abbada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33dab321b89cbb0a16595141e347fc6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a33dab321b89cbb0a16595141e347fc6d">init</a> ()</td></tr>
+<tr class="separator:a33dab321b89cbb0a16595141e347fc6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a80caa5bc70668de3bba66b115d95fd83"><td class="memItemLeft" align="right" valign="top"><a id="a80caa5bc70668de3bba66b115d95fd83"></a>
 unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><b>image_data</b></td></tr>
 <tr class="separator:a80caa5bc70668de3bba66b115d95fd83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24354e7cc7c785d812a639539bafc06f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a24354e7cc7c785d812a639539bafc06f">source_is_image</a></td></tr>
+<tr class="separator:a24354e7cc7c785d812a639539bafc06f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77dd6f3abb916a88ce172aff30da4a36"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a77dd6f3abb916a88ce172aff30da4a36">width</a></td></tr>
 <tr class="separator:a77dd6f3abb916a88ce172aff30da4a36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0b8de4ef82cb8bcb5f3a9a19bc55a9"><td class="memItemLeft" align="right" valign="top"><a id="a5d0b8de4ef82cb8bcb5f3a9a19bc55a9"></a>
@@ -125,6 +131,98 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
 <tr class="memitem:a0e8c9abdf2b2da161c83a9c62807c0cb"><td class="memItemLeft" align="right" valign="top">GLenum&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Texture.html#a0e8c9abdf2b2da161c83a9c62807c0cb">texture_target</a></td></tr>
 <tr class="separator:a0e8c9abdf2b2da161c83a9c62807c0cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="abc6613e79e8c29223d5a685ef815d102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc6613e79e8c29223d5a685ef815d102">&#9670;&nbsp;</a></span>Texture() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">agl::Texture::Texture </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>texture_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads the image from the file specified using stb_image See stb/stb_image.h </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>The file to load the image from </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">texture_target</td><td>Type of the texture target </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3bc1c20fc6fb242bd5122071935ad807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc1c20fc6fb242bd5122071935ad807">&#9670;&nbsp;</a></span>Texture() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">agl::Texture::Texture </td>
+          <td>(</td>
+          <td class="paramtype">GLenum&#160;</td>
+          <td class="paramname"><em>texture_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>h</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em> = <code>3</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Creates the texture using the image data specified </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Pointer to the image data, which should have RGB format </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">texture_target</td><td>Type of the texture target </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">w</td><td>Width of the data in pixels </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">h</td><td>Height of the data in pixels </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Number of 8-bit components per pixel </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9f0f84d3edab9c07d0c1580e7647fbb9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9f0f84d3edab9c07d0c1580e7647fbb9">&#9670;&nbsp;</a></span>bind()</h2>
@@ -171,38 +269,29 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
 
 </div>
 </div>
-<a id="a1e6c013b0e7afb78c983c5553afa23f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e6c013b0e7afb78c983c5553afa23f9">&#9670;&nbsp;</a></span>init()</h2>
+<a id="a33dab321b89cbb0a16595141e347fc6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33dab321b89cbb0a16595141e347fc6d">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool agl::Texture::init </td>
           <td>(</td>
-          <td class="paramtype">GLenum&#160;</td>
-          <td class="paramname"><em>texture_target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>filename</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Loads the image from the file specified using stb_image See stb/stb_image.h </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>The file to load the image from </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">texture_target</td><td>Type of the texture target </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Initializes the texture (Called by the constrcutors) </p>
 
 </div>
 </div>
@@ -226,7 +315,30 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Number of 8-bit components per pixel I guess it will always be 4 in our case </p>
+<p>Number of 8-bit components per pixel </p>
+
+</div>
+</div>
+<a id="a24354e7cc7c785d812a639539bafc06f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24354e7cc7c785d812a639539bafc06f">&#9670;&nbsp;</a></span>source_is_image</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool agl::Texture::source_is_image</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>True, if the image data was loaded from an image file using stb loader False, if the image data was acquired otherwise </p>
 
 </div>
 </div>

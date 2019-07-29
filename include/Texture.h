@@ -10,13 +10,18 @@ namespace agl {
     unsigned char* image_data;
     
     /**
+     * True, if the image data was loaded from an image file using stb loader
+     * False, if the image data was acquired otherwise
+     */
+    bool source_is_image;
+    
+    /**
      * Width and height of image
      */
     int width, height;
     
     /**
      * Number of 8-bit components per pixel
-     * I guess it will always be 4 in our case
      */
     int n;
     
@@ -39,18 +44,38 @@ namespace agl {
      */
     void free();
     
+    /**
+     * Initializes the texture (Called by the constrcutors)
+     */
+    bool init();
+    
     public:
-    Texture();
-    
-    ~Texture();
-    
     /**
      * Loads the image from the file specified using stb_image
      * See stb/stb_image.h
      * @param[in] filename The file to load the image from
      * @param[in] texture_target Type of the texture target
      */
-    bool init(GLenum texture_target, std::string filename);
+    Texture(GLenum texture_target, std::string filename);
+    
+    /**
+     * Creates the texture using the image data specified
+     * @param[in] data Pointer to the image data, 
+     * which should have RGB format
+     * @param[in] texture_target Type of the texture target
+     * @param[in] w Width of the data in pixels
+     * @param[in] h Height of the data in pixels
+     * @param[in] n Number of 8-bit components per pixel
+     */
+    Texture(
+        GLenum texture_target, 
+        unsigned char* data, 
+        int w, 
+        int h = 1, 
+        int n = 3
+    );
+    
+    ~Texture();
     
     /**
      * Binds the texture object to the texture unit specified

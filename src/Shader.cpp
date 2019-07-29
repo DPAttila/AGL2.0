@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdio.h>
+#include <iostream>
 
 #include "util.h"
 
@@ -110,16 +111,26 @@ namespace agl {
     glDeleteShader(fragment_shader_id);
     
     num_users = 0;
-    deletable = true;
     
     sampler_id = glGetUniformLocation(program_id, "sampler");
     wvp_matrix_location = glGetUniformLocation(program_id, "wvp");
+    world_matrix_location = glGetUniformLocation(program_id, "world");
     
     return true;
   }
   
-  Shader::Shader(const char* vertex_source, const char* fragment_source) {
-    if (!init(vertex_source, fragment_source))
+  Shader::Shader(string vertex_source, string fragment_source) {
+    
+    if (vertex_source.find(".vs") != string::npos)
+      vertex_source = read_source(vertex_source);
+    
+    if (fragment_source.find(".fs") != string::npos)
+      fragment_source = read_source(fragment_source); 
+    
+    //cout << vertex_source << "\n\n";
+    //cout << fragment_source << "\n\n";
+    
+    if (!init(vertex_source.c_str(), fragment_source.c_str()))
       printf(ANSI_COLOR_RED "Couldn't create shader\n" ANSI_END_COLOR);
   }
   
@@ -127,29 +138,17 @@ namespace agl {
     glDeleteProgram(program_id);
   }
   
-  Shader::Shader(std::string vs_path, std::string fs_path) {
-    // Reads sthe vertex shader from the file
-    std::string vertex_shader_code;
-    std::ifstream vertex_shader_stream(vs_path, std::ios::in);
-    if (vertex_shader_stream.is_open()) {
+  string Shader::read_source(string path) {
+    std::string shader_code;
+    std::ifstream shader_stream(path, std::ios::in);
+    if (shader_stream.is_open()) {
       std::stringstream sstr;
-      sstr << vertex_shader_stream.rdbuf();
-      vertex_shader_code = sstr.str();
-      vertex_shader_stream.close();
+      sstr << shader_stream.rdbuf();
+      shader_code = sstr.str();
+      shader_stream.close();
     }
     
-    // Reads the fragment shader from the file
-    std::string fragment_shader_code;
-    std::ifstream fragment_shader_stream(fs_path, std::ios::in);
-    if (fragment_shader_stream.is_open()) {
-      std::stringstream sstr;
-      sstr << fragment_shader_stream.rdbuf();
-      fragment_shader_code = sstr.str();
-      fragment_shader_stream.close();
-    }
-    
-    if (!init(vertex_shader_code.c_str(), fragment_shader_code.c_str()))
-      printf(ANSI_COLOR_RED "Couldn't create shader\n" ANSI_END_COLOR);
+    return shader_code;
   }
   
   Shader::Shader() {
@@ -178,7 +177,6 @@ namespace agl {
     
     if (!init(vertex_source, fragment_source))
       printf(ANSI_COLOR_RED "Couldn't create shader\n" ANSI_END_COLOR);
-    deletable = false;
   }
   
   void Shader::use() {
@@ -193,16 +191,16 @@ namespace agl {
   void Shader::unsubscribe() {
     num_users--;
     
-    if (num_users <= 0 && deletable) delete this;
+    if (num_users <= 0) delete this;
   }
   
-  void Shader::set_deletable(bool deletable) {
-    this->deletable = deletable;
-    if (num_users <= 0 && deletable) delete this;
-  }
   
   GLuint Shader::get_wvp_matrix_location() {
     return wvp_matrix_location;
+  }
+  
+  GLuint Shader::get_world_matrix_location() {
+    return world_matrix_location;
   }
 }
 

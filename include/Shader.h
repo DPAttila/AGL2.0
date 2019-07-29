@@ -5,6 +5,8 @@
 
 #include "glad/glad.h"
 
+using namespace std;
+
 namespace agl {
   /**
    * @brief This class encapsulates shader functionality. 
@@ -36,20 +38,17 @@ namespace agl {
      * Handle to the WVP matrix uniform variable in the shader
      */
     GLuint wvp_matrix_location;
+    
+    /**
+     * Handle to the world matrix uniform variable in the shader
+     */
+    GLuint world_matrix_location;
 
     /**
      * Count of the users of the shader.\n
-     * If the last user unsubscribes (so there are 0 users left) and
-     * #deletable == true, it gets destrcuted
+     * If the last user unsubscribes (so there are 0 users left)
      */
     unsigned int num_users;
-    
-    /**
-     * If set to false, the object will not be 
-     * destructed when #num_users reaches 0
-     * Default is true
-     */
-    bool deletable;
     
     ~Shader();
     
@@ -83,23 +82,24 @@ namespace agl {
      */
     bool check_program(GLuint program_id);
     
+    /**
+     * Reads the shader from a file
+     * @param[in] path The path to the source file
+     * @returns the path read from the file
+     */
+    string read_source(string path);
+    
     public:
     /**
      * Constructs, creates the shader program using the 
      * provided strings as the shader sources
-     * @param[in] vertex_shader The vertex shader source code
-     * @param[in] fragment_shader The fragment shader source code
+     * If the strings are paths, they are read, and the file content will be
+     * the shader sources (a string is considerd a path if it contains the
+     * .fs or .vs extensions)
+     * @param[in] vertex_shader The vertex shader source code or path
+     * @param[in] fragment_shader The fragment shader source code or path
      */
-    Shader(const char* vertex_source, const char* fragment_source);
-
-    /**
-     * Constructs, creates the shader program using the
-     * source code read from the file paths specified
-     * @param[in] vs_path Path to the vertex shader source code
-     * @param[in] fs_path Path to the fragment shader source code
-     * @returns True if the shader was initialized correctly, false otherwise
-     */
-    Shader(std::string vs_path, std::string fs_path);
+    Shader(string vertex_source, string fragment_source);
 
     /**
      * Constructs, initializng a basic, predefined shader program
@@ -127,9 +127,9 @@ namespace agl {
      */
     void unsubscribe();
     
-    void set_deletable(bool deletable);
-    
     GLuint get_wvp_matrix_location();
+    
+    GLuint get_world_matrix_location();
   };
 }
 

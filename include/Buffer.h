@@ -19,7 +19,7 @@ namespace agl {
     vector<Vertex> vertices;
     vector<unsigned int> indices;
     
-    Texture texture;
+    Texture* texture;
     
     Shader* shader;
     
@@ -60,11 +60,7 @@ namespace agl {
     void rebuffer();
     
     public:
-    Buffer();
-    
-    Buffer(GLenum primitive);
-    
-    void init(AGL* agl);
+    Buffer(AGL* agl, GLenum primitive = GL_TRIANGLES);
     
     ~Buffer();
     
@@ -81,6 +77,11 @@ namespace agl {
      * object of the texture of the buffer
      */
     void set_texture(std::string file_name);
+    
+    /**
+     * Sets the texture to the texture specified
+     */
+    void set_texture(Texture *texture);
     
     void clear();
     
@@ -129,11 +130,13 @@ namespace agl {
     void save(string filename);
     
     /**
-     * Loads a .obj file
+     * Loads a .obj file in the buffer
      * See https://en.wikipedia.org/wiki/Wavefront_.obj_file
-     * @param[in] filename Name of the input file
+     * @param[in] filename Name of the input obj file
+     * @param[in] ignore_mtl If set to true, all mtl-specific 
+     * data will be ignored (defaults to false
      */
-    bool load(string filename);
+    bool load(string filename, bool ignore_mtl = false);
   };  
 }
 

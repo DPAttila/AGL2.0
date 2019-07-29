@@ -55,13 +55,6 @@ namespace agl {
                  NULL
              );
     
-    /*
-    window = glfwCreateWindow(
-      1000, 1000, window_name.c_str(),
-       NULL, NULL
-    );
-    */
-    
     if (window == NULL) {
       printf(ANSI_COLOR_RED "Failed to open GLFW window." ANSI_END_COLOR);
       glfwTerminate();
@@ -121,7 +114,7 @@ namespace agl {
   }
   
   void Graphics::terminate() {
-    basic_shader->set_deletable(true);
+    basic_shader->unsubscribe();
     glfwTerminate();
   }
   
@@ -165,13 +158,15 @@ namespace agl {
     return window;
   }
   
-  Shader* Graphics::get_default_shader() {
+  Shader* Graphics::get_shader() {
     return basic_shader;
   }
   
-  //objl::Loader* Graphics::get_obj_loader() {
-  //  return obj_loader;
-  //}
+  void Graphics::set_shader(Shader* shader) {
+    basic_shader->unsubscribe();
+    basic_shader = shader;
+    basic_shader->subscribe();
+  }
 }
 
 #endif

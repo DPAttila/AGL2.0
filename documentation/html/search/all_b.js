@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['on_5floop',['on_loop',['../classagl_1_1Graphics.html#abfecb1bbd932fb29b9d92a08da02684a',1,'agl::Graphics::on_loop()'],['../classagl_1_1Input.html#a3889beb818d765b5d5f604777fe1ce74',1,'agl::Input::on_loop()']]],
-  ['operator_20_2a',['operator *',['../classagl_1_1Matrix4f.html#a1d22d0236f385f89c0dfa6fa6a6ee51f',1,'agl::Matrix4f']]],
-  ['operator_5b_5d',['operator[]',['../classagl_1_1Matrix4f.html#acdb789b7069e850da3ae52e57155d0e0',1,'agl::Matrix4f']]],
-  ['orient',['orient',['../classagl_1_1Camera.html#a796d0f35bb9e5b3e7ac418ac5b302584',1,'agl::Camera']]],
-  ['orient_5fcamera',['orient_camera',['../classagl_1_1AGL.html#a9c5161c4171079ee6d4a39427924770b',1,'agl::AGL::orient_camera()'],['../classagl_1_1Graphics.html#ae44f29a47ac84c0ab49813dbc0585e46',1,'agl::Graphics::orient_camera()']]]
+  ['point',['Point',['../classagl_1_1Point.html',1,'agl']]],
+  ['point2f',['Point2f',['../classagl_1_1Point2f.html',1,'agl']]],
+  ['pos',['pos',['../classagl_1_1Camera.html#a4156ee2c5c0f0dc780d603245baaf081',1,'agl::Camera::pos()'],['../classagl_1_1Vertex.html#a2d583fe39d5de75a2b588fe09ed6266c',1,'agl::Vertex::pos()']]],
+  ['primitive',['primitive',['../classagl_1_1Buffer.html#a58c9e34d415980f2e19b8774ddac22dc',1,'agl::Buffer']]],
+  ['program_5fid',['program_id',['../classagl_1_1Shader.html#ac47a8b22495a0d96b06fe4594275f364',1,'agl::Shader']]]
 ];

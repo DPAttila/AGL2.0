@@ -1,7 +1,7 @@
 var classagl_1_1Graphics =
 [
     [ "Graphics", "classagl_1_1Graphics.html#a72004f0aaabf507e17df62f5dfbfda74", null ],
-    [ "get_default_shader", "classagl_1_1Graphics.html#a1f29c78dea90ac437d5811f95821b8dd", null ],
+    [ "get_shader", "classagl_1_1Graphics.html#a65e2e43c25821cb15779bf35a62259f8", null ],
     [ "get_vp_matrix", "classagl_1_1Graphics.html#a7b7547d0fece7b39a3c22e88ed39877d", null ],
     [ "get_window", "classagl_1_1Graphics.html#a1ac758c41d7589c36cb0a895e7968988", null ],
     [ "init", "classagl_1_1Graphics.html#aee3cc5d72b595b9b9cd87c6e0af9c65b", null ],
@@ -13,6 +13,7 @@ var classagl_1_1Graphics =
     [ "on_loop", "classagl_1_1Graphics.html#abfecb1bbd932fb29b9d92a08da02684a", null ],
     [ "orient_camera", "classagl_1_1Graphics.html#ae44f29a47ac84c0ab49813dbc0585e46", null ],
     [ "set_camera_pos", "classagl_1_1Graphics.html#ac6b1de3994149a36a53095b9192458a3", null ],
+    [ "set_shader", "classagl_1_1Graphics.html#a4e16a0ed5c7a602a81ba436909fa2ed2", null ],
     [ "terminate", "classagl_1_1Graphics.html#a2c277530c365b51dd3516f6feb4b767b", null ],
     [ "turn_camera", "classagl_1_1Graphics.html#a0dad176d86f738aac92182f6212c1a5a", null ],
     [ "basic_shader", "classagl_1_1Graphics.html#afb4b72275da06c0a8d3e2efb749e31ec", null ],

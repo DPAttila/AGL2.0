@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['indexbuffer',['indexbuffer',['../classagl_1_1Buffer.html#a6a3afd93e5f0f3c7aa2ba163537ad6fc',1,'agl::Buffer']]]
+  ['keys',['keys',['../classagl_1_1Input.html#a3d527e17ed44a940216ab7bd721b00a6',1,'agl::Input']]]
 ];
