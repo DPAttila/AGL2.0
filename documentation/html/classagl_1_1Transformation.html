@@ -99,7 +99,7 @@ Collaboration diagram for agl::Transformation:</div>
 <div class="dyncontent">
 <div class="center"><img src="classagl_1_1Transformation__coll__graph.png" border="0" usemap="#agl_1_1Transformation_coll__map" alt="Collaboration graph"/></div>
 <map name="agl_1_1Transformation_coll__map" id="agl_1_1Transformation_coll__map">
-<area shape="rect"  title=" " alt="" coords="5,139,140,165"/>
+<area shape="rect"  title=" " alt="" coords="5,153,140,180"/>
 <area shape="rect"  href="classagl_1_1Matrix4f.html" title=" " alt="" coords="25,5,120,32"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
@@ -121,6 +121,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b> (float f)</
 <tr class="memitem:ad313b2977a91aae7879c816f8cd00dc7"><td class="memItemLeft" align="right" valign="top"><a id="ad313b2977a91aae7879c816f8cd00dc7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (<a class="el" href="classagl_1_1Point.html">Point</a> p)</td></tr>
 <tr class="separator:ad313b2977a91aae7879c816f8cd00dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b45a51aea95901c9a82730a807795a7"><td class="memItemLeft" align="right" valign="top"><a id="a8b45a51aea95901c9a82730a807795a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>calculate_world_matrix</b> ()</td></tr>
+<tr class="separator:a8b45a51aea95901c9a82730a807795a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf068efbc01592a6fbe5e28660953dec"><td class="memItemLeft" align="right" valign="top"><a id="adf068efbc01592a6fbe5e28660953dec"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>calculate_wvp_matrix</b> (<a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a> *vp_matrix)</td></tr>
 <tr class="separator:adf068efbc01592a6fbe5e28660953dec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -131,14 +134,31 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a214021890dbcbf0ffa9dd153081c097a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a986f0d47080a364fc7a2b098eb1b16a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Transformation.html#a986f0d47080a364fc7a2b098eb1b16a7">scale_matrix</a></td></tr>
 <tr class="separator:a986f0d47080a364fc7a2b098eb1b16a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2dc5ac8d2ac0bc80d6e95183eec1fbdc"><td class="memItemLeft" align="right" valign="top"><a id="a2dc5ac8d2ac0bc80d6e95183eec1fbdc"></a>
-<a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotation_matrix</b></td></tr>
+<tr class="memitem:a2dc5ac8d2ac0bc80d6e95183eec1fbdc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classagl_1_1Transformation.html#a2dc5ac8d2ac0bc80d6e95183eec1fbdc">rotation_matrix</a></td></tr>
 <tr class="separator:a2dc5ac8d2ac0bc80d6e95183eec1fbdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f25553543cf8713c79d8a74bca29d2c"><td class="memItemLeft" align="right" valign="top"><a id="a5f25553543cf8713c79d8a74bca29d2c"></a>
+<a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>world_matrix</b></td></tr>
+<tr class="separator:a5f25553543cf8713c79d8a74bca29d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59c2efee483f4fb596ce820a1d6a689b"><td class="memItemLeft" align="right" valign="top"><a id="a59c2efee483f4fb596ce820a1d6a689b"></a>
 <a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a>&#160;</td><td class="memItemRight" valign="bottom"><b>wvp_matrix</b></td></tr>
 <tr class="separator:a59c2efee483f4fb596ce820a1d6a689b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2dc5ac8d2ac0bc80d6e95183eec1fbdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc5ac8d2ac0bc80d6e95183eec1fbdc">&#9670;&nbsp;</a></span>rotation_matrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classagl_1_1Matrix4f.html">Matrix4f</a> agl::Transformation::rotation_matrix</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rotation </p>
+
+</div>
+</div>
 <a id="a986f0d47080a364fc7a2b098eb1b16a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a986f0d47080a364fc7a2b098eb1b16a7">&#9670;&nbsp;</a></span>scale_matrix</h2>
 

@@ -42,24 +42,28 @@ namespace agl {
     rx[2][0] = 0.0; rx[2][1] = sin(p.x); rx[2][2] = cos(p.x);  rx[2][3] = 0.0;
     rx[3][0] = 0.0; rx[3][1] = 0.0;      rx[3][2] = 0.0;       rx[3][3] = 1.0;
     
-    ry[0][0] = cos(p.y); ry[0][1] = 0.0; ry[0][2] = -sin(p.y); ry[0][3] = 0.0;
+    ry[0][0] = cos(p.y); ry[0][1] = 0.0; ry[0][2] = sin(p.y);  ry[0][3] = 0.0;
     ry[1][0] = 0.0;      ry[1][1] = 1.0; ry[1][2] = 0.0;       ry[1][3] = 0.0;
-    ry[2][0] = sin(p.y); ry[2][1] = 0.0; ry[2][2] = cos(p.y);  ry[2][3] = 0.0;
+    ry[2][0] = -sin(p.y);ry[2][1] = 0.0; ry[2][2] = cos(p.y);  ry[2][3] = 0.0;
     ry[3][0] = 0.0;      ry[3][1] = 0.0; ry[3][2] = 0.0;       ry[3][3] = 1.0;
 
     rz[0][0] = cos(p.z); rz[0][1] = -sin(p.z); rz[0][2] = 0.0; rz[0][3] = 0.0;
     rz[1][0] = sin(p.z); rz[1][1] = cos(p.z);  rz[1][2] = 0.0; rz[1][3] = 0.0;
-    rz[2][0] = 0.0;      rz[2][1] = 0.0;       rz[2][2] = 0.0; rz[2][3] = 0.0;
+    rz[2][0] = 0.0;      rz[2][1] = 0.0;       rz[2][2] = 1.0; rz[2][3] = 0.0;
     rz[3][0] = 0.0;      rz[3][1] = 0.0;       rz[3][2] = 0.0; rz[3][3] = 1.0;
     
     rotation_matrix = rz * ry * rx;
   }
   
-  void Transformation::calculate_wvp_matrix(Matrix4f* vp_matrix) {    
-    wvp_matrix = *vp_matrix * 
-                 translation_matrix * 
-                 rotation_matrix * 
-                 scale_matrix;
+  void Transformation::calculate_world_matrix() {
+    world_matrix = translation_matrix * 
+                   rotation_matrix * 
+                   scale_matrix;
+  }
+  
+  void Transformation::calculate_wvp_matrix(Matrix4f* vp_matrix) {
+    calculate_world_matrix();    
+    wvp_matrix = *vp_matrix * world_matrix;
   }
 }
 

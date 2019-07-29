@@ -17,7 +17,12 @@ namespace agl {
      */
     Matrix4f scale_matrix;
     
+    /**
+     * Rotation
+     */
     Matrix4f rotation_matrix;
+
+    Matrix4f world_matrix;
     
     Matrix4f wvp_matrix;
     
@@ -32,6 +37,8 @@ namespace agl {
     void scale(float f);
     
     void rotate(Point p);
+    
+    void calculate_world_matrix();
     
     void calculate_wvp_matrix(Matrix4f* vp_matrix);
   };
