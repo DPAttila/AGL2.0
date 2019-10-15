@@ -69,7 +69,7 @@ void input() {
     else
         d.x = 0;
     /*
-    Point2f d = ati_gl.get_cursor_delta();
+    d = ati_gl.get_cursor_delta();
     d.x /= 1000.0;
     d.y /= 1000.0;
     */
