@@ -16,18 +16,6 @@ class Alma {
   public:
   AGL* gl;
   Buffer* buffer;
-  float counter = 0;
-  Point direction;
-  Point pos;
-  
-  int num_trains;
-  float counter_speed;
-  float radius;
-  
-  int model_num;
-  int current_model;
-  
-  vector<string> files;
   
   Alma() {}
   
@@ -37,50 +25,21 @@ class Alma {
   void init(AGL* graphics) {
     buffer = new Buffer(graphics);
     this->gl = graphics;
-    
-    //buffer->load("../../Downloads/kenney/Models/obj/ground_dirt.obj", false);
-    
-    //buffer->set_texture("test/obj-data/rail2.jpg");
-    direction = Point(0, 0, 0);
-    pos = Point(0, 0, 0);
-    
-    counter_speed = 0;
-    radius = 10;
-    num_trains = 1;
-    
-    ifstream in("test/models.txt");
-    
-    string a;
-    for (int i = 0; i < 302; i++) {
-      in >> a;
-      files.push_back(a);
-    }
-    
-    model_num = 0;
-    current_model = -1;
-  }
   
-  void draw() {
-    if (model_num != current_model) {
-      current_model = model_num;
-      delete buffer;
-      buffer = new Buffer(gl);
-      buffer->load("../../new/" + files[model_num], false);
-      //buffer->set_texture("test/obj-data/rail2.jpg");
-    }
-    
-    for (int i = -5; i < 5; i++) {
-      for (int j = -5; j < 5; j++) {
-        buffer->translate(Point(i*10, 0, j*10));
-        buffer->draw();
-      }
-    }
+    buffer->load("test/obj-data/train.obj");
+    buffer->translate(Point(0, 0, 5));
+    //buffer->set_texture("test/green.png");
+}
+  
+  void draw() {    
+    buffer->draw();
   }
 };
 
 AGL ati_gl;
   
 Alma alma;
+Point2f d = Point2f(0, 0);
 
 void input() {
   
@@ -95,12 +54,27 @@ void input() {
       ati_gl.move_camera_backwards();
     if (ati_gl.get_key(GLFW_KEY_D)) // D
       ati_gl.move_camera_right();
-      
+    
+    if (ati_gl.get_key(GLFW_KEY_UP)) 
+        d.y = -0.05;
+    else if (ati_gl.get_key(GLFW_KEY_DOWN))
+        d.y = 0.05;
+    else
+        d.y = 0;
+    
+    if (ati_gl.get_key(GLFW_KEY_RIGHT))
+        d.x = 0.05;
+    else if (ati_gl.get_key(GLFW_KEY_LEFT))
+        d.x = -0.05;
+    else
+        d.x = 0;
+    /*
     Point2f d = ati_gl.get_cursor_delta();
     d.x /= 1000.0;
     d.y /= 1000.0;
-    
-    ati_gl.turn_camera(d.x, d.y);
+    */
+    if (d.x != 0 || d.y != 0)
+        ati_gl.turn_camera(d.x, d.y);
   }
   if (ati_gl.get_key(GLFW_KEY_E) == 1) {
     if (ati_gl.is_cursor_disabled()) {
@@ -118,11 +92,6 @@ void draw() {
 
       ImGui::Text("cica.");
       
-      ImGui::InputInt("model", &alma.model_num);
-      ImGui::SliderInt("num trains", &alma.num_trains, 0, 50);
-      ImGui::SliderFloat("counter speed", &alma.counter_speed, 0.0, 0.5);
-      ImGui::SliderFloat("radius", &alma.radius, 0.0, 50.0);
-      
       ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
       ImGui::End();
     }
@@ -136,7 +105,7 @@ void logic() {
 int main() {
    
   ati_gl.init("cica", draw, input, logic);
-  Shader *s = new Shader("src/shaders/default.vs", "src/shaders/default.fs");
+  Shader *s = new Shader("src/shaders/default.vs", "src/shaders/default_simple.fs");
   ati_gl.get_graphics()->set_shader(s);
   
   alma.init(&ati_gl);
