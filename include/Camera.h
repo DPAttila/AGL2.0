@@ -2,6 +2,7 @@
 #define CAMERA_H
 
 #include "Point.h"
+#include "Point2f.h"
 #include "Matrix4f.h"
 
 namespace agl {
@@ -95,6 +96,10 @@ namespace agl {
      * Camera is moved TO p (the actual position is set to p)
      */
     void set_pos(Point p);
+
+    Point get_pos();
+
+    Point2f get_rotation();
     
     /**
      * Camera is moved BY p (p is added to the actual position)

@@ -4,8 +4,11 @@
 #include "Point.h"
 
 #include <cmath>
+#include <cstdlib>
 
 #include "Quaternion.h"
+
+using namespace std;
 
 namespace agl {
   Point::Point() {}
@@ -65,6 +68,10 @@ namespace agl {
     this->y += p.y;
     this->z += p.z;
     return *this;
+  }
+  
+  string Point::to_string() {
+    return std::to_string(x) + "\t" + std::to_string(y) + "\t" + std::to_string(z);    
   }
 }
 

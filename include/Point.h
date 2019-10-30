@@ -1,6 +1,10 @@
 #ifndef POINT_H
 #define POINT_H
 
+#include <string>
+
+using namespace std;
+
 namespace agl {
   class Point {
     public:
@@ -25,6 +29,8 @@ namespace agl {
     Point operator*(const float f);
     
     Point& operator+=(const Point& p);
+    
+    string to_string();
   };
 }
 

@@ -94,6 +94,15 @@ namespace agl {
     void rotate(Point p);
     
     /**
+     * Rotate by angles instead of by vector, using the same transformation
+     * as the Camera class. 
+     * See https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation
+     * @param[in] h horizontal angle
+     * @param[in] v vertical angle
+     */
+    void rotate(float h, float v);
+    
+    /**
      * Returns the list of vertices
      */
     vector<Vertex> get_vertices();

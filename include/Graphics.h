@@ -91,6 +91,8 @@ namespace agl {
     
     Shader* get_shader();
     
+    Camera* get_camera();
+    
     void set_shader(Shader* shader);
   };
 }
