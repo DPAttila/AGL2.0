@@ -218,6 +218,30 @@ namespace agl {
     transformation.rotate(p);
   }
   
+  void Buffer::rotate(float h, float v) {
+    Point vertical(0.0, 1.0, 0.0);
+    
+    Point rotation_vector(1.0, 0.0, 0.0);
+    
+    // rotates the rotation vector (which is set to horizontal by default) 
+    // by h angle around the vertical axis
+    rotation_vector.rotate(h, vertical);
+    rotation_vector.normalize();
+    
+    // gets the new horizontal axis perpendicular to both 
+    // the rotation_vector and the vertical axis
+    Point horizontal = vertical.cross_product(rotation_vector);
+    horizontal.normalize();
+    
+    // rotates the rotation vector by v angle 
+    // around the horizontal axis
+    rotation_vector.rotate(v, horizontal);
+    rotation_vector.normalize();
+    
+    // calls the general rotation by vector function of the Buffer class
+    rotate(rotation_vector);
+  }
+  
   vector<Vertex> Buffer::get_vertices() {
     return vertices;
   }

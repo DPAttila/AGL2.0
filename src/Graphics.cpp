@@ -102,7 +102,7 @@ namespace agl {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+//    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     user_defined();
@@ -160,6 +160,10 @@ namespace agl {
   
   Shader* Graphics::get_shader() {
     return basic_shader;
+  }
+  
+  Camera* Graphics::get_camera() {
+    return &camera;    
   }
   
   void Graphics::set_shader(Shader* shader) {

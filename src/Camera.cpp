@@ -99,6 +99,9 @@ namespace agl {
     z_near = 0.1;
     z_far = 100.0;
     pos = Point(0, 0, 0);
+
+    horizontal_angle = 0;
+    vertical_angle = 0;
     
     look_at = Point(0, 0, 1);
     up = Point(0, 1, 0);
@@ -111,7 +114,7 @@ namespace agl {
     perspective_projection.set_to_identity();
     rotation.set_to_identity();
     translation.set_to_identity();
-    
+
     calculate_perspective_projection();
     calculate_rotation();
     calculate_translation();    
@@ -122,6 +125,14 @@ namespace agl {
   void Camera::set_pos(Point p) {
     this->pos = p;
     calculate_translation();
+  }
+
+  Point Camera::get_pos() {
+    return pos;
+  }
+  
+  Point2f Camera::get_rotation() {
+    return Point2f(horizontal_angle, vertical_angle);
   }
   
   void Camera::move(Point p) {
