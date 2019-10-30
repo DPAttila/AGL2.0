@@ -3,7 +3,7 @@ SO = libagl.so
 # All cpp files from src/
 SOURCES = $(wildcard src/*.cpp)
 
-SOURCES += glad/glad.cpp
+SOURCES += glad/glad/glad.cpp
 
 # imgui sources for UI
 SOURCES += imgui-master/imgui.cpp imgui-master/imgui_demo.cpp 
