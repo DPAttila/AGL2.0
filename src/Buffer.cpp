@@ -219,6 +219,7 @@ namespace agl {
   }
   
   void Buffer::rotate(float h, float v) {
+    /*
     Point vertical(0.0, 1.0, 0.0);
     
     Point rotation_vector(1.0, 0.0, 0.0);
@@ -238,8 +239,11 @@ namespace agl {
     rotation_vector.rotate(v, horizontal);
     rotation_vector.normalize();
     
-    // calls the general rotation by vector function of the Buffer class
+    // calls the general rotation by vector method of the Buffer class
     rotate(rotation_vector);
+    cout << rotation_vector.to_string() << "\n";
+    */
+    rotate(Point(-v, -h + 3.14/2.0, 0));
   }
   
   vector<Vertex> Buffer::get_vertices() {
