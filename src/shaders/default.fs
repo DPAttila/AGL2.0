@@ -28,10 +28,10 @@ PointLight point_light;
 
 void main() {
   light.color = vec3(1.0, 1.0, 1.0);
-  light.intensity = 0.2;
+  light.intensity = 0.6;
   light.direction = vec3(1.0, -5.0, 1.0);
 
-  point_light.color = vec3(1.0, 0.2, 0.2);
+  point_light.color = vec3(0.0, 0.0, 0.0);
   point_light.intensity = 0.8;
   point_light.pos = vec3(world_fs * vec4(1, 1, 1, 1)).xyz;
   
