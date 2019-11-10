@@ -83,6 +83,8 @@ namespace agl {
      */
     void set_texture(Texture *texture);
     
+    void set_shader(Shader* shader);
+    
     void clear();
     
     void translate(Point p);
