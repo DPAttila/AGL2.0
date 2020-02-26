@@ -228,6 +228,10 @@ namespace agl {
     rotate(Point(-v, -h + 3.14/2.0, 0));
   }
   
+  void Buffer::rotate_around_axis(Point axis, float angle) {
+    transformation.rotate_around_axis(axis, angle);
+  }
+  
   vector<Vertex> Buffer::get_vertices() {
     return vertices;
   }

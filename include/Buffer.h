@@ -95,6 +95,8 @@ namespace agl {
     
     void rotate(Point p);
     
+    void rotate_around_axis(Point axis, float angle);
+    
     /**
      * Rotate by angles instead of by vector, using the same transformation
      * as the Camera class. 

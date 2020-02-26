@@ -48,10 +48,10 @@ namespace agl {
     
     
     window = glfwCreateWindow(
-                 glfwGetVideoMode(monitors[0])->width, 
-                 glfwGetVideoMode(monitors[0])->height, 
+                 glfwGetVideoMode(monitors[count-1])->width, 
+                 glfwGetVideoMode(monitors[count-1])->height, 
                  window_name.c_str(), 
-                 monitors[0], 
+                 monitors[count-1], 
                  NULL
              );
     

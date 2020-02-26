@@ -19,8 +19,12 @@ namespace agl {
     this->z = z;
   }
   
+  float Point::pyth() {
+    return sqrt(x*x + y*y + z*z);
+  }
+  
   void Point::normalize() {
-    const float length = sqrt(x*x + y*y + z*z);
+    const float length = pyth();
     
     x /= length;
     y /= length;
@@ -59,8 +63,16 @@ namespace agl {
     return (this->x == p.x && this->y == p.y && this->z == p.z);
   }
   
+  Point Point::operator+(const Point& p) {
+    return Point(this->x + p.x, this->y + p.y, this->z + p.z);
+  }
+  
   Point Point::operator*(const float f) {
     return Point(this->x * f, this->y * f, this->z * f);
+  }
+  
+  Point Point::operator/(const float f) {
+    return Point(this->x / f, this->y / f, this->z / f);
   }
   
   Point& Point::operator+=(const Point& p) {

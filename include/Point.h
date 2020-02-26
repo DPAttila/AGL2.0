@@ -14,6 +14,12 @@ namespace agl {
     
     Point(float x, float y, float z);
     
+    /**
+     * Returns the length of the vector from (0, 0, 0) to Point
+     * Using Pythagoras' theorem
+     */
+    float pyth();
+
     void normalize();
     
     Point cross_product(const Point& p);
@@ -26,7 +32,11 @@ namespace agl {
     
     bool operator==(const Point& p) const;
     
+    Point operator+(const Point& p);
+    
     Point operator*(const float f);
+    
+    Point operator/(const float f);
     
     Point& operator+=(const Point& p);
     

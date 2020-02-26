@@ -55,6 +55,20 @@ namespace agl {
     rotation_matrix = rz * ry * rx;
   }
   
+  void Transformation::rotate_around_axis(Point axis, float angle) {
+    Matrix4f rot;
+    float x = axis.x, y = axis.y, z = axis.z;
+    float cos_a = cos(angle);
+    float sin_a = sin(angle);
+    
+    rot[0][0] = cos_a + x*x * (1 - cos_a); rot[0][1] = x*y * (1 - cos_a) - z * sin_a; rot[0][2] = x*z * (1 - cos_a) + y * sin_a; rot[0][3] = 0.0;
+    rot[1][0] = y*x * (1 - cos_a) + z * sin_a; rot[1][1] = cos_a + y*y * (1 - cos_a); rot[1][2] = y*z * (1 - cos_a) - x * sin_a; rot[1][3] = 0.0;
+    rot[2][0] = z*x * (1 - cos_a) - y * sin_a; rot[2][1] = z*y * (1 - cos_a) + x * sin_a; rot[2][2] = cos_a + z*z * (1 - cos_a); rot[2][3] = 0.0;
+    rot[3][0] = 0.0; rot[3][1] = 0.0; rot[3][2] = 0.0; rot[3][3] = 1.0;
+    
+    rotation_matrix = rot * rotation_matrix;
+  }
+  
   void Transformation::calculate_world_matrix() {
     world_matrix = translation_matrix * 
                    rotation_matrix * 

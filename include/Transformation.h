@@ -38,6 +38,11 @@ namespace agl {
     
     void rotate(Point p);
     
+    /**
+     * Rotates around axis by angle
+     */
+    void rotate_around_axis(Point axis, float angle);
+    
     void calculate_world_matrix();
     
     void calculate_wvp_matrix(Matrix4f* vp_matrix);
