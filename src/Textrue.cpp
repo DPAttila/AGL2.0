@@ -71,7 +71,7 @@ namespace agl {
     return true;
   }
   
-  Texture::Texture(GLenum texture_target, std::string filename) {
+  Texture::Texture(std::string filename, GLenum texture_target) {
     source_is_image = true;
     
     this->texture_target = texture_target;

@@ -6,11 +6,12 @@
 #include <string>
 #include <stdio.h>
 
-#include "util.h"
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_opengl3.h"
-#include "shader.h"
+
+#include "util.h"
+#include "ShaderManager.h"
 
 namespace agl {
   Graphics::Graphics() {}
@@ -75,7 +76,7 @@ namespace agl {
         glfwGetVideoMode(monitors[0])->height
     );
     
-    basic_shader = new Shader();
+    shader_manager = new ShaderManager();
     
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -114,40 +115,8 @@ namespace agl {
   }
   
   void Graphics::terminate() {
-    basic_shader->unsubscribe();
+    delete shader_manager;
     glfwTerminate();
-  }
-  
-  void Graphics::move_camera(Point p) {
-    camera.move(p);
-  }
-  
-  void Graphics::move_camera_forward() {
-    camera.move_forward();  
-  }
-  
-  void Graphics::move_camera_left() {
-    camera.move_left();
-  }
-  
-  void Graphics::move_camera_backwards() {
-    camera.move_backwards();
-  }
-  
-  void Graphics::move_camera_right() {
-    camera.move_right();
-  }
-  
-  void Graphics::set_camera_pos(Point p) {
-    camera.set_pos(p);
-  }
-  
-  void Graphics::orient_camera(float h, float v) {
-    camera.orient(h, v);
-  }
-  
-  void Graphics::turn_camera(float h, float v) {
-    camera.turn(h, v);
   }
   
   Matrix4f* Graphics::get_vp_matrix() {
@@ -158,18 +127,12 @@ namespace agl {
     return window;
   }
   
-  Shader* Graphics::get_shader() {
-    return basic_shader;
+  ShaderManager* Graphics::get_shader_manager() {
+    return shader_manager;
   }
   
   Camera* Graphics::get_camera() {
     return &camera;    
-  }
-  
-  void Graphics::set_shader(Shader* shader) {
-    basic_shader->unsubscribe();
-    basic_shader = shader;
-    basic_shader->subscribe();
   }
 }
 

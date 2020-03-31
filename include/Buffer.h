@@ -1,6 +1,7 @@
 #ifndef BUFFER_H
 #define BUFFER_H
 
+#include <string>
 #include <vector> 
 
 #include "glad/glad.h"
@@ -83,7 +84,10 @@ namespace agl {
      */
     void set_texture(Texture *texture);
     
-    void set_shader(Shader* shader);
+    /**
+     * @param[in] name Name of the shader in the ShaderManager's map
+     */
+    void set_shader(string name);
     
     void clear();
     

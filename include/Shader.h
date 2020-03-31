@@ -12,12 +12,6 @@ namespace agl {
    * @brief This class encapsulates shader functionality. 
    * It creates, uses and destroys shaders.
    *
-   * If a buffer (or any other entity) uses the shader in some way, it
-   * should subscribe() to it, so the shader will know it mustn't get 
-   * destroyed yet. When the buffer doesn't need the shader anymore, 
-   * it should unsubscribe(), so it can decide if it can be destroyed
-   * safely.
-   *
    * Some restrictions:\n
    * The sampler used in the shader has to be called "sampler"\n
    * The wvp matrix has to be called "wvp"
@@ -45,12 +39,10 @@ namespace agl {
     GLuint world_matrix_location;
 
     /**
-     * Count of the users of the shader.\n
-     * If the last user unsubscribes (so there are 0 users left)
+     * If it is false, the shader could not be compiled,
+     * meaning it can't be used.
      */
-    unsigned int num_users;
-    
-    ~Shader();
+    bool compile_successful;
     
     /**
      * Creates the shader program using the 
@@ -100,36 +92,25 @@ namespace agl {
      * @param[in] fragment_shader The fragment shader source code or path
      */
     Shader(string vertex_source, string fragment_source);
-
+    
     /**
      * Constructs, initializng a basic, predefined shader program
      * @returns True if the shader was initialized correctly, false otherwise
      */
     Shader();    
     
+    ~Shader();
+    
     /**
      * Uses the shader
      */
     void use();
 
-    /**
-     * Users of the shader have to signal their intention of using 
-     * the shader by calling this function. \n
-     * It increases #num_users by one
-     */
-    void subscribe();
-    
-    /**
-     * Users of the shader have to signal that they no 
-     * longer need the shader using this function. \n
-     * It decreases #num_users by one and calls the destructor if
-     * it reaches 0 and the object is deletable.
-     */
-    void unsubscribe();
-    
     GLuint get_wvp_matrix_location();
     
     GLuint get_world_matrix_location();
+    
+    bool is_compile_successful();
   };
 }
 

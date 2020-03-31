@@ -36,8 +36,7 @@ namespace agl {
     
     this->graphics = agl->get_graphics();
     
-    shader = graphics->get_shader();
-    shader->subscribe();
+    shader = graphics->get_shader_manager()->get_shader("default");
     
     texture = NULL;
     
@@ -181,26 +180,25 @@ namespace agl {
       texture = NULL;
     }
     
-    shader->unsubscribe();
+    // the shader doesn't have to be deleted, 
+    // because the ShaderManager takes care of it
     shader = NULL;
   }
   
-  void Buffer::set_texture(std::string file_name) {
+  void Buffer::set_texture(string file_name) {
     if (texture != NULL) {
       delete texture;
       texture = NULL;
     }
-    texture = new Texture(GL_TEXTURE_2D, file_name);
+    texture = new Texture(file_name);
   }
   
   void Buffer::set_texture(Texture* texture) {
     this->texture = texture;
   }
   
-  void Buffer::set_shader(Shader* shader) {
-    this->shader->unsubscribe();
-    this->shader = shader;
-    this->shader->subscribe();
+  void Buffer::set_shader(string name) {
+    shader = graphics->get_shader_manager()->get_shader(name);
   }
   
   void Buffer::clear() {

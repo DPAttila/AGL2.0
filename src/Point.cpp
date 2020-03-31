@@ -67,6 +67,10 @@ namespace agl {
     return Point(this->x + p.x, this->y + p.y, this->z + p.z);
   }
   
+  Point Point::operator-(const Point& p) {
+    return Point(this->x - p.x, this->y - p.y, this->z - p.z);
+  }
+  
   Point Point::operator*(const float f) {
     return Point(this->x * f, this->y * f, this->z * f);
   }

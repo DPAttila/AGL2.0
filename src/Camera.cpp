@@ -103,7 +103,6 @@ namespace agl {
     horizontal_angle = 0;
     vertical_angle = 0;
     
-    look_at = Point(0, 0, 1);
     up = Point(0, 1, 0);
     
     this->width = width;

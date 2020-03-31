@@ -34,6 +34,8 @@ namespace agl {
     
     Point operator+(const Point& p);
     
+    Point operator-(const Point& p);
+    
     Point operator*(const float f);
     
     Point operator/(const float f);

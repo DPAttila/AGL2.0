@@ -1,2 +1,5 @@
 libagl.so
 obj/*
+.kdev4/*
+agl2.0.kdev4
+gmon.out

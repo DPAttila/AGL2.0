@@ -31,6 +31,10 @@ namespace agl {
     
     double cursor_delta_x, cursor_delta_y;
     
+    double scroll_x, scroll_y;
+    
+    bool cursor_disabled;
+    
     /**
      * Pointer to user-defined function to be called in loop.
      * A user-defined input function should contain input handling calls.
@@ -59,12 +63,16 @@ namespace agl {
      */
     static void cursor_pos_callback(GLFWwindow* window, double x, double y);
     
+    static void mouse_scroll_callback(GLFWwindow* window, double x, double y);
+    
     public:
     bool init(GLFWwindow* window, void (*user_defined)());
     
     void key_event(int key, int scancode, int action, int mods);
     
     void cursor_move_event(double x, double y);
+    
+    void mouse_scroll_event(double x, double y);
     
     /**
      * Should be called every frame by the Graphics loop function
@@ -78,20 +86,24 @@ namespace agl {
      * centered, allowing infinite movement, which is perfect for our camera.
      * See https://www.glfw.org/docs/latest/input_guide.html#cursor_mode
      */
-    void set_camera_cursor_mode();
+    void disable_cursor();
     
     /**
      * Sets the cursor mode to GLFW_CURSOR_NORMAL.
      * This allows normal cursor movement, ideal for GUIs.
      * See https://www.glfw.org/docs/latest/input_guide.html#cursor_mode
      */
-    void set_ui_cursor_mode();
+    void enable_cursor();
     
     int get_key(int key);
     
     Point2f get_cursor_pos();
     
     Point2f get_cursor_delta();
+    
+    Point2f get_scroll();
+    
+    bool is_cursor_disabled();
   };
 }
 

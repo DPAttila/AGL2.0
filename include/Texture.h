@@ -56,7 +56,7 @@ namespace agl {
      * @param[in] filename The file to load the image from
      * @param[in] texture_target Type of the texture target
      */
-    Texture(GLenum texture_target, std::string filename);
+    Texture(std::string filename, GLenum texture_target = GL_TEXTURE_2D);
     
     /**
      * Creates the texture using the image data specified

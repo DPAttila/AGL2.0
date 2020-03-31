@@ -28,14 +28,14 @@ PointLight point_light;
 
 void main() {
   light.color = vec3(1.0, 1.0, 1.0);
-  light.intensity = 0.6;
+  light.intensity = 0.4;
   light.direction = vec3(1.0, -5.0, 1.0);
 
   point_light.color = vec3(0.0, 0.0, 0.0);
   point_light.intensity = 0.8;
   point_light.pos = vec3(world_fs * vec4(1, 1, 1, 1)).xyz;
   
-  vec4 ambient_light = vec4(0.2, 0.2, 0.2, 1.0);
+  vec4 ambient_light = vec4(0.7, 0.7, 0.7, 1.0);
   
   float diffuse_factor = dot(normalize(normal_in), -light.direction);
   

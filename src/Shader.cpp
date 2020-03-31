@@ -110,28 +110,11 @@ namespace agl {
     glDeleteShader(vertex_shader_id);
     glDeleteShader(fragment_shader_id);
     
-    num_users = 0;
-    
     sampler_id = glGetUniformLocation(program_id, "sampler");
     wvp_matrix_location = glGetUniformLocation(program_id, "wvp");
     world_matrix_location = glGetUniformLocation(program_id, "world");
     
     return true;
-  }
-  
-  Shader::Shader(string vertex_source, string fragment_source) {
-    
-    if (vertex_source.find(".vs") != string::npos)
-      vertex_source = read_source(vertex_source);
-    
-    if (fragment_source.find(".fs") != string::npos)
-      fragment_source = read_source(fragment_source); 
-    
-    //cout << vertex_source << "\n\n";
-    //cout << fragment_source << "\n\n";
-    
-    if (!init(vertex_source.c_str(), fragment_source.c_str()))
-      printf(ANSI_COLOR_RED "Couldn't create shader\n" ANSI_END_COLOR);
   }
   
   Shader::~Shader() {
@@ -149,6 +132,22 @@ namespace agl {
     }
     
     return shader_code;
+  }
+  
+  Shader::Shader(string vertex_source, string fragment_source) {
+    
+    if (vertex_source.find(".vs") != string::npos)
+      vertex_source = read_source(vertex_source);
+    
+    if (fragment_source.find(".fs") != string::npos)
+      fragment_source = read_source(fragment_source); 
+    
+    if (!init(vertex_source.c_str(), fragment_source.c_str())) {
+      compile_successful = false;
+      printf(ANSI_COLOR_RED "Couldn't create shader\n" ANSI_END_COLOR);
+    } else {
+      compile_successful = true;
+    }
   }
   
   Shader::Shader() {
@@ -184,23 +183,16 @@ namespace agl {
     glUniform1i(sampler_id, 0);
   }
   
-  void Shader::subscribe() {
-    num_users++;
-  }
-  
-  void Shader::unsubscribe() {
-    num_users--;
-    
-    if (num_users <= 0) delete this;
-  }
-  
-  
   GLuint Shader::get_wvp_matrix_location() {
     return wvp_matrix_location;
   }
   
   GLuint Shader::get_world_matrix_location() {
     return world_matrix_location;
+  }
+  
+  bool Shader::is_compile_successful() {
+    return compile_successful;
   }
 }
 

@@ -9,7 +9,7 @@
 #include "AGL.h"
 #include "Input.h"
 #include "Camera.h"
-#include "Shader.h"
+#include "ShaderManager.h"
 
 namespace agl {
   class Graphics {
@@ -17,10 +17,7 @@ namespace agl {
     
     Camera camera;
     
-    /**
-     * Basic shader, buffers are initialized with it
-     */
-    Shader* basic_shader;
+    ShaderManager* shader_manager;
     
     /**
      * Pointer to user-defined function to be called in loop
@@ -55,45 +52,15 @@ namespace agl {
     void terminate();
     
     /**
-     * Just calls the corresponding Camera function
-     */
-    void move_camera(Point p);
-    
-    void move_camera_forward();
-    
-    void move_camera_left();
-    
-    void move_camera_backwards();
-    
-    void move_camera_right();
-    
-    /**
-     * Just calls the corresponding Camera function
-     */
-    void set_camera_pos(Point p);
-    
-    /**
-     * Just calls the corresponding Camera function
-     */
-    void orient_camera(float h, float v);
-    
-    /**
-     * Just calls the corresponding Camera function
-     */
-    void turn_camera(float h, float v);
-    
-    /**
      * Returns the multiplication of the view and projection matrices
      */
     Matrix4f* get_vp_matrix();
     
     GLFWwindow* get_window();
     
-    Shader* get_shader();
+    ShaderManager* get_shader_manager();
     
     Camera* get_camera();
-    
-    void set_shader(Shader* shader);
   };
 }
 
