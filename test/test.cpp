@@ -42,7 +42,7 @@ Alma alma;
 Point2f d = Point2f(0, 0);
 
 void input() {
-  
+ /* 
   if (ati_gl.get_key(GLFW_KEY_Q))
     ati_gl.finish();
   if (ati_gl.is_cursor_disabled()) {
@@ -68,11 +68,7 @@ void input() {
         d.x = -0.05;
     else
         d.x = 0;
-    /*
-    d = ati_gl.get_cursor_delta();
-    d.x /= 1000.0;
-    d.y /= 1000.0;
-    */
+    
     if (d.x != 0 || d.y != 0)
         ati_gl.turn_camera(d.x, d.y);
   }
@@ -82,7 +78,7 @@ void input() {
     } else {
       ati_gl.disable_cursor();
     }
-  } 
+  } */
 
 }
 
@@ -103,10 +99,14 @@ void logic() {
 }
 
 int main() {
-   
+
+  std::cout << "test started\n";
+  
   ati_gl.init("cica", draw, input, logic);
-  Shader *s = new Shader("src/shaders/default.vs", "src/shaders/default_simple.fs");
-  ati_gl.get_graphics()->set_shader(s);
+  std::cout << "agl initialized\n";
+  
+//   Shader *s = new Shader("src/shaders/default.vs", "src/shaders/default_simple.fs");
+//   ati_gl.get_graphics()->set_shader(s);
   
   alma.init(&ati_gl);
   
