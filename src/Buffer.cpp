@@ -110,6 +110,19 @@ namespace agl {
     
     // the world matrix gets calculated by calculating the wvp matrix
     transformation.calculate_wvp_matrix(graphics->get_vp_matrix());
+    glUniformMatrix4fv( // supplies wvp matrix to the shader
+        shader->get_wvp_matrix_location(),
+        1,
+        GL_TRUE,
+        &transformation.wvp_matrix[0][0]
+    );
+    
+    glUniformMatrix4fv( // supplies world matrix to the shader
+        shader->get_world_matrix_location(),
+        1,
+        GL_TRUE,
+        &transformation.world_matrix[0][0]
+    );
     
     glBindVertexArray(vertexarray_id);
     glEnableVertexAttribArray(0);
@@ -186,20 +199,6 @@ namespace agl {
   
   void Buffer::set_shader(string name) {
     shader = graphics->get_shader_manager()->get_shader(name);
-    
-    glUniformMatrix4fv( // supplies wvp matrix to the shader
-        shader->get_wvp_matrix_location(),
-        1,
-        GL_TRUE,
-        &transformation.wvp_matrix[0][0]
-    );
-    
-    glUniformMatrix4fv( // supplies world matrix to the shader
-        shader->get_world_matrix_location(),
-        1,
-        GL_TRUE,
-        &transformation.world_matrix[0][0]
-    );
   }
   
   void Buffer::clear() {
