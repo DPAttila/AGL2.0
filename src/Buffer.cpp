@@ -110,6 +110,7 @@ namespace agl {
     
     // the world matrix gets calculated by calculating the wvp matrix
     transformation.calculate_wvp_matrix(graphics->get_vp_matrix());
+    
     glUniformMatrix4fv( // supplies wvp matrix to the shader
         shader->get_wvp_matrix_location(),
         1,
@@ -123,6 +124,10 @@ namespace agl {
         GL_TRUE,
         &transformation.world_matrix[0][0]
     );
+    
+    //TODO: the address of this matrix is always changing, 
+    // but I guess it shouldn't
+    //cout << &transformation.wvp_matrix[0][0] << '\n';
     
     glBindVertexArray(vertexarray_id);
     glEnableVertexAttribArray(0);

@@ -86,6 +86,22 @@ namespace agl {
     return *this;
   }
   
+  Point& Point::operator*=(const float f) {
+    this->x *= f;
+    this->y *= f;
+    this->z *= f;
+    
+    return *this;
+  }
+  
+  Point& Point::operator/=(const float f) {
+    this->x *= f;
+    this->y *= f;
+    this->z *= f;
+    
+    return *this;
+  }
+  
   string Point::to_string() {
     return std::to_string(x) + "\t" + std::to_string(y) + "\t" + std::to_string(z);    
   }

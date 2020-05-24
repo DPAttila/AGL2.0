@@ -37,7 +37,7 @@ namespace agl {
      * Handle to the world matrix uniform variable in the shader
      */
     GLuint world_matrix_location;
-
+    
     /**
      * If it is false, the shader could not be compiled,
      * meaning it can't be used.
