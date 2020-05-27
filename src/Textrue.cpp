@@ -138,6 +138,10 @@ namespace agl {
     glActiveTexture(texture_unit);
     glBindTexture(texture_target, texture_object);
   }
+  
+  GLuint Texture::get_texture_object_handle() {
+    return texture_object;
+  }
 }
 
 #endif

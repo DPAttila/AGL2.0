@@ -20,6 +20,7 @@ namespace agl {
     vector<Vertex> vertices;
     vector<unsigned int> indices;
     
+    bool custom_texture;
     Texture* texture;
     
     Shader* shader;

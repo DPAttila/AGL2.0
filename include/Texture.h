@@ -82,6 +82,8 @@ namespace agl {
      * See http://ogldev.atspace.co.uk/www/tutorial16/tutorial16.html
      */
     void bind(GLenum texture_unit);
+    
+    GLuint get_texture_object_handle();
   };
 }
 

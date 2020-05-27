@@ -27,7 +27,7 @@ namespace agl {
   bool ShaderManager::add_shader(string name, string vs_path, string fs_path) {
     if (shaders[name] != nullptr) {
       cout << "Shader " << name << " already exists.\n";
-      cout << "Deleteing old shader.\n";
+      cout << "Deleting old shader.\n";
       delete shaders[name];
     }
     
