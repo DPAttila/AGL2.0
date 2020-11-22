@@ -93,12 +93,6 @@ namespace agl {
      */
     Shader(string vertex_source, string fragment_source);
     
-    /**
-     * Constructs, initializng a basic, predefined shader program
-     * @returns True if the shader was initialized correctly, false otherwise
-     */
-    Shader();    
-    
     ~Shader();
     
     /**

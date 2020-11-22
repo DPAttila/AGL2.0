@@ -7,15 +7,24 @@
 
 namespace agl {
   class Graphics;
+  class Input;
+
   /**
-   * @brief Wrapper class for graphics and input.
-   * The user should only interact with agl through this class
+   * @brief Abstract wrapper class for graphics and input.
+   * The user should only interact with agl by extending this class.
+   * The following three methods have to be defined by the user:
+   * <draw>(), <input>(), <logic>()
    */
   class AGL {
+  protected:
     Graphics *graphics;
     
-    Input input;
+    Input *input;
     
+    std::string window_name;
+
+    bool init_successful;
+
     bool quit;
     
     /**
@@ -24,22 +33,30 @@ namespace agl {
      */
     bool cursor_disabled;
     
+  public:
+
     /**
-     * Pointer to user-defined function to be called in loop.
-     * A user-defined function should contain game logic calls.
+     * Draw function automtically called every frame
+     * Has to be defined by the extending class
      */
-    void (*user_defined)();
-    
-    void terminate();
-    
-    public:
-    bool init(
-        std::string window_name, 
-        void (*user_defined_draw)(),
-        void (*user_defined_input)(),
-        void (*user_defined_logic)()
-    );
-    
+    virtual void draw_func() = 0;
+
+    /**
+     * Input handling function automatically called every frame
+     * Has to be defined by the extending class
+     */
+    virtual void input_func() = 0;
+
+    /**
+     * Game / simulation logic function automatically called every frame
+     * Has to be defined by the extending class
+     */
+    virtual void logic_func() = 0;
+
+    AGL(std::string window_name);
+
+    ~AGL();
+
     void loop();
     
     void finish();
@@ -47,6 +64,8 @@ namespace agl {
     Graphics* get_graphics();
     
     Input* get_input();
+
+    std::string get_window_name();
   };
 }
 

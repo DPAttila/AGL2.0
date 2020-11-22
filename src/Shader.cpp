@@ -131,6 +131,8 @@ namespace agl {
       shader_stream.close();
     }
     
+    cout << shader_code << "\n";
+
     return shader_code;
   }
   
@@ -148,34 +150,6 @@ namespace agl {
     } else {
       compile_successful = true;
     }
-  }
-  
-  Shader::Shader() {
-    const char* vertex_source = 
-        "#version 330 core\n"
-        "layout(location = 0) in vec3 position;\n"
-        "layout(location = 1) in vec2 texcoord;\n"
-        "uniform mat4 wvp;\n"
-        "out vec2 texcoord_fs;\n"
-        "out vec3 pos_in;\n"
-        "void main() {\n"
-        "  gl_Position = wvp * vec4(position, 1.0);\n"
-        "  texcoord_fs = texcoord;\n"
-        "  pos_in = position;\n"
-        "}";
-    
-    const char* fragment_source = 
-        "#version 330 core\n"
-        "in vec2 texcoord_fs;\n"
-        "in vec3 pos_in;\n"
-        "out vec4 color;\n"
-        "uniform sampler2D sampler;\n"
-        "void main() {\n"
-	      "  color = texture2D(sampler, texcoord_fs.st);\n"
-        "}\n";
-    
-    if (!init(vertex_source, fragment_source))
-      printf(ANSI_COLOR_RED "Couldn't create shader\n" ANSI_END_COLOR);
   }
   
   void Shader::use() {

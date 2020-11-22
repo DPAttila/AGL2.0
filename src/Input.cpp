@@ -7,19 +7,17 @@
 
 namespace agl {
 
-  bool Input::init(GLFWwindow* window, void (*user_defined)()) {
-    this->user_defined = user_defined;  
-    this->window = window;
-    
+  Input::Input(AGL* agl) {
+    this->agl = agl;
+    this->window = agl->get_graphics()->get_window();
+
     glfwSetWindowUserPointer(window, (void*)this);
     glfwSetKeyCallback(window, key_callback);
     glfwSetCursorPosCallback(window, cursor_pos_callback);
     glfwSetScrollCallback(window, mouse_scroll_callback);
     disable_cursor();
-    
-    return true;
   }
-  
+
   void Input::key_callback(
       GLFWwindow* window, 
       int key, 
@@ -76,7 +74,7 @@ namespace agl {
 
     glfwPollEvents();
     
-    user_defined();
+    agl->input_func();
   }
   
   void Input::disable_cursor() {

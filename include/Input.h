@@ -6,15 +6,21 @@
 
 #include "imgui.h"
 
+#include "AGL.h"
 #include "Point2f.h"
 
 namespace agl {
-  /**
-   * TODO: make the user-defined glfw pointer point to the Input class instance
-   */
+  class AGL;
+  
   class Input {
     GLFWwindow* window;
     
+    /**
+     * Pointer to the owner AGL instance, 
+     * since we have to call it's input handler function
+     */
+    AGL* agl;
+
     static const int key_count = 350;
     
     /**
@@ -34,12 +40,6 @@ namespace agl {
     double scroll_x, scroll_y;
     
     bool cursor_disabled;
-    
-    /**
-     * Pointer to user-defined function to be called in loop.
-     * A user-defined input function should contain input handling calls.
-     */
-    void (*user_defined)();
     
     /**
      * This function is made static so it can be set as a callback for GLFW
@@ -66,8 +66,9 @@ namespace agl {
     static void mouse_scroll_callback(GLFWwindow* window, double x, double y);
     
     public:
-    bool init(GLFWwindow* window, void (*user_defined)());
     
+    Input(AGL* agl);
+
     void key_event(int key, int scancode, int action, int mods);
     
     void cursor_move_event(double x, double y);
@@ -75,8 +76,9 @@ namespace agl {
     void mouse_scroll_event(double x, double y);
     
     /**
-     * Should be called every frame by the Graphics loop function
-     * It increases the values of the keys that are pressed
+     * Should be called every frame by the AGL loop function
+     * It increases the time values of the keys that are pressed
+     * Calls the input handler function defined by the owner AGL instance
      */
     void on_loop();
     

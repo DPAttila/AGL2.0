@@ -14,14 +14,14 @@
 #include "ShaderManager.h"
 
 namespace agl {
-  Graphics::Graphics() {}
-  
-  bool Graphics::init(std::string window_name, void (*user_defined)()) {  
+  Graphics::Graphics(AGL* agl) {
     printf("\n");
-    this->user_defined = user_defined;  
+    this->agl = agl;
+
     if (!glfwInit()) {
       printf(ANSI_COLOR_RED "Failed to initialize GLFW!" ANSI_END_COLOR);
-      return false;
+      init_successful = false;
+      return;
     }
     
     int glfw_version_maj, glfw_version_min, glfw_version_rev;
@@ -47,11 +47,10 @@ namespace agl {
       printf("%i * %i\n", mode->width, mode->height);
     }
     
-    
     window = glfwCreateWindow(
                  glfwGetVideoMode(monitors[count-1])->width, 
                  glfwGetVideoMode(monitors[count-1])->height, 
-                 window_name.c_str(), 
+                 agl->get_window_name().c_str(), 
                  monitors[count-1], 
                  NULL
              );
@@ -59,14 +58,16 @@ namespace agl {
     if (window == NULL) {
       printf(ANSI_COLOR_RED "Failed to open GLFW window." ANSI_END_COLOR);
       glfwTerminate();
-      return false;
+      init_successful = false;
+      return;
     }
     
     glfwMakeContextCurrent(window);
     
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
       printf(ANSI_COLOR_RED "Failed to initialize GLAD." ANSI_END_COLOR);
-      return false;
+      init_successful = false;
+      return;
     }
     
     glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -95,7 +96,7 @@ namespace agl {
     glEnable( GL_BLEND );
     
     printf("\n");
-    return true;
+    init_successful = true;
   }
   
   void Graphics::on_loop() {
@@ -106,7 +107,7 @@ namespace agl {
 //    glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    user_defined();
+    agl->draw_func();
     
     ImGui::Render();
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -114,7 +115,7 @@ namespace agl {
     glfwSwapBuffers(window);
   }
   
-  void Graphics::terminate() {
+  Graphics::~Graphics() {
     delete shader_manager;
     glfwTerminate();
   }
@@ -133,6 +134,10 @@ namespace agl {
   
   Camera* Graphics::get_camera() {
     return &camera;    
+  }
+
+  bool Graphics::is_init_successful() {
+    return init_successful;
   }
 }
 

@@ -8,8 +8,26 @@
 namespace agl {
   ShaderManager::ShaderManager() {
     shaders["default"] = new Shader(
-      "../shaders/default.vs", 
-      "../shaders/default.fs"
+      "#version 330 core\n"
+      "layout(location = 0) in vec3 position;\n"
+      "layout(location = 1) in vec2 texcoord;\n"
+      "uniform mat4 wvp;\n"
+      "out vec2 texcoord_fs;\n"
+      "out vec3 pos_in;\n"
+      "void main() {\n"
+      "  gl_Position = wvp * vec4(position, 1.0);\n"
+      "  texcoord_fs = texcoord;\n"
+      "  pos_in = position;\n"
+      "}"
+      , 
+      "#version 330 core\n"
+      "in vec2 texcoord_fs;\n"
+      "in vec3 pos_in;\n"
+      "out vec4 color;\n"
+      "uniform sampler2D sampler;\n"
+      "void main() {\n"
+      "  color = texture2D(sampler, texcoord_fs.st);\n"
+      "}\n"
     );
   }
 

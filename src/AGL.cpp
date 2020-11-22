@@ -2,45 +2,40 @@
 #define AGL_CPP
 
 #include "AGL.h"
+#include <iostream>
 
 namespace agl {
-  bool AGL::init(
-      std::string window_name, 
-      void (*user_defined_draw)(),
-      void (*user_defined_input)(),
-      void (*user_defined_logic)()
-  ) {
-    graphics = new Graphics();
+  AGL::AGL(std::string window_name) {
+    graphics = new Graphics(this);
     
-    if (!graphics->init(window_name, user_defined_draw))
-      return false;
-    if (!input.init(graphics->get_window(), user_defined_input))
-      return false;
+    if (!graphics->is_init_successful()) {
+      init_successful = false;
+      return;
+    }
+
+    input = new Input(this);
     
-    this->user_defined = user_defined_logic;
-    input.disable_cursor();
+    input->disable_cursor();
     
     quit = false;
     cursor_disabled = true;
-    
-    return true;
+
+    init_successful = true;
   }
-  
+
+  AGL::~AGL() {
+    delete graphics;
+    delete input;
+  }
+
   void AGL::loop() {
     while (!quit) {
       graphics->on_loop();
-      input.on_loop();
-      user_defined();
+      input->on_loop();
+      logic_func();
     }
-    
-    terminate();
   }
-  
-  void AGL::terminate() {
-    graphics->terminate();
-    delete graphics;
-  }
-  
+
   void AGL::finish() {
     quit = true;
   }
@@ -50,7 +45,11 @@ namespace agl {
   }
   
   Input* AGL::get_input() {
-    return &input;
+    return input;
+  }
+
+  std::string AGL::get_window_name() {
+    return window_name;
   }
 }
 
