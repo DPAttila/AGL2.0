@@ -29,7 +29,7 @@ public:
       "test/shaders/default.fs"
     );
 
-    buffer = new Buffer(this);
+    buffer = new Buffer(graphics);
     buffer->load("test/obj-data/bridge_mesh.obj", true);
     buffer->set_texture(new Texture("test/green.png"));
   }

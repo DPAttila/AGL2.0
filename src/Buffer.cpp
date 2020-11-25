@@ -31,10 +31,10 @@ namespace agl {
     );
   }
   
-  Buffer::Buffer(AGL* agl, GLenum primitive) {
+  Buffer::Buffer(Graphics* graphics, GLenum primitive) {
     this->primitive = primitive;
     
-    this->graphics = agl->get_graphics();
+    this->graphics = graphics;
     
     shader = graphics->get_shader_manager()->get_shader("default");
     

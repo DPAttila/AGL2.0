@@ -6,7 +6,6 @@
 
 #include "glad/glad.h"
 
-#include "AGL.h"
 #include "Point.h"
 #include "Vertex.h"
 #include "Texture.h"
@@ -62,7 +61,7 @@ namespace agl {
     void rebuffer();
     
     public:
-    Buffer(AGL* agl, GLenum primitive = GL_TRIANGLES);
+    Buffer(Graphics* graphics, GLenum primitive = GL_TRIANGLES);
     
     ~Buffer();
     
