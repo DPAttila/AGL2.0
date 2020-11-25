@@ -6,11 +6,10 @@
 
 #include "glad/glad.h"
 
-#include "AGL.h"
 #include "Point.h"
 #include "Vertex.h"
+#include "Shader.h"
 #include "Texture.h"
-#include "Graphics.h"
 #include "Transformation.h"
 
 using namespace std;
@@ -51,22 +50,20 @@ namespace agl {
     Transformation transformation;
     
     /**
-     * Pointer to the graphics context
-     * This is needed to get the address of the glsl matrix
-     */
-    Graphics* graphics;
-    
-    /**
      * Loads the vertex and index data into the coresponding buffers
      */
     void rebuffer();
     
     public:
-    Buffer(AGL* agl, GLenum primitive = GL_TRIANGLES);
+    Buffer(GLenum primitive = GL_TRIANGLES);
     
     ~Buffer();
     
-    void draw();
+    /**
+     * @param[in] vp_matrix View-projection matrix, it defines the viewpoint 
+     * in a graphics context 
+     */
+    void draw(Matrix4f* vp_matrix);
     
     /**
      * Adds the set of vertices and indices to the buffer
@@ -80,15 +77,9 @@ namespace agl {
      */
     void set_texture(std::string file_name);
     
-    /**
-     * Sets the texture to the texture specified
-     */
     void set_texture(Texture *texture);
     
-    /**
-     * @param[in] name Name of the shader in the ShaderManager's map
-     */
-    void set_shader(string name);
+    void set_shader(Shader* shader);
     
     void clear();
     

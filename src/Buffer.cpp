@@ -31,12 +31,10 @@ namespace agl {
     );
   }
   
-  Buffer::Buffer(AGL* agl, GLenum primitive) {
+  Buffer::Buffer(GLenum primitive) {
     this->primitive = primitive;
     
-    this->graphics = agl->get_graphics();
-    
-    shader = graphics->get_shader_manager()->get_shader("default");
+    shader = nullptr;
     
     texture = nullptr;
     custom_texture = false;
@@ -106,11 +104,21 @@ namespace agl {
     rebuffer();
   }
   
-  void Buffer::draw() {
-    shader->use();
-    
+  void Buffer::draw(Matrix4f* vp_matrix) {
+    if (shader != nullptr)
+      shader->use();
+    else {
+      printf(
+        ANSI_COLOR_RED 
+        "Can't draw buffer, it has no shader.\n" 
+        ANSI_END_COLOR
+      );
+
+      return;
+    }
+
     // the world matrix gets calculated by calculating the wvp matrix
-    transformation.calculate_wvp_matrix(graphics->get_vp_matrix());
+    transformation.calculate_wvp_matrix(vp_matrix);
     
     glUniformMatrix4fv( // supplies wvp matrix to the shader
         shader->get_wvp_matrix_location(),
@@ -206,8 +214,8 @@ namespace agl {
     custom_texture = false;
   }
   
-  void Buffer::set_shader(string name) {
-    shader = graphics->get_shader_manager()->get_shader(name);
+  void Buffer::set_shader(Shader* shader) {
+    this->shader = shader;
   }
   
   void Buffer::clear() {

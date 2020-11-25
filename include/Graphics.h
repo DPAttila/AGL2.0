@@ -7,6 +7,7 @@
 #include <GLFW/glfw3.h>
 
 #include "AGL.h"
+#include "Buffer.h"
 #include "Camera.h"
 #include "ShaderManager.h"
 
@@ -39,6 +40,8 @@ namespace agl {
      */
     void on_loop();
     
+    void draw_buffer(Buffer* buffer);
+
     /**
      * Returns the multiplication of the view and projection matrices
      */

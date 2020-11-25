@@ -131,8 +131,6 @@ namespace agl {
       shader_stream.close();
     }
     
-    cout << shader_code << "\n";
-
     return shader_code;
   }
   
