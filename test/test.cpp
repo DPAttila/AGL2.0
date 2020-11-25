@@ -29,10 +29,9 @@ public:
       "test/shaders/default.fs"
     );
 
-    buffer = new Buffer();
+    buffer = new Buffer(this);
     buffer->load("test/obj-data/bridge_mesh.obj", true);
     buffer->set_texture(new Texture("test/green.png"));
-    buffer->set_shader(graphics->get_shader_manager()->get_shader("default"));
   }
   
   ~Alma() {
@@ -40,7 +39,7 @@ public:
   }
 
   void draw_func() {    
-    graphics->draw_buffer(buffer);
+    buffer->draw();
 
     {
       ImGui::Begin("cica");

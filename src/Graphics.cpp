@@ -123,10 +123,6 @@ namespace agl {
   Matrix4f* Graphics::get_vp_matrix() {
     return camera.get_vp_matrix();
   }
-
-  void Graphics::draw_buffer(Buffer* buffer) {
-    buffer->draw(camera.get_vp_matrix());
-  }
   
   GLFWwindow* Graphics::get_window() {
     return window;
