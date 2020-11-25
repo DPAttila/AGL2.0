@@ -12,6 +12,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "Quaternion.h", "Quaternion_8h_source.html", null ],
     [ "shader.h", "shader_8h_source.html", null ],
     [ "Shader.h", "Shader_8h_source.html", null ],
+    [ "ShaderManager.h", "ShaderManager_8h_source.html", null ],
     [ "Texture.h", "Texture_8h_source.html", null ],
     [ "Transformation.h", "Transformation_8h_source.html", null ],
     [ "util.h", "util_8h_source.html", null ],

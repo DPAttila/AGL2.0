@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['width',['width',['../classagl_1_1Camera.html#ab7f25faffd597eb3557e9a41bed2a99f',1,'agl::Camera::width()'],['../classagl_1_1Texture.html#a77dd6f3abb916a88ce172aff30da4a36',1,'agl::Texture::width()']]],
-  ['world_5fmatrix_5flocation',['world_matrix_location',['../classagl_1_1Shader.html#a7a8540c809c73c800604012b333b2c54',1,'agl::Shader']]],
-  ['wvp_5fmatrix_5flocation',['wvp_matrix_location',['../classagl_1_1Shader.html#afa6935ecc4ef539274e12d53ac98e3e3',1,'agl::Shader']]]
+  ['up_77',['up',['../classagl_1_1Camera.html#a654f2c23bdb8610c75a0fe8dcac82e99',1,'agl::Camera']]],
+  ['use_78',['use',['../classagl_1_1Shader.html#a74c82aff4da80c5f1c4a4d3aae208fde',1,'agl::Shader']]]
 ];

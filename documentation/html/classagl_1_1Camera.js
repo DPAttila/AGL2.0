@@ -5,6 +5,8 @@ var classagl_1_1Camera =
     [ "calculate_rotation", "classagl_1_1Camera.html#a88af7620d31f286d147b0b4df84d5077", null ],
     [ "calculate_translation", "classagl_1_1Camera.html#a03a502bcfaa24c6469f3357e1df43118", null ],
     [ "calculate_vp_matrix", "classagl_1_1Camera.html#abfff009a6419e7f5e203b3081f840dfc", null ],
+    [ "get_pos", "classagl_1_1Camera.html#a255c531dcccfe18b84b49182de0a7ff3", null ],
+    [ "get_rotation", "classagl_1_1Camera.html#abde712eb4ee542925ec353830a40327e", null ],
     [ "get_vp_matrix", "classagl_1_1Camera.html#aabf49dbe9c14189dad0a2f55a0c404cb", null ],
     [ "init", "classagl_1_1Camera.html#a07c878568c33efbbf330e9b5ccc0a72e", null ],
     [ "limit_vertical_angle", "classagl_1_1Camera.html#a8e6ac2844105370dbee5da609bfd999f", null ],

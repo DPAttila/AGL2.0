@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['n',['n',['../classagl_1_1Texture.html#a0e1592e4478c250b371ee9deeb6aef13',1,'agl::Texture']]],
-  ['nor',['nor',['../classagl_1_1Vertex.html#a445548e543085baa0bfd811c729ed70b',1,'agl::Vertex']]],
-  ['num_5fusers',['num_users',['../classagl_1_1Shader.html#a183a1a679ddb47fa4e896678bd93597a',1,'agl::Shader']]]
+  ['load_33',['load',['../classagl_1_1Buffer.html#aa4d7aea4680a2d5ab6f7ca2403964f6d',1,'agl::Buffer']]],
+  ['logic_5ffunc_34',['logic_func',['../classagl_1_1AGL.html#a5ea9d1a194475e584adf3ae92050084c',1,'agl::AGL']]],
+  ['look_5fat_35',['look_at',['../classagl_1_1Camera.html#ab18d396b235bab0688d935e73d921e5b',1,'agl::Camera']]]
 ];

@@ -11,6 +11,7 @@ var annotated_dup =
       [ "Point2f", "classagl_1_1Point2f.html", "classagl_1_1Point2f" ],
       [ "Quaternion", "classagl_1_1Quaternion.html", "classagl_1_1Quaternion" ],
       [ "Shader", "classagl_1_1Shader.html", "classagl_1_1Shader" ],
+      [ "ShaderManager", "classagl_1_1ShaderManager.html", "classagl_1_1ShaderManager" ],
       [ "Texture", "classagl_1_1Texture.html", "classagl_1_1Texture" ],
       [ "Transformation", "classagl_1_1Transformation.html", "classagl_1_1Transformation" ],
       [ "Vertex", "classagl_1_1Vertex.html", "classagl_1_1Vertex" ]

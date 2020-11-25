@@ -1,0 +1,21 @@
+digraph "agl::AGL"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="agl::AGL",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Abstract wrapper class for graphics and input. The user should only interact with agl by extending th..."];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" input" ,fontname="Helvetica"];
+  Node2 [label="agl::Input",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Input.html",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" agl" ,fontname="Helvetica"];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" graphics" ,fontname="Helvetica"];
+  Node3 [label="agl::Graphics",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Graphics.html",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" agl" ,fontname="Helvetica"];
+  Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" shader_manager" ,fontname="Helvetica"];
+  Node4 [label="agl::ShaderManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1ShaderManager.html",tooltip=" "];
+  Node5 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" camera" ,fontname="Helvetica"];
+  Node5 [label="agl::Camera",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Camera.html",tooltip=" "];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" look_at\npos\nup" ,fontname="Helvetica"];
+  Node6 [label="agl::Point",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Point.html",tooltip=" "];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" perspective_projection\nrotation\ntranslation\nvp_matrix" ,fontname="Helvetica"];
+  Node7 [label="agl::Matrix4f",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Matrix4f.html",tooltip=" "];
+}

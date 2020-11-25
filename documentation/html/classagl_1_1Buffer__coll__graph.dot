@@ -1,0 +1,15 @@
+digraph "agl::Buffer"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="agl::Buffer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" transformation" ,fontname="Helvetica"];
+  Node2 [label="agl::Transformation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Transformation.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" rotation_matrix\nscale_matrix\ntranslation_matrix\nworld_matrix\nwvp_matrix" ,fontname="Helvetica"];
+  Node3 [label="agl::Matrix4f",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Matrix4f.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" shader" ,fontname="Helvetica"];
+  Node4 [label="agl::Shader",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Shader.html",tooltip="This class encapsulates shader functionality. It creates, uses and destroys shaders."];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" texture" ,fontname="Helvetica"];
+  Node5 [label="agl::Texture",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classagl_1_1Texture.html",tooltip=" "];
+}
