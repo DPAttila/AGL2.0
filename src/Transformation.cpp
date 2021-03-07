@@ -69,6 +69,10 @@ namespace agl {
     rotation_matrix = rot * rotation_matrix;
   }
   
+  void Transformation::rotate_around_point(Point rot_center, Point angles) {
+    
+  }
+
   void Transformation::calculate_world_matrix() {
     world_matrix = translation_matrix * 
                    rotation_matrix * 
